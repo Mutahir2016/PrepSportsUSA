@@ -242,14 +242,14 @@ class SigninViewController: BaseViewController {
             UserDefaults.standard.set(self.emailTextField.text, forKey: UserCredentialKeys.email.rawValue)
             UserDefaults.standard.set(self.passwordTextField.text, forKey: UserCredentialKeys.password.rawValue)
             UserDefaults.standard.set(self.emailTextField.text, forKey: RKStorageAccount.biometricEnabledUser.rawValue) // <-- Store email
-            self.router.routeToNetwork()
+            self.router.routeToSports()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { _ in
             UserDefaults.standard.set(self.emailTextField.text, forKey: UserCredentialKeys.email.rawValue)
             UserDefaults.standard.set(false, forKey: RKStorageAccount.biometricEnabled.rawValue)
             UserDefaults.standard.set(self.emailTextField.text, forKey: RKStorageAccount.biometricEnabledUser.rawValue) // <-- Still update
 
-            self.router.routeToStories()
+            self.router.routeToSports()
         }
         alert.addAction(cancelAction)
         alert.addAction(okAction)

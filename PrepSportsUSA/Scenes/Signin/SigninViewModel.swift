@@ -85,7 +85,7 @@ final class SigninViewModel: BaseViewModel {
                 if !shouldShowBiometricPopUp() {
                     biometricRelay.accept(())
                 } else {
-                    self.router.routeToNetwork()
+                    self.router.routeToSports()
                 }
                 isLoadingRelay.accept(false)
             },

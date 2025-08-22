@@ -44,5 +44,10 @@ class SigninRouter: BaseRouter {
         guard let destination = UIViewController.getViewControllerFrom(name: .home) as? HomeViewController else { return }
         navigate(from: viewController, to: destination)
     }
+    
+    func routeToSports() {
+        guard let destination = UIViewController.getViewControllerFrom(name: .sports) as? SportsViewController else { return }
+        navigate(from: viewController, to: destination)
+    }
 }
 
