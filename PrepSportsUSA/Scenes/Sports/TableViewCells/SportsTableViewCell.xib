@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SportsTableViewCell" rowHeight="226" id="KGk-i7-Jjw" customClass="SportsTableViewCell" customModule="Newmaker_Dev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="226"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="226"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="container-view">
+                        <rect key="frame" x="16" y="8" width="358" height="144"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pre Pitch for Joliet Catholic Hilltoppers - Football" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-label">
+                                <rect key="frame" x="16" y="16" width="326" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Joliet Catholic Hilltoppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-label">
+                                <rect key="frame" x="16" y="46" width="326" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-label">
+                                <rect key="frame" x="16.000000000000004" y="54" width="34.333333333333343" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-label">
+                                <rect key="frame" x="311.66666666666669" y="54" width="30.333333333333314" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-label">
+                                <rect key="frame" x="16" y="76" width="89.666666666666671" height="19"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-label">
+                                <rect key="frame" x="257" y="76" width="85" height="19"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs-label">
+                                <rect key="frame" x="169.66666666666666" y="77" width="18.666666666666657" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-score-label">
+                                <rect key="frame" x="16" y="99" width="27" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-score-label">
+                                <rect key="frame" x="314.66666666666669" y="99" width="27.333333333333314" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="away-label" firstAttribute="top" secondItem="subtitle-label" secondAttribute="bottom" constant="12" id="away-label-top"/>
+                            <constraint firstAttribute="trailing" secondItem="away-label" secondAttribute="trailing" constant="16" id="away-label-trailing"/>
+                            <constraint firstAttribute="bottom" secondItem="away-score-label" secondAttribute="bottom" constant="16" id="away-score-bottom"/>
+                            <constraint firstItem="away-score-label" firstAttribute="top" secondItem="away-team-label" secondAttribute="bottom" constant="4" id="away-score-top"/>
+                            <constraint firstAttribute="trailing" secondItem="away-score-label" secondAttribute="trailing" constant="16" id="away-score-trailing"/>
+                            <constraint firstItem="away-team-label" firstAttribute="top" secondItem="away-label" secondAttribute="bottom" constant="8" id="away-team-top"/>
+                            <constraint firstAttribute="trailing" secondItem="away-team-label" secondAttribute="trailing" constant="16" id="away-team-trailing"/>
+                            <constraint firstItem="home-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-label-leading"/>
+                            <constraint firstItem="home-label" firstAttribute="top" secondItem="subtitle-label" secondAttribute="bottom" constant="12" id="home-label-top"/>
+                            <constraint firstAttribute="bottom" secondItem="home-score-label" secondAttribute="bottom" constant="16" id="home-score-bottom"/>
+                            <constraint firstItem="home-score-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-score-leading"/>
+                            <constraint firstItem="home-score-label" firstAttribute="top" secondItem="home-team-label" secondAttribute="bottom" constant="4" id="home-score-top"/>
+                            <constraint firstItem="home-team-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-team-leading"/>
+                            <constraint firstItem="home-team-label" firstAttribute="top" secondItem="home-label" secondAttribute="bottom" constant="8" id="home-team-top"/>
+                            <constraint firstItem="subtitle-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="subtitle-leading"/>
+                            <constraint firstItem="subtitle-label" firstAttribute="top" secondItem="title-label" secondAttribute="bottom" constant="8" id="subtitle-top"/>
+                            <constraint firstAttribute="trailing" secondItem="subtitle-label" secondAttribute="trailing" constant="16" id="subtitle-trailing"/>
+                            <constraint firstItem="title-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="title-leading"/>
+                            <constraint firstItem="title-label" firstAttribute="top" secondItem="container-view" secondAttribute="top" constant="16" id="title-top"/>
+                            <constraint firstAttribute="trailing" secondItem="title-label" secondAttribute="trailing" constant="16" id="title-trailing"/>
+                            <constraint firstItem="vs-label" firstAttribute="centerX" secondItem="container-view" secondAttribute="centerX" id="vs-center-x"/>
+                            <constraint firstItem="vs-label" firstAttribute="centerY" secondItem="home-team-label" secondAttribute="centerY" id="vs-center-y"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                <size key="value" width="0.0" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="container-view" secondAttribute="bottom" constant="8" id="container-bottom"/>
+                    <constraint firstItem="container-view" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="container-leading"/>
+                    <constraint firstItem="container-view" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="container-top"/>
+                    <constraint firstAttribute="trailing" secondItem="container-view" secondAttribute="trailing" constant="16" id="container-trailing"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="awayLabel" destination="away-label" id="away-label-outlet"/>
+                <outlet property="awayScoreLabel" destination="away-score-label" id="away-score-outlet"/>
+                <outlet property="awayTeamLabel" destination="away-team-label" id="away-team-outlet"/>
+                <outlet property="containerView" destination="container-view" id="container-outlet"/>
+                <outlet property="homeLabel" destination="home-label" id="home-label-outlet"/>
+                <outlet property="homeScoreLabel" destination="home-score-label" id="home-score-outlet"/>
+                <outlet property="homeTeamLabel" destination="home-team-label" id="home-team-outlet"/>
+                <outlet property="subtitleLabel" destination="subtitle-label" id="subtitle-outlet"/>
+                <outlet property="titleLabel" destination="title-label" id="title-outlet"/>
+                <outlet property="vsLabel" destination="vs-label" id="vs-outlet"/>
+            </connections>
+            <point key="canvasLocation" x="-106.15384615384615" y="11.374407582938389"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

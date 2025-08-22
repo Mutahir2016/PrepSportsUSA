@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OutBoundTableCell" rowHeight="50" id="gB0-8b-X0r" customClass="OutBoundTableCell" customModule="Lumen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gB0-8b-X0r" id="uPt-6l-Rs0">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dallas, TX Dallas, TX Dallas, TX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jv-VX-Ylx">
+                        <rect key="frame" x="0.0" y="8" width="235" height="34"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,970" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpD-0e-DqD">
+                        <rect key="frame" x="245" y="0.0" width="70" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="8bn-vq-YNE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4Z-wA-9PJ">
+                        <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="y1h-Cr-Kqa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="y4Z-wA-9PJ" secondAttribute="bottom" id="EEq-5t-Ifv"/>
+                    <constraint firstItem="6jv-VX-Ylx" firstAttribute="leading" secondItem="uPt-6l-Rs0" secondAttribute="leading" id="FFZ-Se-xQ9"/>
+                    <constraint firstItem="mpD-0e-DqD" firstAttribute="leading" secondItem="6jv-VX-Ylx" secondAttribute="trailing" constant="10" id="Ioh-vw-8Ve"/>
+                    <constraint firstItem="mpD-0e-DqD" firstAttribute="top" secondItem="uPt-6l-Rs0" secondAttribute="top" id="Qzn-Uu-lWH"/>
+                    <constraint firstItem="y4Z-wA-9PJ" firstAttribute="leading" secondItem="uPt-6l-Rs0" secondAttribute="leading" id="SKr-6I-NlK"/>
+                    <constraint firstAttribute="bottom" secondItem="mpD-0e-DqD" secondAttribute="bottom" id="cTE-mj-uwt"/>
+                    <constraint firstAttribute="trailing" secondItem="y4Z-wA-9PJ" secondAttribute="trailing" id="gdt-63-7Eq"/>
+                    <constraint firstItem="6jv-VX-Ylx" firstAttribute="top" secondItem="uPt-6l-Rs0" secondAttribute="top" constant="8" id="oJf-nq-NOw"/>
+                    <constraint firstAttribute="bottom" secondItem="6jv-VX-Ylx" secondAttribute="bottom" constant="8" id="sm9-au-31o"/>
+                    <constraint firstAttribute="trailing" secondItem="mpD-0e-DqD" secondAttribute="trailing" constant="5" id="zbj-ud-p6o"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="hxJ-kH-lhI"/>
+            <connections>
+                <outlet property="detailLabel" destination="mpD-0e-DqD" id="Txe-ZL-fSV"/>
+                <outlet property="separatorView" destination="y4Z-wA-9PJ" id="xoy-0e-gMg"/>
+                <outlet property="titleLabel" destination="6jv-VX-Ylx" id="JD6-eR-iTB"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="14.788732394366198"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
