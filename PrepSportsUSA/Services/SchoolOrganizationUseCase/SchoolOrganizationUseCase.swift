@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol SchoolOrganizationUseCaseProtocol {
-    func getSchoolOrganizations(pageSize: Int, pageNumber: Int) -> Observable<SchoolOrganizationResponse?>
+    func getSchoolOrganizations(pageSize: Int, pageNumber: Int, name: String?) -> Observable<SchoolOrganizationResponse?>
 }
 
 class SchoolOrganizationUseCase: SchoolOrganizationUseCaseProtocol {
@@ -19,7 +19,7 @@ class SchoolOrganizationUseCase: SchoolOrganizationUseCaseProtocol {
         self.service = service
     }
     
-    func getSchoolOrganizations(pageSize: Int, pageNumber: Int) -> Observable<SchoolOrganizationResponse?> {
-        return service.getSchoolOrganizations(pageSize: pageSize, pageNumber: pageNumber)
+    func getSchoolOrganizations(pageSize: Int, pageNumber: Int, name: String? = nil) -> Observable<SchoolOrganizationResponse?> {
+        return service.getSchoolOrganizations(pageSize: pageSize, pageNumber: pageNumber, name: name)
     }
 }

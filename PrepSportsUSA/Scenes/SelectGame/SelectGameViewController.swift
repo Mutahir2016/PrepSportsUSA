@@ -1,5 +1,5 @@
 //
-//  SelectSchoolOrganizationViewController.swift
+//  SelectGameViewController.swift
 //  PrepSportsUSA
 //
 //  Created by PrepSportsUSA on 25/08/2025.
@@ -10,11 +10,10 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-class SelectSchoolOrganizationViewController: BaseViewController {
-    var viewModel: SelectSchoolOrganizationViewModel!
-    var router: SelectSchoolOrganizationRouter!
+class SelectGameViewController: BaseViewController {
+    var viewModel: SelectGameViewModel!
+    var router: SelectGameRouter!
     
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: LoadingIndicatorView!
     
@@ -30,37 +29,20 @@ class SelectSchoolOrganizationViewController: BaseViewController {
     }
     
     private func setupViewModelAndRouter() {
-        viewModel = SelectSchoolOrganizationViewModel()
+        // View model should be set by the router when navigating
+        if viewModel == nil {
+            viewModel = SelectGameViewModel()
+        }
         viewModel.delegate = self
-        router = SelectSchoolOrganizationRouter(self)
+        router = SelectGameRouter(self)
     }
     
     private func setupUI() {
-        title = "Select School Organization"
+        title = "Select Game"
         view.backgroundColor = UIColor.systemBackground
         
-        setupSearchField()
         setupTableView()
         setupNavigationBar()
-    }
-    
-    private func setupSearchField() {
-        searchTextField.placeholder = "Search"
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.font = UIFont.systemFont(ofSize: 16)
-        searchTextField.clearButtonMode = .whileEditing
-        searchTextField.returnKeyType = .search
-        searchTextField.delegate = self
-        
-        // Add search icon
-        let searchIcon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
-        searchIcon.tintColor = UIColor.systemGray
-        searchIcon.contentMode = .scaleAspectFit
-        let iconContainer = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
-        searchIcon.frame = CGRect(x: 5, y: 0, width: 20, height: 20)
-        iconContainer.addSubview(searchIcon)
-        searchTextField.rightView = iconContainer
-        searchTextField.rightViewMode = .always
     }
     
     private func setupTableView() {
@@ -68,10 +50,11 @@ class SelectSchoolOrganizationViewController: BaseViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.systemBackground
-        tableView.rowHeight = 60
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
         
         // Register cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SchoolCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GameCell")
     }
     
     private func setupNavigationBar() {
@@ -96,16 +79,6 @@ class SelectSchoolOrganizationViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.showSessionExpiredAlert()
-            })
-            .disposed(by: disposeBag)
-        
-        // Handle text field clear button
-        searchTextField.rx.text.orEmpty
-            .subscribe(onNext: { [weak self] searchText in
-                // If text is cleared, reload all schools
-                if searchText.isEmpty {
-                    self?.viewModel.searchSchools(query: "")
-                }
             })
             .disposed(by: disposeBag)
         
@@ -138,29 +111,49 @@ class SelectSchoolOrganizationViewController: BaseViewController {
     }
 }
 
-// MARK: - SelectSchoolOrganizationViewModelDelegate
-extension SelectSchoolOrganizationViewController: SelectSchoolOrganizationViewModelDelegate {
+// MARK: - SelectGameViewModelDelegate
+extension SelectGameViewController: SelectGameViewModelDelegate {
     func reloadTableData() {
         tableView.reloadData()
     }
     
-    func schoolSelected(_ school: SchoolOrganizationData) {
-        router.dismissWithSelection(school)
+    func gameSelected(_ game: GameData) {
+        router.dismissWithSelection(game)
     }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension SelectSchoolOrganizationViewController: UITableViewDelegate, UITableViewDataSource {
+extension SelectGameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.schools.count
+        return viewModel.games.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SchoolCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
         
-        let school = viewModel.schools[indexPath.row]
-        cell.textLabel?.text = school.attributes.name
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        let game = viewModel.games[indexPath.row]
+        
+        // Format the game display text
+        let homeTeam = game.attributes.homeTeam.name
+        let awayTeam = game.attributes.awayTeam.name
+        let venue = game.attributes.venue
+        
+        // Format date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "MMM dd, yyyy"
+        
+        var dateString = ""
+        if let date = dateFormatter.date(from: game.attributes.dateTime) {
+            dateString = displayFormatter.string(from: date)
+        }
+        
+        cell.textLabel?.text = "\(homeTeam) vs \(awayTeam)"
+        cell.detailTextLabel?.text = "\(venue) • \(dateString)"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.textColor = UIColor.systemGray
         cell.accessoryType = .none
         cell.selectionStyle = .default
         
@@ -169,18 +162,7 @@ extension SelectSchoolOrganizationViewController: UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let school = viewModel.schools[indexPath.row]
-        viewModel.selectSchool(school)
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension SelectSchoolOrganizationViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Trigger search when user taps search button on keyboard
-        let searchText = textField.text ?? ""
-        viewModel.searchSchools(query: searchText)
-        textField.resignFirstResponder()
-        return true
+        let game = viewModel.games[indexPath.row]
+        viewModel.selectGame(game)
     }
 }

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Sports Brief View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="AddSportsBriefViewController" id="BYZ-38-t0r" customClass="AddSportsBriefViewController" customModule="Newmaker_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-main">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-main">
+                                        <rect key="frame" x="16" y="16" width="361" height="800"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-ch-org">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="School Organization" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-ch-org">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="54" id="HtB-ch-org"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                        <state key="normal" title="Select School Organization">
+                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="BtS-ch-org" secondAttribute="bottom" id="BtB-ch-org"/>
+                                                    <constraint firstItem="BtS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdB-ch-org"/>
+                                                    <constraint firstItem="LbS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdL-ch-org"/>
+                                                    <constraint firstItem="BtS-ch-org" firstAttribute="top" secondItem="LbS-ch-org" secondAttribute="bottom" constant="9" id="TpB-ch-org"/>
+                                                    <constraint firstItem="LbS-ch-org" firstAttribute="top" secondItem="VwS-ch-org" secondAttribute="top" id="TpL-ch-org"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BtS-ch-org" secondAttribute="trailing" id="TrB-ch-org"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LbS-ch-org" secondAttribute="trailing" id="TrL-ch-org"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Gender" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-gender">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender-container">
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-gender">
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boys">
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-boys">
+                                                                                <color key="tintColor" systemColor="systemGray3Color"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="20" id="WdI-boys"/>
+                                                                                    <constraint firstAttribute="height" constant="20" id="HtI-boys"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-boys">
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                <state key="normal" title="Boys">
+                                                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                                                </state>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-girls">
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-girls">
+                                                                                <color key="tintColor" systemColor="systemGray3Color"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="20" id="WdI-girls"/>
+                                                                                    <constraint firstAttribute="height" constant="20" id="HtI-girls"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-girls">
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                <state key="normal" title="Girls">
+                                                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                                                </state>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="StV-gender" firstAttribute="leading" secondItem="VwS-gender-container" secondAttribute="leading" constant="16" id="LdS-gender-container"/>
+                                                            <constraint firstItem="StV-gender" firstAttribute="top" secondItem="VwS-gender-container" secondAttribute="top" constant="16" id="TpS-gender-container"/>
+                                                            <constraint firstAttribute="trailing" secondItem="StV-gender" secondAttribute="trailing" constant="16" id="TrS-gender-container"/>
+                                                            <constraint firstAttribute="bottom" secondItem="StV-gender" secondAttribute="bottom" constant="16" id="BtS-gender-container"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="VwS-gender-container" secondAttribute="bottom" id="BtV-gender-container"/>
+                                                    <constraint firstItem="VwS-gender-container" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdV-gender-container"/>
+                                                    <constraint firstItem="LbS-gender" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdL-gender"/>
+                                                    <constraint firstItem="VwS-gender-container" firstAttribute="top" secondItem="LbS-gender" secondAttribute="bottom" constant="8" id="TpV-gender-container"/>
+                                                    <constraint firstItem="LbS-gender" firstAttribute="top" secondItem="VwS-gender" secondAttribute="top" id="TpL-gender"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VwS-gender-container" secondAttribute="trailing" id="TrV-gender-container"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LbS-gender" secondAttribute="trailing" id="TrL-gender"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-team">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Team" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-team">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-team">
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="54" id="HtB-team"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                        <state key="normal" title="Select Team">
+                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="BtS-team" secondAttribute="bottom" id="BtB-team"/>
+                                                    <constraint firstItem="BtS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdB-team"/>
+                                                    <constraint firstItem="LbS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdL-team"/>
+                                                    <constraint firstItem="BtS-team" firstAttribute="top" secondItem="LbS-team" secondAttribute="bottom" constant="9" id="TpB-team"/>
+                                                    <constraint firstItem="LbS-team" firstAttribute="top" secondItem="VwS-team" secondAttribute="top" id="TpL-team"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BtS-team" secondAttribute="trailing" id="TrB-team"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LbS-team" secondAttribute="trailing" id="TrL-team"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-game">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Game" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-game">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-game">
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="54" id="HtB-game"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                        <state key="normal" title="Select Game">
+                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="BtS-game" secondAttribute="bottom" id="BtB-game"/>
+                                                    <constraint firstItem="BtS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdB-game"/>
+                                                    <constraint firstItem="LbS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdL-game"/>
+                                                    <constraint firstItem="BtS-game" firstAttribute="top" secondItem="LbS-game" secondAttribute="bottom" constant="9" id="TpB-game"/>
+                                                    <constraint firstItem="LbS-game" firstAttribute="top" secondItem="VwS-game" secondAttribute="top" id="TpL-game"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BtS-game" secondAttribute="trailing" id="TrB-game"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LbS-game" secondAttribute="trailing" id="TrL-game"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-desc">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-desc">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-desc">
+                                                        <rect key="frame" x="0.0" y="29" width="361" height="120"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="HtT-desc"/>
+                                                        </constraints>
+                                                        <string key="text">Enter sports brief description...</string>
+                                                        <color key="textColor" systemColor="placeholderTextColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="TxV-desc" secondAttribute="bottom" id="BtT-desc"/>
+                                                    <constraint firstItem="TxV-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdT-desc"/>
+                                                    <constraint firstItem="LbS-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdL-desc"/>
+                                                    <constraint firstItem="TxV-desc" firstAttribute="top" secondItem="LbS-desc" secondAttribute="bottom" constant="9" id="TpT-desc"/>
+                                                    <constraint firstItem="LbS-desc" firstAttribute="top" secondItem="VwS-desc" secondAttribute="top" id="TpL-desc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TxV-desc" secondAttribute="trailing" id="TrT-desc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LbS-desc" secondAttribute="trailing" id="TrL-desc"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-submit">
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="HtB-submit"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <state key="normal" title="Submit Sports Brief">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="StV-main" firstAttribute="leading" secondItem="ScV-main" secondAttribute="leading" constant="16" id="LdS-main"/>
+                                    <constraint firstItem="StV-main" firstAttribute="top" secondItem="ScV-main" secondAttribute="top" constant="16" id="TpS-main"/>
+                                    <constraint firstAttribute="trailing" secondItem="StV-main" secondAttribute="trailing" constant="16" id="TrS-main"/>
+                                    <constraint firstAttribute="bottom" secondItem="StV-main" secondAttribute="bottom" constant="16" id="BtS-main"/>
+                                    <constraint firstItem="StV-main" firstAttribute="width" secondItem="ScV-main" secondAttribute="width" constant="-32" id="WdS-main"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ScV-main" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LdS-cv"/>
+                            <constraint firstItem="ScV-main" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TpS-cv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ScV-main" secondAttribute="trailing" id="TrS-cv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ScV-main" secondAttribute="bottom" id="BtS-cv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="schoolOrganizationButton" destination="BtS-ch-org" id="OtS-ch-org"/>
+                        <outlet property="boysButton" destination="BtS-boys" id="OtS-boys"/>
+                        <outlet property="girlsButton" destination="BtS-girls" id="OtS-girls"/>
+                        <outlet property="boysRadioIcon" destination="ImV-boys" id="OtS-boys-radio"/>
+                        <outlet property="girlsRadioIcon" destination="ImV-girls" id="OtS-girls-radio"/>
+                        <outlet property="genderView" destination="VwS-gender" id="OtS-gender-view"/>
+                        <outlet property="teamButton" destination="BtS-team" id="OtS-team"/>
+                        <outlet property="teamView" destination="VwS-team" id="OtS-team-view"/>
+                        <outlet property="gameButton" destination="BtS-game" id="OtS-game"/>
+                        <outlet property="gameView" destination="VwS-game" id="OtS-game-view"/>
+                        <outlet property="descriptionTextView" destination="TxV-desc" id="OtS-desc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.78039215686274508" green="0.78039215686274508" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <image name="circle" catalog="system" width="128" height="123"/>
+    </resources>
+</document>

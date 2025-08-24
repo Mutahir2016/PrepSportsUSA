@@ -1,5 +1,5 @@
 //
-//  SelectSchoolOrganizationViewModel.swift
+//  SelectGameViewModel.swift
 //  PrepSportsUSA
 //
 //  Created by PrepSportsUSA on 25/08/2025.
@@ -9,76 +9,73 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol SelectSchoolOrganizationViewModelDelegate: AnyObject {
+protocol SelectGameViewModelDelegate: AnyObject {
     func reloadTableData()
-    func schoolSelected(_ school: SchoolOrganizationData)
+    func gameSelected(_ game: GameData)
 }
 
-class SelectSchoolOrganizationViewModel: BaseViewModel {
+class SelectGameViewModel: BaseViewModel {
     
     // MARK: - Dependencies
-    private let useCase: SchoolOrganizationUseCase
-    weak var delegate: SelectSchoolOrganizationViewModelDelegate?
+    private let useCase: GameUseCase
+    weak var delegate: SelectGameViewModelDelegate?
     
     // MARK: - Public Properties
     let isLoadingRelay = BehaviorRelay<Bool>(value: false)
     let sessionExpiredRelay = PublishRelay<Void>()
     
-    private(set) var schools: [SchoolOrganizationData] = []
+    private(set) var games: [GameData] = []
     
     // MARK: - Private Properties
-    private var currentSearchQuery: String = ""
     private let pageSize = 20
     private var currentPage = 1
     private var hasMorePages = true
-    private var isSearching = false
+    
+    // Required parameter for games API
+    private var teamId: String = ""
     
     // MARK: - Initialization
-    init(useCase: SchoolOrganizationUseCase = SchoolOrganizationUseCase()) {
+    init(useCase: GameUseCase = GameUseCase(), teamId: String = "") {
         self.useCase = useCase
+        self.teamId = teamId
         super.init()
     }
     
     // MARK: - Public Methods
     func viewDidLoad() {
-        loadSchoolOrganizations()
+        loadGames()
     }
     
-    func searchSchools(query: String) {
-        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        currentSearchQuery = trimmedQuery
-        isSearching = !trimmedQuery.isEmpty
-        
-        // Reset pagination for new search
-        currentPage = 1
-        hasMorePages = true
-        
-        loadSchoolOrganizations()
-    }
-    
-    func selectSchool(_ school: SchoolOrganizationData) {
-        delegate?.schoolSelected(school)
+    func selectGame(_ game: GameData) {
+        delegate?.gameSelected(game)
     }
     
     func loadMoreIfNeeded(for indexPath: IndexPath) {
         // Load more when reaching near the end of the list
-        if indexPath.row >= schools.count - 3 && hasMorePages && !isLoadingRelay.value {
-            loadMoreSchools()
+        if indexPath.row >= games.count - 3 && hasMorePages && !isLoadingRelay.value {
+            loadMoreGames()
         }
     }
     
+    func updateTeamId(_ teamId: String) {
+        self.teamId = teamId
+    }
+    
     // MARK: - Private Methods
-    private func loadSchoolOrganizations() {
+    private func loadGames() {
+        guard !teamId.isEmpty else {
+            print("Missing required parameter: teamId")
+            return
+        }
+        
         isLoadingRelay.accept(true)
         currentPage = 1
         
-        let searchName = isSearching ? currentSearchQuery : nil
-        
-        useCase.getSchoolOrganizations(pageSize: pageSize, pageNumber: currentPage, name: searchName)
+        useCase.getGames(teamId: teamId, pageSize: pageSize, pageNumber: currentPage)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
-                    self?.handleSchoolOrganizationsResponse(response, isLoadMore: false)
+                    self?.handleGamesResponse(response, isLoadMore: false)
                 },
                 onError: { [weak self] error in
                     self?.handleError(error)
@@ -87,19 +84,18 @@ class SelectSchoolOrganizationViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    private func loadMoreSchools() {
+    private func loadMoreGames() {
         guard hasMorePages && !isLoadingRelay.value else { return }
+        guard !teamId.isEmpty else { return }
         
         isLoadingRelay.accept(true)
         currentPage += 1
         
-        let searchName = isSearching ? currentSearchQuery : nil
-        
-        useCase.getSchoolOrganizations(pageSize: pageSize, pageNumber: currentPage, name: searchName)
+        useCase.getGames(teamId: teamId, pageSize: pageSize, pageNumber: currentPage)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
-                    self?.handleSchoolOrganizationsResponse(response, isLoadMore: true)
+                    self?.handleGamesResponse(response, isLoadMore: true)
                 },
                 onError: { [weak self] error in
                     self?.handleError(error)
@@ -109,18 +105,18 @@ class SelectSchoolOrganizationViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    private func handleSchoolOrganizationsResponse(_ response: SchoolOrganizationResponse?, isLoadMore: Bool) {
+    private func handleGamesResponse(_ response: GameResponse?, isLoadMore: Bool) {
         isLoadingRelay.accept(false)
         
         guard let response = response else {
-            print("No school organizations response received")
+            print("No games response received")
             return
         }
         
         if isLoadMore {
-            schools.append(contentsOf: response.data)
+            games.append(contentsOf: response.data)
         } else {
-            schools = response.data
+            games = response.data
         }
         
         // Check if there are more pages
@@ -128,9 +124,8 @@ class SelectSchoolOrganizationViewModel: BaseViewModel {
         
         delegate?.reloadTableData()
         
-        print("Loaded \(response.data.count) schools, total: \(schools.count)")
+        print("Loaded \(response.data.count) games, total: \(games.count)")
     }
-    
     
     private func handleError(_ error: Error) {
         isLoadingRelay.accept(false)
@@ -138,7 +133,7 @@ class SelectSchoolOrganizationViewModel: BaseViewModel {
         if let customError = error as? CustomError, customError == .sessionExpired {
             sessionExpiredRelay.accept(())
         } else {
-            print("School Organizations Error: \(error.localizedDescription)")
+            print("Games Error: \(error.localizedDescription)")
             // Could add error handling UI here if needed
         }
     }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - School Organization Response Models
 struct SchoolOrganizationResponse: Codable {
     let data: [SchoolOrganizationData]
     let meta: SchoolOrganizationMeta
@@ -23,11 +22,14 @@ struct SchoolOrganizationData: Codable {
 struct SchoolOrganizationAttributes: Codable {
     let id: String
     let name: String
+    let slug: String
+    let city: String?
+    let state: String?
     let createdAt: String
     let updatedAt: String
     
     enum CodingKeys: String, CodingKey {
-        case id, name
+        case id, name, slug, city, state
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -43,11 +45,6 @@ struct SchoolOrganizationPagination: Codable {
 }
 
 struct SchoolOrganizationLinks: Codable {
-    let selfLink: String
+    let `self`: String
     let current: String
-    
-    enum CodingKeys: String, CodingKey {
-        case selfLink = "self"
-        case current
-    }
 }

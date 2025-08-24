@@ -97,8 +97,6 @@
 		8C6312C02E5B9C53008298FA /* AddSportsBriefUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312BB2E5B9C53008298FA /* AddSportsBriefUseCase.swift */; };
 		8C6312C22E5B9DFE008298FA /* AddSportsBriefViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */; };
 		8C6312C32E5B9DFE008298FA /* AddSportsBriefViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */; };
-		8C6312C52E5B9EE6008298FA /* AddSportsBrief.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6312C42E5B9EE6008298FA /* AddSportsBrief.storyboard */; };
-		8C6312C62E5B9EE6008298FA /* AddSportsBrief.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6312C42E5B9EE6008298FA /* AddSportsBrief.storyboard */; };
 		8C6312CC2E5BA3FA008298FA /* SelectSchoolOrganizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312CA2E5BA3FA008298FA /* SelectSchoolOrganizationViewModel.swift */; };
 		8C6312CD2E5BA3FA008298FA /* SelectSchoolOrganizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312C82E5BA3FA008298FA /* SelectSchoolOrganizationRouter.swift */; };
 		8C6312CE2E5BA3FA008298FA /* SelectSchoolOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312C92E5BA3FA008298FA /* SelectSchoolOrganizationViewController.swift */; };
@@ -113,6 +111,34 @@
 		8C6312DA2E5BA40D008298FA /* SchoolOrganizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312D42E5BA40D008298FA /* SchoolOrganizationService.swift */; };
 		8C6312DC2E5BA4BF008298FA /* SchoolOrganizationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DB2E5BA4BF008298FA /* SchoolOrganizationModels.swift */; };
 		8C6312DD2E5BA4BF008298FA /* SchoolOrganizationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DB2E5BA4BF008298FA /* SchoolOrganizationModels.swift */; };
+		8C6312E12E5BAD17008298FA /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DE2E5BAD17008298FA /* TeamService.swift */; };
+		8C6312E22E5BAD17008298FA /* TeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DF2E5BAD17008298FA /* TeamUseCase.swift */; };
+		8C6312E32E5BAD17008298FA /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DE2E5BAD17008298FA /* TeamService.swift */; };
+		8C6312E42E5BAD17008298FA /* TeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312DF2E5BAD17008298FA /* TeamUseCase.swift */; };
+		8C6312E62E5BAD5E008298FA /* TeamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312E52E5BAD5E008298FA /* TeamModels.swift */; };
+		8C6312E72E5BAD5E008298FA /* TeamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312E52E5BAD5E008298FA /* TeamModels.swift */; };
+		8C6312ED2E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312EA2E5BAD6A008298FA /* SelectTeamViewController.swift */; };
+		8C6312EE2E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312EB2E5BAD6A008298FA /* SelectTeamViewModel.swift */; };
+		8C6312EF2E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312E92E5BAD6A008298FA /* SelectTeamRouter.swift */; };
+		8C6312F02E5BAD6A008298FA /* SelectTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6312E82E5BAD6A008298FA /* SelectTeam.storyboard */; };
+		8C6312F12E5BAD6A008298FA /* SelectTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6312E82E5BAD6A008298FA /* SelectTeam.storyboard */; };
+		8C6312F22E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312EA2E5BAD6A008298FA /* SelectTeamViewController.swift */; };
+		8C6312F32E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312EB2E5BAD6A008298FA /* SelectTeamViewModel.swift */; };
+		8C6312F42E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312E92E5BAD6A008298FA /* SelectTeamRouter.swift */; };
+		8C6313012E5BB2F0008298FA /* GameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313002E5BB2F0008298FA /* GameUseCase.swift */; };
+		8C6313022E5BB2F0008298FA /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312FF2E5BB2F0008298FA /* GameService.swift */; };
+		8C6313032E5BB2F0008298FA /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312FE2E5BB2F0008298FA /* GameModels.swift */; };
+		8C6313042E5BB2F0008298FA /* GameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313002E5BB2F0008298FA /* GameUseCase.swift */; };
+		8C6313052E5BB2F0008298FA /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312FF2E5BB2F0008298FA /* GameService.swift */; };
+		8C6313062E5BB2F0008298FA /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6312FE2E5BB2F0008298FA /* GameModels.swift */; };
+		8C63130C2E5BB315008298FA /* SelectGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6313072E5BB315008298FA /* SelectGame.storyboard */; };
+		8C63130D2E5BB315008298FA /* SelectGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313082E5BB315008298FA /* SelectGameRouter.swift */; };
+		8C63130E2E5BB315008298FA /* SelectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313092E5BB315008298FA /* SelectGameViewController.swift */; };
+		8C63130F2E5BB315008298FA /* SelectGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63130A2E5BB315008298FA /* SelectGameViewModel.swift */; };
+		8C6313102E5BB315008298FA /* SelectGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313082E5BB315008298FA /* SelectGameRouter.swift */; };
+		8C6313112E5BB315008298FA /* SelectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6313092E5BB315008298FA /* SelectGameViewController.swift */; };
+		8C6313122E5BB315008298FA /* SelectGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63130A2E5BB315008298FA /* SelectGameViewModel.swift */; };
+		8C6313132E5BB315008298FA /* SelectGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6313072E5BB315008298FA /* SelectGame.storyboard */; };
 		8C64E2DB2D20322B006477D4 /* SigninService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E2DA2D20322B006477D4 /* SigninService.swift */; };
 		8C64E2DC2D20322B006477D4 /* SigninService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E2DA2D20322B006477D4 /* SigninService.swift */; };
 		8C64E2E12D20324B006477D4 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E2E02D20324B006477D4 /* SignModel.swift */; };
@@ -303,6 +329,8 @@
 		8CCCC6B32D1BF57C009EC2B2 /* VKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCCC6AB2D1BF57C009EC2B2 /* VKLabel.swift */; };
 		8CCE072A2D57F1AB002ED4AC /* BiometricManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE07292D57F1AB002ED4AC /* BiometricManager.swift */; };
 		8CCE072B2D57F1AB002ED4AC /* BiometricManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE07292D57F1AB002ED4AC /* BiometricManager.swift */; };
+		8CD2BDFB2E5BC49800F129FD /* AddSportsBrief.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CD2BDFA2E5BC49800F129FD /* AddSportsBrief.storyboard */; };
+		8CD2BDFC2E5BC49800F129FD /* AddSportsBrief.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CD2BDFA2E5BC49800F129FD /* AddSportsBrief.storyboard */; };
 		8CD9100D2D2CEC4900B30416 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD9100B2D2CEC4900B30416 /* TabBar.swift */; };
 		8CD9100F2D2CEC4900B30416 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD9100B2D2CEC4900B30416 /* TabBar.swift */; };
 		8CD910122D2CED9500B30416 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD910112D2CED9500B30416 /* UIConstants.swift */; };
@@ -427,7 +455,6 @@
 		8C6312BA2E5B9C53008298FA /* AddSportsBriefService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportsBriefService.swift; sourceTree = "<group>"; };
 		8C6312BB2E5B9C53008298FA /* AddSportsBriefUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportsBriefUseCase.swift; sourceTree = "<group>"; };
 		8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportsBriefViewModel.swift; sourceTree = "<group>"; };
-		8C6312C42E5B9EE6008298FA /* AddSportsBrief.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSportsBrief.storyboard; sourceTree = "<group>"; };
 		8C6312C72E5BA3FA008298FA /* SelectSchoolOrganization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectSchoolOrganization.storyboard; sourceTree = "<group>"; };
 		8C6312C82E5BA3FA008298FA /* SelectSchoolOrganizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSchoolOrganizationRouter.swift; sourceTree = "<group>"; };
 		8C6312C92E5BA3FA008298FA /* SelectSchoolOrganizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSchoolOrganizationViewController.swift; sourceTree = "<group>"; };
@@ -435,6 +462,20 @@
 		8C6312D42E5BA40D008298FA /* SchoolOrganizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolOrganizationService.swift; sourceTree = "<group>"; };
 		8C6312D52E5BA40D008298FA /* SchoolOrganizationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolOrganizationUseCase.swift; sourceTree = "<group>"; };
 		8C6312DB2E5BA4BF008298FA /* SchoolOrganizationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolOrganizationModels.swift; sourceTree = "<group>"; };
+		8C6312DE2E5BAD17008298FA /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		8C6312DF2E5BAD17008298FA /* TeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUseCase.swift; sourceTree = "<group>"; };
+		8C6312E52E5BAD5E008298FA /* TeamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModels.swift; sourceTree = "<group>"; };
+		8C6312E82E5BAD6A008298FA /* SelectTeam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectTeam.storyboard; sourceTree = "<group>"; };
+		8C6312E92E5BAD6A008298FA /* SelectTeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamRouter.swift; sourceTree = "<group>"; };
+		8C6312EA2E5BAD6A008298FA /* SelectTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamViewController.swift; sourceTree = "<group>"; };
+		8C6312EB2E5BAD6A008298FA /* SelectTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamViewModel.swift; sourceTree = "<group>"; };
+		8C6312FE2E5BB2F0008298FA /* GameModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModels.swift; sourceTree = "<group>"; };
+		8C6312FF2E5BB2F0008298FA /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		8C6313002E5BB2F0008298FA /* GameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUseCase.swift; sourceTree = "<group>"; };
+		8C6313072E5BB315008298FA /* SelectGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectGame.storyboard; sourceTree = "<group>"; };
+		8C6313082E5BB315008298FA /* SelectGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameRouter.swift; sourceTree = "<group>"; };
+		8C6313092E5BB315008298FA /* SelectGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameViewController.swift; sourceTree = "<group>"; };
+		8C63130A2E5BB315008298FA /* SelectGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameViewModel.swift; sourceTree = "<group>"; };
 		8C64E2DA2D20322B006477D4 /* SigninService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninService.swift; sourceTree = "<group>"; };
 		8C64E2E02D20324B006477D4 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
 		8C64E2E32D20326B006477D4 /* SigninUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninUseCase.swift; sourceTree = "<group>"; };
@@ -531,6 +572,7 @@
 		8CCCC6AB2D1BF57C009EC2B2 /* VKLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLabel.swift; sourceTree = "<group>"; };
 		8CCCC6AC2D1BF57C009EC2B2 /* VKPinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPinCodeView.swift; sourceTree = "<group>"; };
 		8CCE07292D57F1AB002ED4AC /* BiometricManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricManager.swift; sourceTree = "<group>"; };
+		8CD2BDFA2E5BC49800F129FD /* AddSportsBrief.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSportsBrief.storyboard; sourceTree = "<group>"; };
 		8CD9100B2D2CEC4900B30416 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		8CD910112D2CED9500B30416 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		8CD910142D2CF26C00B30416 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -704,7 +746,7 @@
 		8C6312B52E5B9C43008298FA /* AddSportsBrief */ = {
 			isa = PBXGroup;
 			children = (
-				8C6312C42E5B9EE6008298FA /* AddSportsBrief.storyboard */,
+				8CD2BDFA2E5BC49800F129FD /* AddSportsBrief.storyboard */,
 				8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */,
 				8C6312B32E5B9C43008298FA /* AddSportsBriefRouter.swift */,
 				8C6312B42E5B9C43008298FA /* AddSportsBriefViewController.swift */,
@@ -740,6 +782,41 @@
 				8C6312D52E5BA40D008298FA /* SchoolOrganizationUseCase.swift */,
 			);
 			path = SchoolOrganizationUseCase;
+			sourceTree = "<group>";
+		};
+		8C6312E02E5BAD17008298FA /* TeamUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8C6312FE2E5BB2F0008298FA /* GameModels.swift */,
+				8C6312FF2E5BB2F0008298FA /* GameService.swift */,
+				8C6313002E5BB2F0008298FA /* GameUseCase.swift */,
+				8C6312E52E5BAD5E008298FA /* TeamModels.swift */,
+				8C6312DE2E5BAD17008298FA /* TeamService.swift */,
+				8C6312DF2E5BAD17008298FA /* TeamUseCase.swift */,
+			);
+			path = TeamUseCase;
+			sourceTree = "<group>";
+		};
+		8C6312EC2E5BAD6A008298FA /* SelectTeam */ = {
+			isa = PBXGroup;
+			children = (
+				8C6312E82E5BAD6A008298FA /* SelectTeam.storyboard */,
+				8C6312E92E5BAD6A008298FA /* SelectTeamRouter.swift */,
+				8C6312EA2E5BAD6A008298FA /* SelectTeamViewController.swift */,
+				8C6312EB2E5BAD6A008298FA /* SelectTeamViewModel.swift */,
+			);
+			path = SelectTeam;
+			sourceTree = "<group>";
+		};
+		8C63130B2E5BB315008298FA /* SelectGame */ = {
+			isa = PBXGroup;
+			children = (
+				8C6313072E5BB315008298FA /* SelectGame.storyboard */,
+				8C6313082E5BB315008298FA /* SelectGameRouter.swift */,
+				8C6313092E5BB315008298FA /* SelectGameViewController.swift */,
+				8C63130A2E5BB315008298FA /* SelectGameViewModel.swift */,
+			);
+			path = SelectGame;
 			sourceTree = "<group>";
 		};
 		8C64E2D92D2031E6006477D4 /* SigninUseCase */ = {
@@ -816,6 +893,8 @@
 		8C70587E2D192BE7003F29F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8C63130B2E5BB315008298FA /* SelectGame */,
+				8C6312EC2E5BAD6A008298FA /* SelectTeam */,
 				8C6312CB2E5BA3FA008298FA /* SelectSchoolOrganization */,
 				8C6312B52E5B9C43008298FA /* AddSportsBrief */,
 				8C6CE1A42E5882B3005F5330 /* Sports */,
@@ -1196,6 +1275,7 @@
 		8CF0C8622D120B9100AA5033 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8C6312E02E5BAD17008298FA /* TeamUseCase */,
 				8C6312D62E5BA40D008298FA /* SchoolOrganizationUseCase */,
 				8C6312BC2E5B9C53008298FA /* AddSportsBriefUseCase */,
 				8C6CE1C42E5903C8005F5330 /* SportsUseCase */,
@@ -1365,6 +1445,7 @@
 				8C3159852D2F191B00D56F57 /* Stories.storyboard in Resources */,
 				8CC90DEC2D1922B9009CD2EB /* ibm_plex_sans_italic_400.ttf in Resources */,
 				8CC90DED2D1922B9009CD2EB /* IBMPlexSans-SemiBold.ttf in Resources */,
+				8C6313132E5BB315008298FA /* SelectGame.storyboard in Resources */,
 				8CC90DEE2D1922B9009CD2EB /* ibm_plex_sans_semibold_italic_600.ttf in Resources */,
 				8CC90DEF2D1922B9009CD2EB /* ibm_plex_sans_thin_100.ttf in Resources */,
 				8CC90DF02D1922B9009CD2EB /* ibm_plex_sans_thin_italic_100.ttf in Resources */,
@@ -1374,7 +1455,6 @@
 				8CC90DF12D1922B9009CD2EB /* ibm_plex_sans_extra_light_italic_200.ttf in Resources */,
 				8CE216E92D5BB20900238534 /* TopOrg.storyboard in Resources */,
 				8CC90DF22D1922B9009CD2EB /* ibm_plex_sans_light_italic_300.ttf in Resources */,
-				8C6312C52E5B9EE6008298FA /* AddSportsBrief.storyboard in Resources */,
 				8CC90DF32D1922B9009CD2EB /* IBMPlexSans-Bold.ttf in Resources */,
 				3A989EA72E01E3C6008080A6 /* CustomSearchBar.xib in Resources */,
 				8CCCC69F2D1BF48B009EC2B2 /* AuthVerification.storyboard in Resources */,
@@ -1382,12 +1462,14 @@
 				8CCBA2572D5A9523007EDF9B /* TopLoc.storyboard in Resources */,
 				8C8C839B2D5E02A300C878D2 /* Map.storyboard in Resources */,
 				8CC90DF42D1922B9009CD2EB /* ibm_plex_sans_bold_italic_700.ttf in Resources */,
+				8CD2BDFC2E5BC49800F129FD /* AddSportsBrief.storyboard in Resources */,
 				8CC90DF52D1922B9009CD2EB /* ibm_plex_sans_medium_italic_500.ttf in Resources */,
 				8C9C6C5E2DBE2359009FBF3D /* ProjectSheet.storyboard in Resources */,
 				8CC90DF62D1922B9009CD2EB /* ibm_plex_sans_extra_light_200.ttf in Resources */,
 				8CC90DF72D1922B9009CD2EB /* ibm_plex_sans_light_300.ttf in Resources */,
 				8C9B7F992D3E05A500095AD3 /* More.storyboard in Resources */,
 				8CC90DF82D1922B9009CD2EB /* IBMPlexSans-Regular.ttf in Resources */,
+				8C6312F02E5BAD6A008298FA /* SelectTeam.storyboard in Resources */,
 				8C6CE1A82E5882B3005F5330 /* Sports.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1418,6 +1500,7 @@
 				8C3159862D2F191B00D56F57 /* Stories.storyboard in Resources */,
 				8CC90DFA2D1922B9009CD2EB /* ibm_plex_sans_italic_400.ttf in Resources */,
 				8CC90DFB2D1922B9009CD2EB /* IBMPlexSans-SemiBold.ttf in Resources */,
+				8C63130C2E5BB315008298FA /* SelectGame.storyboard in Resources */,
 				8CC90DFC2D1922B9009CD2EB /* ibm_plex_sans_semibold_italic_600.ttf in Resources */,
 				8CC90DFD2D1922B9009CD2EB /* ibm_plex_sans_thin_100.ttf in Resources */,
 				8CC90DFE2D1922B9009CD2EB /* ibm_plex_sans_thin_italic_100.ttf in Resources */,
@@ -1427,7 +1510,6 @@
 				8CC90DFF2D1922B9009CD2EB /* ibm_plex_sans_extra_light_italic_200.ttf in Resources */,
 				8CE216EA2D5BB20900238534 /* TopOrg.storyboard in Resources */,
 				8CC90E002D1922B9009CD2EB /* ibm_plex_sans_light_italic_300.ttf in Resources */,
-				8C6312C62E5B9EE6008298FA /* AddSportsBrief.storyboard in Resources */,
 				8CC90E012D1922B9009CD2EB /* IBMPlexSans-Bold.ttf in Resources */,
 				3A989EAA2E01E3C6008080A6 /* CustomSearchBar.xib in Resources */,
 				8CCCC6A02D1BF48B009EC2B2 /* AuthVerification.storyboard in Resources */,
@@ -1435,12 +1517,14 @@
 				8CCBA2582D5A9523007EDF9B /* TopLoc.storyboard in Resources */,
 				8C8C839C2D5E02A300C878D2 /* Map.storyboard in Resources */,
 				8CC90E022D1922B9009CD2EB /* ibm_plex_sans_bold_italic_700.ttf in Resources */,
+				8CD2BDFB2E5BC49800F129FD /* AddSportsBrief.storyboard in Resources */,
 				8CC90E032D1922B9009CD2EB /* ibm_plex_sans_medium_italic_500.ttf in Resources */,
 				8C9C6C5F2DBE2359009FBF3D /* ProjectSheet.storyboard in Resources */,
 				8CC90E042D1922B9009CD2EB /* ibm_plex_sans_extra_light_200.ttf in Resources */,
 				8CC90E052D1922B9009CD2EB /* ibm_plex_sans_light_300.ttf in Resources */,
 				8C9B7F9A2D3E05A500095AD3 /* More.storyboard in Resources */,
 				8CC90E062D1922B9009CD2EB /* IBMPlexSans-Regular.ttf in Resources */,
+				8C6312F12E5BAD6A008298FA /* SelectTeam.storyboard in Resources */,
 				8C6CE1AC2E5882B3005F5330 /* Sports.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1595,6 +1679,9 @@
 				8C64E2DB2D20322B006477D4 /* SigninService.swift in Sources */,
 				8CCCC6A32D1BF4A3009EC2B2 /* AuthVerificationViewController.swift in Sources */,
 				8C8C83992D5E017500C878D2 /* MapRouter.swift in Sources */,
+				8C6312ED2E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */,
+				8C6312EE2E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */,
+				8C6312EF2E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */,
 				8CCCC6802D19E906009EC2B2 /* BaseViewController.swift in Sources */,
 				8C7058852D19C3AE003F29F1 /* CustomButton.swift in Sources */,
 				8CB9A1A52D34192400E02ECA /* StoriesTableViewCell.swift in Sources */,
@@ -1635,6 +1722,9 @@
 				8CDC8B2F2D29161D00E9C02B /* ForgotPasswordModel.swift in Sources */,
 				8C3C61C42DD272E6008314AF /* NetworkOutLinkModel.swift in Sources */,
 				8C6312BF2E5B9C53008298FA /* AddSportsBriefService.swift in Sources */,
+				8C6313102E5BB315008298FA /* SelectGameRouter.swift in Sources */,
+				8C6313112E5BB315008298FA /* SelectGameViewController.swift in Sources */,
+				8C6313122E5BB315008298FA /* SelectGameViewModel.swift in Sources */,
 				8C6312C02E5B9C53008298FA /* AddSportsBriefUseCase.swift in Sources */,
 				8CCCC68F2D1AA4BE009EC2B2 /* ForgotPasswordViewController.swift in Sources */,
 				8C821C4A2D5158600020EFE2 /* ShimmerCollectionViewCell.swift in Sources */,
@@ -1701,12 +1791,18 @@
 				8CDC8B2D2D29160D00E9C02B /* ForgotPasswordService.swift in Sources */,
 				8C0834AC2D36D06C00ABB393 /* LoadingIndicatorView.swift in Sources */,
 				8C6FD3CA2D49CD9B004F17AF /* HomeStoryModel.swift in Sources */,
+				8C6312E62E5BAD5E008298FA /* TeamModels.swift in Sources */,
 				8C9C6C732DBE4F29009FBF3D /* SheetTableCell.swift in Sources */,
 				8C6CE1AF2E588C76005F5330 /* SportsTableViewCell.swift in Sources */,
 				8C0834AD2D36D06C00ABB393 /* LoadingView.swift in Sources */,
 				8C31598E2D32509D00D56F57 /* HomeRouter.swift in Sources */,
 				8CE216E42D5BB1E500238534 /* TopOrgViewController.swift in Sources */,
+				8C6313042E5BB2F0008298FA /* GameUseCase.swift in Sources */,
+				8C6313052E5BB2F0008298FA /* GameService.swift in Sources */,
+				8C6313062E5BB2F0008298FA /* GameModels.swift in Sources */,
 				8CEAE0B52E01EC3E0002A2C6 /* ProjectStoriesViewModel.swift in Sources */,
+				8C6312E32E5BAD17008298FA /* TeamService.swift in Sources */,
+				8C6312E42E5BAD17008298FA /* TeamUseCase.swift in Sources */,
 				8CCCC6AF2D1BF57C009EC2B2 /* VKEntryViewStyle.swift in Sources */,
 				8C8C83962D5E016B00C878D2 /* MapViewModel.swift in Sources */,
 				8CCCC6B02D1BF57C009EC2B2 /* VKLabel.swift in Sources */,
@@ -1739,6 +1835,9 @@
 				8C64E2DC2D20322B006477D4 /* SigninService.swift in Sources */,
 				8CCCC6A22D1BF4A3009EC2B2 /* AuthVerificationViewController.swift in Sources */,
 				8C8C83982D5E017500C878D2 /* MapRouter.swift in Sources */,
+				8C6312F22E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */,
+				8C6312F32E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */,
+				8C6312F42E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */,
 				8CCCC67F2D19E906009EC2B2 /* BaseViewController.swift in Sources */,
 				8C7058842D19C3AE003F29F1 /* CustomButton.swift in Sources */,
 				8CB9A1A72D34192400E02ECA /* StoriesTableViewCell.swift in Sources */,
@@ -1779,6 +1878,9 @@
 				8CDC8B302D29161D00E9C02B /* ForgotPasswordModel.swift in Sources */,
 				8C3C61C32DD272E6008314AF /* NetworkOutLinkModel.swift in Sources */,
 				8C6312BD2E5B9C53008298FA /* AddSportsBriefService.swift in Sources */,
+				8C63130D2E5BB315008298FA /* SelectGameRouter.swift in Sources */,
+				8C63130E2E5BB315008298FA /* SelectGameViewController.swift in Sources */,
+				8C63130F2E5BB315008298FA /* SelectGameViewModel.swift in Sources */,
 				8C6312BE2E5B9C53008298FA /* AddSportsBriefUseCase.swift in Sources */,
 				8CCCC6902D1AA4BE009EC2B2 /* ForgotPasswordViewController.swift in Sources */,
 				8C821C4B2D5158600020EFE2 /* ShimmerCollectionViewCell.swift in Sources */,
@@ -1845,12 +1947,18 @@
 				8CDC8B2C2D29160D00E9C02B /* ForgotPasswordService.swift in Sources */,
 				8C0834AA2D36D06C00ABB393 /* LoadingIndicatorView.swift in Sources */,
 				8C6FD3C92D49CD9B004F17AF /* HomeStoryModel.swift in Sources */,
+				8C6312E72E5BAD5E008298FA /* TeamModels.swift in Sources */,
 				8C9C6C742DBE4F29009FBF3D /* SheetTableCell.swift in Sources */,
 				8C6CE1B12E588C76005F5330 /* SportsTableViewCell.swift in Sources */,
 				8C0834AB2D36D06C00ABB393 /* LoadingView.swift in Sources */,
 				8C31598F2D32509D00D56F57 /* HomeRouter.swift in Sources */,
 				8CE216E32D5BB1E500238534 /* TopOrgViewController.swift in Sources */,
+				8C6313012E5BB2F0008298FA /* GameUseCase.swift in Sources */,
+				8C6313022E5BB2F0008298FA /* GameService.swift in Sources */,
+				8C6313032E5BB2F0008298FA /* GameModels.swift in Sources */,
 				8CEAE0B62E01EC3E0002A2C6 /* ProjectStoriesViewModel.swift in Sources */,
+				8C6312E12E5BAD17008298FA /* TeamService.swift in Sources */,
+				8C6312E22E5BAD17008298FA /* TeamUseCase.swift in Sources */,
 				8CCCC6B22D1BF57C009EC2B2 /* VKEntryViewStyle.swift in Sources */,
 				8C8C83952D5E016B00C878D2 /* MapViewModel.swift in Sources */,
 				8CCCC6B32D1BF57C009EC2B2 /* VKLabel.swift in Sources */,

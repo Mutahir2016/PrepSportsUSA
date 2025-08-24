@@ -1,5 +1,5 @@
 //
-//  SelectSchoolOrganizationViewController.swift
+//  SelectTeamViewController.swift
 //  PrepSportsUSA
 //
 //  Created by PrepSportsUSA on 25/08/2025.
@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-class SelectSchoolOrganizationViewController: BaseViewController {
-    var viewModel: SelectSchoolOrganizationViewModel!
-    var router: SelectSchoolOrganizationRouter!
+class SelectTeamViewController: BaseViewController {
+    var viewModel: SelectTeamViewModel!
+    var router: SelectTeamRouter!
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -30,13 +30,16 @@ class SelectSchoolOrganizationViewController: BaseViewController {
     }
     
     private func setupViewModelAndRouter() {
-        viewModel = SelectSchoolOrganizationViewModel()
+        // View model should be set by the router when navigating
+        if viewModel == nil {
+            viewModel = SelectTeamViewModel()
+        }
         viewModel.delegate = self
-        router = SelectSchoolOrganizationRouter(self)
+        router = SelectTeamRouter(self)
     }
     
     private func setupUI() {
-        title = "Select School Organization"
+        title = "Select Team"
         view.backgroundColor = UIColor.systemBackground
         
         setupSearchField()
@@ -71,7 +74,7 @@ class SelectSchoolOrganizationViewController: BaseViewController {
         tableView.rowHeight = 60
         
         // Register cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SchoolCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TeamCell")
     }
     
     private func setupNavigationBar() {
@@ -102,9 +105,9 @@ class SelectSchoolOrganizationViewController: BaseViewController {
         // Handle text field clear button
         searchTextField.rx.text.orEmpty
             .subscribe(onNext: { [weak self] searchText in
-                // If text is cleared, reload all schools
+                // If text is cleared, reload all teams
                 if searchText.isEmpty {
-                    self?.viewModel.searchSchools(query: "")
+                    self?.viewModel.searchTeams(query: "")
                 }
             })
             .disposed(by: disposeBag)
@@ -138,28 +141,28 @@ class SelectSchoolOrganizationViewController: BaseViewController {
     }
 }
 
-// MARK: - SelectSchoolOrganizationViewModelDelegate
-extension SelectSchoolOrganizationViewController: SelectSchoolOrganizationViewModelDelegate {
+// MARK: - SelectTeamViewModelDelegate
+extension SelectTeamViewController: SelectTeamViewModelDelegate {
     func reloadTableData() {
         tableView.reloadData()
     }
     
-    func schoolSelected(_ school: SchoolOrganizationData) {
-        router.dismissWithSelection(school)
+    func teamSelected(_ team: TeamData) {
+        router.dismissWithSelection(team)
     }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension SelectSchoolOrganizationViewController: UITableViewDelegate, UITableViewDataSource {
+extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.schools.count
+        return viewModel.teams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SchoolCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath)
         
-        let school = viewModel.schools[indexPath.row]
-        cell.textLabel?.text = school.attributes.name
+        let team = viewModel.teams[indexPath.row]
+        cell.textLabel?.text = team.attributes.name
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none
         cell.selectionStyle = .default
@@ -169,17 +172,17 @@ extension SelectSchoolOrganizationViewController: UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let school = viewModel.schools[indexPath.row]
-        viewModel.selectSchool(school)
+        let team = viewModel.teams[indexPath.row]
+        viewModel.selectTeam(team)
     }
 }
 
 // MARK: - UITextFieldDelegate
-extension SelectSchoolOrganizationViewController: UITextFieldDelegate {
+extension SelectTeamViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Trigger search when user taps search button on keyboard
         let searchText = textField.text ?? ""
-        viewModel.searchSchools(query: searchText)
+        viewModel.searchTeams(query: searchText)
         textField.resignFirstResponder()
         return true
     }

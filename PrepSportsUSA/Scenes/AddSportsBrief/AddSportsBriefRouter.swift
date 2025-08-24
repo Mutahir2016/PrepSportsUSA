@@ -33,10 +33,32 @@ class AddSportsBriefRouter: BaseRouter {
     
     func navigateToSelectSchoolOrganization() {
         let storyboard = UIStoryboard(name: "SelectSchoolOrganization", bundle: nil)
-        if let selectSchoolVC = storyboard.instantiateViewController(withIdentifier: "SelectSchoolOrganizationViewController") as? SelectSchoolOrganizationViewController {
-            let navController = UINavigationController(rootViewController: selectSchoolVC)
+        if let selectVC = storyboard.instantiateViewController(withIdentifier: "SelectSchoolOrganizationViewController") as? SelectSchoolOrganizationViewController {
+            let navController = UINavigationController(rootViewController: selectVC)
             navController.modalPresentationStyle = .pageSheet
-            viewController.present(navController, animated: true)
+            viewController?.present(navController, animated: true)
+        }
+    }
+    
+    func navigateToSelectTeam(organizationId: String, sex: String) {
+        let storyboard = UIStoryboard(name: "SelectTeam", bundle: nil)
+        if let selectVC = storyboard.instantiateViewController(withIdentifier: "SelectTeamViewController") as? SelectTeamViewController {
+            // Update the view model with the required parameters
+            selectVC.viewModel = SelectTeamViewModel(organizationId: organizationId, sex: sex)
+            let navController = UINavigationController(rootViewController: selectVC)
+            navController.modalPresentationStyle = .pageSheet
+            viewController?.present(navController, animated: true)
+        }
+    }
+    
+    func navigateToSelectGame(teamId: String) {
+        let storyboard = UIStoryboard(name: "SelectGame", bundle: nil)
+        if let selectVC = storyboard.instantiateViewController(withIdentifier: "SelectGameViewController") as? SelectGameViewController {
+            // Update the view model with the required parameter
+            selectVC.viewModel = SelectGameViewModel(teamId: teamId)
+            let navController = UINavigationController(rootViewController: selectVC)
+            navController.modalPresentationStyle = .pageSheet
+            viewController?.present(navController, animated: true)
         }
     }
     
