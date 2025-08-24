@@ -74,8 +74,13 @@ class SportsRouter: BaseRouter {
     }
     
     func routeToAddSportsBriefs() {
-        let addSportsBriefsVC = AddSportsBriefsViewController()
-        navigate(from: viewController, to: addSportsBriefsVC)
+        guard let addSportsBriefVC = UIViewController.getViewControllerFor(name: .addSportsBrief) as? AddSportsBriefViewController else {
+            // Fallback to programmatic creation if storyboard not available
+            let addSportsBriefVC = AddSportsBriefViewController()
+            navigate(from: viewController, to: addSportsBriefVC)
+            return
+        }
+        navigate(from: viewController, to: addSportsBriefVC)
     }
     
     func routeToUpdatePassword() {

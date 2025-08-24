@@ -1,27 +1,27 @@
 //
-//  SportsService.swift
+//  SchoolOrganizationService.swift
 //  PrepSportsUSA
 //
-//  Created by PrepSportsUSA on 23/08/2025.
+//  Created by PrepSportsUSA on 25/08/2025.
 //
 
 import Foundation
 import RxSwift
 import Alamofire
 
-class SportsService: BaseServiceClass, SportsUseCaseProtocol {
-
+class SchoolOrganizationService: BaseServiceClass, SchoolOrganizationUseCaseProtocol {
+    
     let client = RKAPIClient.shared
-
-    func getPrePitches(pageSize: Int, pageNumber: Int) -> Observable<PrePitchesModel?> {
-        let endPoint = Environment.prePitches
+    
+    func getSchoolOrganizations(pageSize: Int, pageNumber: Int) -> Observable<SchoolOrganizationResponse?> {
+        let endPoint = "/limpar/organizations/schools"
         
         // Build query string manually to ensure proper encoding
         let queryString = "page[size]=\(pageSize)&page[number]=\(pageNumber)"
         let fullPath = "\(endPoint)?\(queryString)"
         
-        print("Pre-Pitches API Path: \(fullPath)")
-        print("Pre-Pitches Full URL: \(Environment.baseURL)\(fullPath)")
+        print("School Organizations API Path: \(fullPath)")
+        print("School Organizations Full URL: \(Environment.baseURL)\(fullPath)")
         
         // Build the URL request using the base service method
         var request = buildURLRequest(path: fullPath, httpMethod: .get)
@@ -29,7 +29,7 @@ class SportsService: BaseServiceClass, SportsUseCaseProtocol {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             print("Authorization token: Bearer \(token)")
         } else {
-            print("Warning: Missing authorization token for pre-pitches")
+            print("Warning: Missing authorization token for school organizations")
         }
         
         // Debug: Print all request headers
@@ -45,15 +45,15 @@ class SportsService: BaseServiceClass, SportsUseCaseProtocol {
         return client.requestData(request)
             .do(onNext: { data in
                 if let responseString = String(data: data, encoding: .utf8) {
-                    print("Pre-Pitches Raw Response: \(responseString)")
+                    print("School Organizations Raw Response: \(responseString)")
                 }
             })
-            .decode(type: PrePitchesModel?.self, decoder: decoder)
+            .decode(type: SchoolOrganizationResponse?.self, decoder: decoder)
             .catch { error in
                 if let customError = error as? CustomError, customError == .sessionExpired {
                     return Observable.error(CustomError.sessionExpired)
                 }
-                print("Pre-Pitches Network Error: \(error.localizedDescription)")
+                print("School Organizations Network Error: \(error.localizedDescription)")
                 return Observable.error(error)
             }
     }

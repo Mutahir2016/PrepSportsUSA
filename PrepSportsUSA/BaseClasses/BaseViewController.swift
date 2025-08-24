@@ -28,6 +28,7 @@ enum PrepSportsUSARouting: String {
     case search = "Search"
     case projectStories = "ProjectStories"
     case sports = "Sports"
+    case addSportsBrief = "AddSportsBrief"
 }
 
 class BaseViewController: UIViewController {

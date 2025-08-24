@@ -39,6 +39,9 @@ extension UIViewController {
                 return storyboard.instantiateViewController(withIdentifier: "\(name.rawValue)ViewController")
             case .sports:
                 return storyboard.instantiateViewController(withIdentifier: "\(name.rawValue)ViewController") as! SportsViewController
+                
+            case .addSportsBrief:
+                return storyboard.instantiateViewController(withIdentifier: "\(name.rawValue)ViewController") as! AddSportsBriefViewController
             default:
                 return nil
             }

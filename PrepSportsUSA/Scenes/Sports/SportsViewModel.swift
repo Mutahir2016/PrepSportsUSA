@@ -18,6 +18,7 @@ class SportsViewModel: BaseViewModel {
     // MARK: - Properties
     var sportsUseCase: SportsUseCase?
     let isLoadingRelay = BehaviorRelay<Bool>(value: false)
+    let sessionExpiredRelay = PublishRelay<Void>() // Relay to notify session expiration
     
     private(set) var prePitches = [PrePitchData]()
     
@@ -92,7 +93,11 @@ class SportsViewModel: BaseViewModel {
                 }
             }, onError: { [weak self] error in
                 self?.isLoadingRelay.accept(false)
-                print("API Error: \(error.localizedDescription)")
+                if let customError = error as? CustomError, customError == .sessionExpired {
+                    self?.sessionExpiredRelay.accept(()) // Emit session expired event
+                } else {
+                    print("API Error: \(error.localizedDescription)")
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -114,5 +119,3 @@ class SportsViewModel: BaseViewModel {
         fetchPrePitches()
     }
 }
-
-

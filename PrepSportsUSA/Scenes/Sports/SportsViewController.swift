@@ -60,12 +60,24 @@ class SportsViewController: BaseViewController {
         viewModel.refreshData()
     }
     
+    @IBAction func addBriefAction() {
+        router.routeToAddSportsBriefs()
+    }
+    
     private func bindViewModel() {
         // Bind loading state
         viewModel.isLoadingRelay
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 self?.handleLoadingState(isLoading)
+            })
+            .disposed(by: disposeBag)
+        
+        // Bind session expiration
+        viewModel.sessionExpiredRelay
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.showSessionExpiredAlert()
             })
             .disposed(by: disposeBag)
     }
@@ -176,9 +188,9 @@ extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Helper function to extract score from boxscore
     private func extractScore(from teamScore: [String: AnyCodable]?, sport: String) -> Int {
-        guard let teamScore = teamScore else { 
+        guard let teamScore = teamScore else {
             print("No team score data available")
-            return 0 
+            return 0
         }
         
         // Debug: Print all available keys and values
@@ -218,3 +230,16 @@ extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
         let _ = viewModel.prePitches[indexPath.row]
     }
 }
+
+// MARK: - Session Expiration Handling
+extension SportsViewController {
+    private func showSessionExpiredAlert() {
+        let alert = UIAlertController(title: "Session Expired", message: "Please login again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            // Handle logout and navigate to login screen
+            self.router?.logoutAndNavigateToSignIn(from: self)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+}
+

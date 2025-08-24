@@ -61,6 +61,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-oJ-WoN">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="addBriefAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pjj-Ju-p5A"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
