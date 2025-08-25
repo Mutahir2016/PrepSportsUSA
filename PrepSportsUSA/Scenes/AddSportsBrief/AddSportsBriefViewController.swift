@@ -70,12 +70,7 @@ class AddSportsBriefViewController: BaseViewController {
     private let maxImageCount = 3
     private var isUploading = false
     
-    // Boxscore views for different sports
-    private var currentBoxScoreView: UIView?
-    private var footballBoxScoreView: FootballBoxScoreView?
-    private var volleyballBoxScoreView: VolleyballBoxScoreView?
-    private var tennisBoxScoreView: TennisBoxScoreView?
-    private var golfBoxScoreView: GolfBoxScoreView?
+    // Remove complex boxscore view properties - we'll use the storyboard elements
     
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
@@ -98,24 +93,20 @@ class AddSportsBriefViewController: BaseViewController {
     
     
     private func setupButtonAppearances() {
-        // Style school organization button
-        schoolOrganizationButton.backgroundColor = UIColor.clear
+        // Simple button styling - just basic appearance
+        schoolOrganizationButton.backgroundColor = UIColor.white
         schoolOrganizationButton.layer.cornerRadius = 8
         schoolOrganizationButton.layer.borderWidth = 1
         schoolOrganizationButton.layer.borderColor = UIColor.systemGray4.cgColor
-//        schoolOrganizationButton.contentHorizontalAlignment = .left
-//        schoolOrganizationButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         schoolOrganizationButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         // Style team and game buttons similarly
         let dropdownButtons = [teamButton, gameButton]
         dropdownButtons.forEach { button in
-            button?.backgroundColor = UIColor.clear
+            button?.backgroundColor = UIColor.white
             button?.layer.cornerRadius = 8
             button?.layer.borderWidth = 1
             button?.layer.borderColor = UIColor.systemGray4.cgColor
-//            button?.contentHorizontalAlignment = .left
-//            button?.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         }
         
@@ -136,18 +127,14 @@ class AddSportsBriefViewController: BaseViewController {
     
     private func setupRadioButtonStyling() {
         // Style Boys button
-        boysButton.backgroundColor = UIColor.clear
+        boysButton.backgroundColor = UIColor.white
         boysButton.setTitleColor(UIColor.label, for: .normal)
         boysButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-//        boysButton.contentHorizontalAlignment = .left
-//        boysButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         // Style Girls button
-        girlsButton.backgroundColor = UIColor.clear
+        girlsButton.backgroundColor = UIColor.white
         girlsButton.setTitleColor(UIColor.label, for: .normal)
         girlsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-//        girlsButton.contentHorizontalAlignment = .left
-//        girlsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         // Setup radio button icons
         boysRadioIcon.image = UIImage(systemName: "circle")
@@ -159,18 +146,17 @@ class AddSportsBriefViewController: BaseViewController {
     private func addChevronToButton(_ button: UIButton) {
         let chevronImage = UIImage(systemName: "chevron.down")
         button.setImage(chevronImage, for: .normal)
-        button.tintColor = UIColor.systemGray3
-        button.semanticContentAttribute = .forceRightToLeft
+        button.tintColor = UIColor.systemGray // Make chevron darker and more visible
         
-        // Use a dispatch queue to ensure layout has occurred before adjusting insets
-        DispatchQueue.main.async {
-            let imageWidth = chevronImage?.size.width ?? 0
-            let textWidth = button.titleLabel?.frame.size.width ?? 0
-            let spacing: CGFloat = 8
-            
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: textWidth + spacing, bottom: 0, right: -(textWidth + spacing))
-            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageWidth + spacing), bottom: 0, right: imageWidth + spacing)
-        }
+        // Remove semantic content attribute that was causing layout issues
+        // button.semanticContentAttribute = .forceRightToLeft
+        
+        // Position chevron on the right side with proper spacing
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        // Ensure text alignment is left
+        button.contentHorizontalAlignment = .left
     }
     
     
@@ -185,8 +171,8 @@ class AddSportsBriefViewController: BaseViewController {
     
     private func setupUI() {
         title = "Add Sports Brief"
-        setupViewStyling()
         setupButtonAppearances()
+        setupBoxScoreTextFields()
         updateSchoolOrganizationButton()
         updateGenderViewVisibility()
         updateGenderSelection()
@@ -199,39 +185,7 @@ class AddSportsBriefViewController: BaseViewController {
         updateImageDisplay()
     }
     
-    private func setupViewStyling() {
-        // Set main background color to match Android design
-        view.backgroundColor = UIColor.systemGroupedBackground
-        
-        // Style container views with white background and rounded corners
-        let containerViews = [genderView, teamView, gameView, boxScoreView, descriptionView, imageUploadView, quotesView]
-        
-        containerViews.forEach { containerView in
-            guard let container = containerView else { return }
-            container.backgroundColor = UIColor.systemBackground
-            container.layer.cornerRadius = 12
-            container.layer.masksToBounds = true
-            
-            // Add subtle shadow for depth
-            container.layer.shadowColor = UIColor.black.cgColor
-            container.layer.shadowOffset = CGSize(width: 0, height: 1)
-            container.layer.shadowRadius = 3
-            container.layer.shadowOpacity = 0.1
-            container.layer.masksToBounds = false
-        }
-        
-        // Style school organization button container
-        if let schoolOrgView = schoolOrganizationButton.superview {
-            schoolOrgView.backgroundColor = UIColor.systemBackground
-            schoolOrgView.layer.cornerRadius = 12
-            schoolOrgView.layer.masksToBounds = true
-            schoolOrgView.layer.shadowColor = UIColor.black.cgColor
-            schoolOrgView.layer.shadowOffset = CGSize(width: 0, height: 1)
-            schoolOrgView.layer.shadowRadius = 3
-            schoolOrgView.layer.shadowOpacity = 0.1
-            schoolOrgView.layer.masksToBounds = false
-        }
-    }
+    // Remove complex view styling - keep it simple
     
     private func setupActions() {
         schoolOrganizationButton.addTarget(self, action: #selector(schoolOrganizationButtonTapped), for: .touchUpInside)
@@ -403,110 +357,15 @@ class AddSportsBriefViewController: BaseViewController {
         guard let game = selectedGame,
               let team = selectedTeam else { return }
         
-        let sport = team.attributes.sport.lowercased()
-        setupBoxScoreForSport(sport, homeTeam: game.attributes.homeTeam.name, awayTeam: game.attributes.awayTeam.name)
+        // Update team names in the storyboard labels
+        homeTeamLabel.text = game.attributes.homeTeam.name
+        awayTeamLabel.text = game.attributes.awayTeam.name
+        
+        // Clear all score fields
+        clearScoreFields()
     }
     
-    private func setupBoxScoreForSport(_ sport: String, homeTeam: String, awayTeam: String) {
-        // Remove current boxscore view if exists
-        currentBoxScoreView?.removeFromSuperview()
-        currentBoxScoreView = nil
-        
-        switch sport {
-        case "football":
-            setupFootballBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
-        case "volleyball":
-            setupVolleyballBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
-        case "tennis":
-            setupTennisBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
-        case "golf":
-            setupGolfBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
-        default:
-            setupUnsupportedSportView(sport: sport)
-        }
-    }
-    
-    private func setupFootballBoxScore(homeTeam: String, awayTeam: String) {
-        footballBoxScoreView = FootballBoxScoreView.fromNib()
-        guard let boxScoreView = footballBoxScoreView else { return }
-        
-        boxScoreView.homeTeamName = homeTeam
-        boxScoreView.awayTeamName = awayTeam
-        
-        addBoxScoreViewToContainer(boxScoreView)
-        currentBoxScoreView = boxScoreView
-    }
-    
-    private func setupVolleyballBoxScore(homeTeam: String, awayTeam: String) {
-        volleyballBoxScoreView = VolleyballBoxScoreView.fromNib()
-        guard let boxScoreView = volleyballBoxScoreView else { return }
-        
-        boxScoreView.homeTeamName = homeTeam
-        boxScoreView.awayTeamName = awayTeam
-        
-        addBoxScoreViewToContainer(boxScoreView)
-        currentBoxScoreView = boxScoreView
-    }
-    
-    private func setupTennisBoxScore(homeTeam: String, awayTeam: String) {
-        tennisBoxScoreView = TennisBoxScoreView.fromNib()
-        guard let boxScoreView = tennisBoxScoreView else { return }
-        
-        boxScoreView.homeTeamName = homeTeam
-        boxScoreView.awayTeamName = awayTeam
-        
-        addBoxScoreViewToContainer(boxScoreView)
-        currentBoxScoreView = boxScoreView
-    }
-    
-    private func setupGolfBoxScore(homeTeam: String, awayTeam: String) {
-        golfBoxScoreView = GolfBoxScoreView.fromNib()
-        guard let boxScoreView = golfBoxScoreView else { return }
-        
-        boxScoreView.homeTeamName = homeTeam
-        boxScoreView.awayTeamName = awayTeam
-        
-        addBoxScoreViewToContainer(boxScoreView)
-        currentBoxScoreView = boxScoreView
-    }
-    
-    private func setupUnsupportedSportView(sport: String) {
-        let unsupportedView = UIView()
-        unsupportedView.backgroundColor = UIColor.systemGray6
-        unsupportedView.layer.cornerRadius = 12
-        
-        let messageLabel = UILabel()
-        messageLabel.text = "Scoring for \(sport.capitalized) is not configured yet. Please contact support."
-        messageLabel.textAlignment = .center
-        messageLabel.numberOfLines = 0
-        messageLabel.font = UIFont.systemFont(ofSize: 16)
-        messageLabel.textColor = UIColor.systemRed
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        unsupportedView.addSubview(messageLabel)
-        
-        NSLayoutConstraint.activate([
-            messageLabel.centerXAnchor.constraint(equalTo: unsupportedView.centerXAnchor),
-            messageLabel.centerYAnchor.constraint(equalTo: unsupportedView.centerYAnchor),
-            messageLabel.leadingAnchor.constraint(greaterThanOrEqualTo: unsupportedView.leadingAnchor, constant: 16),
-            messageLabel.trailingAnchor.constraint(lessThanOrEqualTo: unsupportedView.trailingAnchor, constant: -16)
-        ])
-        
-        addBoxScoreViewToContainer(unsupportedView)
-        currentBoxScoreView = unsupportedView
-    }
-    
-    private func addBoxScoreViewToContainer(_ view: UIView) {
-        boxScoreView.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: boxScoreView.topAnchor),
-            view.leadingAnchor.constraint(equalTo: boxScoreView.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: boxScoreView.trailingAnchor),
-            view.bottomAnchor.constraint(equalTo: boxScoreView.bottomAnchor)
-        ])
-    }
+    // Remove complex sport-specific setup methods - we'll use the storyboard football box score
     
     private func setupBoxScoreTextFields() {
         let textFields = [homeQ1TextField, homeQ2TextField, homeQ3TextField, homeQ4TextField, homeOTTextField,
@@ -518,8 +377,17 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     private func clearScoreFields() {
-        // Box score functionality not implemented in current UI
-        // This method can be removed since we don't have score text fields in the storyboard
+        // Clear all score text fields
+        let textFields = [homeQ1TextField, homeQ2TextField, homeQ3TextField, homeQ4TextField, homeOTTextField,
+                         awayQ1TextField, awayQ2TextField, awayQ3TextField, awayQ4TextField, awayOTTextField]
+        
+        textFields.forEach { textField in
+            textField?.text = "0"
+        }
+        
+        // Clear final score labels
+        homeFinalLabel.text = "0"
+        awayFinalLabel.text = "0"
     }
     
     @objc private func boxScoreTextFieldChanged() {
@@ -552,6 +420,10 @@ class AddSportsBriefViewController: BaseViewController {
         descriptionTextView.layer.cornerRadius = 8
         descriptionTextView.layer.borderColor = UIColor.systemGray4.cgColor
         descriptionTextView.layer.borderWidth = 1
+        
+        // Set placeholder text
+        descriptionTextView.text = "Enter description (max 1000 characters)"
+        descriptionTextView.textColor = UIColor.placeholderText
     }
     
     @objc private func addImageButtonTapped() {
@@ -711,20 +583,26 @@ extension AddSportsBriefViewController {
     }
     
     private func createBoxscoreFromInputs() -> GenericBoxscore {
-        // Get boxscore data based on current sport
-        if let footballView = footballBoxScoreView {
-            return footballView.getBoxscoreData()
-        } else if let volleyballView = volleyballBoxScoreView {
-            return volleyballView.getBoxscoreData()
-        } else if let tennisView = tennisBoxScoreView {
-            return tennisView.getBoxscoreData()
-        } else if let golfView = golfBoxScoreView {
-            return golfView.getBoxscoreData()
-        } else {
-            // Fallback to empty boxscore
-            let emptyData: [String: AnyCodable] = [:]
-            return GenericBoxscore(homeTeam: emptyData, awayTeam: emptyData)
-        }
+        // Create boxscore from the storyboard text fields
+        var homeTeamData: [String: AnyCodable] = [:]
+        var awayTeamData: [String: AnyCodable] = [:]
+        
+        // Get scores from text fields
+        homeTeamData["q1"] = AnyCodable(Int(homeQ1TextField.text ?? "0") ?? 0)
+        homeTeamData["q2"] = AnyCodable(Int(homeQ2TextField.text ?? "0") ?? 0)
+        homeTeamData["q3"] = AnyCodable(Int(homeQ3TextField.text ?? "0") ?? 0)
+        homeTeamData["q4"] = AnyCodable(Int(homeQ4TextField.text ?? "0") ?? 0)
+        homeTeamData["ot"] = AnyCodable(Int(homeOTTextField.text ?? "0") ?? 0)
+        homeTeamData["final"] = AnyCodable(Int(homeFinalLabel.text ?? "0") ?? 0)
+        
+        awayTeamData["q1"] = AnyCodable(Int(awayQ1TextField.text ?? "0") ?? 0)
+        awayTeamData["q2"] = AnyCodable(Int(awayQ2TextField.text ?? "0") ?? 0)
+        awayTeamData["q3"] = AnyCodable(Int(awayQ3TextField.text ?? "0") ?? 0)
+        awayTeamData["q4"] = AnyCodable(Int(awayQ4TextField.text ?? "0") ?? 0)
+        awayTeamData["ot"] = AnyCodable(Int(awayOTTextField.text ?? "0") ?? 0)
+        awayTeamData["final"] = AnyCodable(Int(awayFinalLabel.text ?? "0") ?? 0)
+        
+        return GenericBoxscore(homeTeam: homeTeamData, awayTeam: awayTeamData)
     }
     
     private func generateImageFilename() -> String {
@@ -733,27 +611,8 @@ extension AddSportsBriefViewController {
     }
     
     private func showImageCaptionDialog(for uploadedImage: UploadedImage, at index: Int) {
-        let alert = UIAlertController(title: "Image Details", message: "Add caption and credit for this image", preferredStyle: .alert)
-        
-        alert.addTextField { textField in
-            textField.placeholder = "Caption"
-            textField.text = uploadedImage.caption
-        }
-        
-        alert.addTextField { textField in
-            textField.placeholder = "Credit"
-            textField.text = uploadedImage.credit
-        }
-        
-        alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            let caption = alert.textFields?[0].text ?? ""
-            let credit = alert.textFields?[1].text ?? ""
-            self?.viewModel.updateImageCaption(at: index, caption: caption, credit: credit)
-        })
-        
-        alert.addAction(UIAlertAction(title: "Skip", style: .cancel))
-        
-        present(alert, animated: true)
+        // Simplified image handling - just show success message
+        showAlert(title: "Image Uploaded", message: "Image uploaded successfully!")
     }
 }
     

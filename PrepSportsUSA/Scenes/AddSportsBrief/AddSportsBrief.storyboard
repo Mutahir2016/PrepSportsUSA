@@ -32,14 +32,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
                                                                 <rect key="frame" x="0.0" y="27.333333333333329" width="361" height="54"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-ch-org"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
                                                                 <state key="normal" title="Select School Organization">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
@@ -154,14 +153,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-team">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-team">
                                                                 <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="54"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-team"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
                                                                 <state key="normal" title="Select Team">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
@@ -195,14 +193,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-game">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-game">
                                                                 <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="54"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-game"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
                                                                 <state key="normal" title="Select Game">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
@@ -540,7 +537,7 @@
                                                                     <constraint firstAttribute="width" constant="120" id="WdB-add-image"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+
                                                                 <state key="normal" title="Add Image"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
