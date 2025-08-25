@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,673 +17,683 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-main">
-                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-main">
-                                        <rect key="frame" x="16" y="16" width="361" height="8214"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-mw-IPE">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1320.6666666666667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-ch-org">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="1000"/>
+                                            <stackView contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-main">
+                                                <rect key="frame" x="16" y="16" width="361" height="1288.6666666666667"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="School Organization" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-ch-org">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="938"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
-                                                        <rect key="frame" x="0.0" y="946" width="361" height="54"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="54" id="HtB-ch-org"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
-                                                        <state key="normal" title="Select School Organization">
-                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                <color key="value" systemColor="systemGray4Color"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="BtS-ch-org" secondAttribute="bottom" id="BtB-ch-org"/>
-                                                    <constraint firstItem="BtS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdB-ch-org"/>
-                                                    <constraint firstItem="LbS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdL-ch-org"/>
-                                                    <constraint firstItem="BtS-ch-org" firstAttribute="top" secondItem="LbS-ch-org" secondAttribute="bottom" constant="8" id="TpB-ch-org"/>
-                                                    <constraint firstItem="LbS-ch-org" firstAttribute="top" secondItem="VwS-ch-org" secondAttribute="top" id="TpL-ch-org"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BtS-ch-org" secondAttribute="trailing" id="TrB-ch-org"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-ch-org" secondAttribute="trailing" id="TrL-ch-org"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender">
-                                                <rect key="frame" x="0.0" y="1020" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Gender" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-gender">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="940"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender-container">
-                                                        <rect key="frame" x="0.0" y="948" width="361" height="52"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-ch-org">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="81.333333333333329"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-gender">
-                                                                <rect key="frame" x="16" y="16" width="329" height="20"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boys">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="20"/>
-                                                                        <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-boys">
-                                                                                <rect key="frame" x="0.0" y="0.66666666666666607" width="20" height="18.666666666666671"/>
-                                                                                <color key="tintColor" systemColor="systemGray3Color"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="20" id="HtI-boys"/>
-                                                                                    <constraint firstAttribute="width" constant="20" id="WdI-boys"/>
-                                                                                </constraints>
-                                                                            </imageView>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-boys">
-                                                                                <rect key="frame" x="28.000000000000007" y="0.0" width="126.66666666666669" height="20"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <state key="normal" title="Boys">
-                                                                                    <color key="titleColor" systemColor="labelColor"/>
-                                                                                </state>
-                                                                            </button>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-girls">
-                                                                        <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="20"/>
-                                                                        <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-girls">
-                                                                                <rect key="frame" x="0.0" y="0.66666666666666607" width="20" height="18.666666666666671"/>
-                                                                                <color key="tintColor" systemColor="systemGray3Color"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="20" id="HtI-girls"/>
-                                                                                    <constraint firstAttribute="width" constant="20" id="WdI-girls"/>
-                                                                                </constraints>
-                                                                            </imageView>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-girls">
-                                                                                <rect key="frame" x="27.999999999999993" y="0.0" width="126.33333333333331" height="20"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <state key="normal" title="Girls">
-                                                                                    <color key="titleColor" systemColor="labelColor"/>
-                                                                                </state>
-                                                                            </button>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="School Organization" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-ch-org">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
+                                                                <rect key="frame" x="0.0" y="27.333333333333329" width="361" height="54"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="54" id="HtB-ch-org"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                                <state key="normal" title="Select School Organization">
+                                                                    <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="StV-gender" secondAttribute="bottom" constant="16" id="BtS-gender-container"/>
-                                                            <constraint firstItem="StV-gender" firstAttribute="leading" secondItem="VwS-gender-container" secondAttribute="leading" constant="16" id="LdS-gender-container"/>
-                                                            <constraint firstItem="StV-gender" firstAttribute="top" secondItem="VwS-gender-container" secondAttribute="top" constant="16" id="TpS-gender-container"/>
-                                                            <constraint firstAttribute="trailing" secondItem="StV-gender" secondAttribute="trailing" constant="16" id="TrS-gender-container"/>
+                                                            <constraint firstAttribute="bottom" secondItem="BtS-ch-org" secondAttribute="bottom" id="BtB-ch-org"/>
+                                                            <constraint firstItem="BtS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdB-ch-org"/>
+                                                            <constraint firstItem="LbS-ch-org" firstAttribute="leading" secondItem="VwS-ch-org" secondAttribute="leading" id="LdL-ch-org"/>
+                                                            <constraint firstItem="BtS-ch-org" firstAttribute="top" secondItem="LbS-ch-org" secondAttribute="bottom" constant="8" id="TpB-ch-org"/>
+                                                            <constraint firstItem="LbS-ch-org" firstAttribute="top" secondItem="VwS-ch-org" secondAttribute="top" id="TpL-ch-org"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BtS-ch-org" secondAttribute="trailing" id="TrB-ch-org"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-ch-org" secondAttribute="trailing" id="TrL-ch-org"/>
                                                         </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                     </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="VwS-gender-container" secondAttribute="bottom" id="BtV-gender-container"/>
-                                                    <constraint firstItem="LbS-gender" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdL-gender"/>
-                                                    <constraint firstItem="VwS-gender-container" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdV-gender-container"/>
-                                                    <constraint firstItem="LbS-gender" firstAttribute="top" secondItem="VwS-gender" secondAttribute="top" id="TpL-gender"/>
-                                                    <constraint firstItem="VwS-gender-container" firstAttribute="top" secondItem="LbS-gender" secondAttribute="bottom" constant="8" id="TpV-gender-container"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-gender" secondAttribute="trailing" id="TrL-gender"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VwS-gender-container" secondAttribute="trailing" id="TrV-gender-container"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-team">
-                                                <rect key="frame" x="0.0" y="2040" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Team" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-team">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="938"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-team">
-                                                        <rect key="frame" x="0.0" y="946" width="361" height="54"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="54" id="HtB-team"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
-                                                        <state key="normal" title="Select Team">
-                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                <color key="value" systemColor="systemGray4Color"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="BtS-team" secondAttribute="bottom" id="BtB-team"/>
-                                                    <constraint firstItem="BtS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdB-team"/>
-                                                    <constraint firstItem="LbS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdL-team"/>
-                                                    <constraint firstItem="BtS-team" firstAttribute="top" secondItem="LbS-team" secondAttribute="bottom" constant="8" id="TpB-team"/>
-                                                    <constraint firstItem="LbS-team" firstAttribute="top" secondItem="VwS-team" secondAttribute="top" id="TpL-team"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BtS-team" secondAttribute="trailing" id="TrB-team"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-team" secondAttribute="trailing" id="TrL-team"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-game">
-                                                <rect key="frame" x="0.0" y="3060" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Game" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-game">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="938"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-game">
-                                                        <rect key="frame" x="0.0" y="946" width="361" height="54"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="54" id="HtB-game"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
-                                                        <state key="normal" title="Select Game">
-                                                            <color key="titleColor" systemColor="placeholderTextColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                <color key="value" systemColor="systemGray4Color"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="BtS-game" secondAttribute="bottom" id="BtB-game"/>
-                                                    <constraint firstItem="BtS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdB-game"/>
-                                                    <constraint firstItem="LbS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdL-game"/>
-                                                    <constraint firstItem="BtS-game" firstAttribute="top" secondItem="LbS-game" secondAttribute="bottom" constant="8" id="TpB-game"/>
-                                                    <constraint firstItem="LbS-game" firstAttribute="top" secondItem="VwS-game" secondAttribute="top" id="TpL-game"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BtS-game" secondAttribute="trailing" id="TrB-game"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-game" secondAttribute="trailing" id="TrL-game"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore">
-                                                <rect key="frame" x="0.0" y="4080" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Box Score" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-boxscore">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="748"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore-container">
-                                                        <rect key="frame" x="0.0" y="756" width="361" height="244"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender">
+                                                        <rect key="frame" x="0.0" y="101.33333333333334" width="361" height="71.333333333333343"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boxscore">
-                                                                <rect key="frame" x="16" y="16" width="329" height="212"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Gender" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-gender">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender-container">
+                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="44"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Football Box Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-boxscore-title">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="19.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                                    </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-teams">
-                                                                        <rect key="frame" x="0.0" y="35.33333333333303" width="329" height="46.333333333333343"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-gender">
+                                                                        <rect key="frame" x="16" y="12" width="329" height="20"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="46.333333333333336"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boys">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="20"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home">
-                                                                                        <rect key="frame" x="65.333333333333329" y="0.33333333333333215" width="24" height="23.333333333333336"/>
-                                                                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-boys">
+                                                                                        <rect key="frame" x="0.0" y="0.66666666666666607" width="20" height="18.666666666666671"/>
+                                                                                        <color key="tintColor" systemColor="systemGray3Color"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="24" id="HtI-home"/>
-                                                                                            <constraint firstAttribute="width" constant="24" id="WdI-home"/>
+                                                                                            <constraint firstAttribute="height" constant="20" id="HtI-boys"/>
+                                                                                            <constraint firstAttribute="width" constant="20" id="WdI-boys"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-team">
-                                                                                        <rect key="frame" x="43.666666666666679" y="31.999999999999996" width="67.333333333333314" height="14.333333333333332"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                    </label>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-boys">
+                                                                                        <rect key="frame" x="28.000000000000007" y="0.0" width="126.66666666666669" height="20"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                        <state key="normal" title="Boys">
+                                                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                                                        </state>
+                                                                                    </button>
                                                                                 </subviews>
                                                                             </stackView>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away">
-                                                                                <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="46.333333333333336"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-girls">
+                                                                                <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="20"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-away">
-                                                                                        <rect key="frame" x="65.000000000000028" y="0.99999999999999822" width="24" height="22.333333333333336"/>
-                                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-girls">
+                                                                                        <rect key="frame" x="0.0" y="0.66666666666666607" width="20" height="18.666666666666671"/>
+                                                                                        <color key="tintColor" systemColor="systemGray3Color"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="24" id="HtI-away"/>
-                                                                                            <constraint firstAttribute="width" constant="24" id="WdI-away"/>
+                                                                                            <constraint firstAttribute="height" constant="20" id="HtI-girls"/>
+                                                                                            <constraint firstAttribute="width" constant="20" id="WdI-girls"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-team">
-                                                                                        <rect key="frame" x="45.333333333333343" y="31.999999999999996" width="63.333333333333343" height="14.333333333333332"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                    </label>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-girls">
+                                                                                        <rect key="frame" x="27.999999999999993" y="0.0" width="126.33333333333331" height="20"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                        <state key="normal" title="Girls">
+                                                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                                                        </state>
+                                                                                    </button>
                                                                                 </subviews>
                                                                             </stackView>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-score-headers">
-                                                                        <rect key="frame" x="0.0" y="97.66666666666697" width="329" height="14.333333333333329"/>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="StV-gender" secondAttribute="bottom" constant="12" id="BtS-gender-container"/>
+                                                                    <constraint firstItem="StV-gender" firstAttribute="leading" secondItem="VwS-gender-container" secondAttribute="leading" constant="16" id="LdS-gender-container"/>
+                                                                    <constraint firstItem="StV-gender" firstAttribute="top" secondItem="VwS-gender-container" secondAttribute="top" constant="12" id="TpS-gender-container"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="StV-gender" secondAttribute="trailing" constant="16" id="TrS-gender-container"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="VwS-gender-container" secondAttribute="bottom" id="BtV-gender-container"/>
+                                                            <constraint firstItem="LbS-gender" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdL-gender"/>
+                                                            <constraint firstItem="VwS-gender-container" firstAttribute="leading" secondItem="VwS-gender" secondAttribute="leading" id="LdV-gender-container"/>
+                                                            <constraint firstItem="LbS-gender" firstAttribute="top" secondItem="VwS-gender" secondAttribute="top" id="TpL-gender"/>
+                                                            <constraint firstItem="VwS-gender-container" firstAttribute="top" secondItem="LbS-gender" secondAttribute="bottom" constant="8" id="TpV-gender-container"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-gender" secondAttribute="trailing" id="TrL-gender"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VwS-gender-container" secondAttribute="trailing" id="TrV-gender-container"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-team">
+                                                        <rect key="frame" x="0.0" y="192.66666666666669" width="361" height="81.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Team" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-team">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-team">
+                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="54"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="54" id="HtB-team"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                                <state key="normal" title="Select Team">
+                                                                    <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="BtS-team" secondAttribute="bottom" id="BtB-team"/>
+                                                            <constraint firstItem="BtS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdB-team"/>
+                                                            <constraint firstItem="LbS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdL-team"/>
+                                                            <constraint firstItem="BtS-team" firstAttribute="top" secondItem="LbS-team" secondAttribute="bottom" constant="8" id="TpB-team"/>
+                                                            <constraint firstItem="LbS-team" firstAttribute="top" secondItem="VwS-team" secondAttribute="top" id="TpL-team"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BtS-team" secondAttribute="trailing" id="TrB-team"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-team" secondAttribute="trailing" id="TrL-team"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-game">
+                                                        <rect key="frame" x="0.0" y="294" width="361" height="81.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Game" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-game">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-game">
+                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="54"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="54" id="HtB-game"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="40" maxY="0.0"/>
+                                                                <state key="normal" title="Select Game">
+                                                                    <color key="titleColor" systemColor="placeholderTextColor"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="BtS-game" secondAttribute="bottom" id="BtB-game"/>
+                                                            <constraint firstItem="BtS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdB-game"/>
+                                                            <constraint firstItem="LbS-game" firstAttribute="leading" secondItem="VwS-game" secondAttribute="leading" id="LdL-game"/>
+                                                            <constraint firstItem="BtS-game" firstAttribute="top" secondItem="LbS-game" secondAttribute="bottom" constant="8" id="TpB-game"/>
+                                                            <constraint firstItem="LbS-game" firstAttribute="top" secondItem="VwS-game" secondAttribute="top" id="TpL-game"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BtS-game" secondAttribute="trailing" id="TrB-game"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-game" secondAttribute="trailing" id="TrL-game"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore">
+                                                        <rect key="frame" x="0.0" y="395.33333333333337" width="361" height="271.33333333333337"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Box Score" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-boxscore">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore-container">
+                                                                <rect key="frame" x="0.0" y="27.333333333333371" width="361" height="244"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boxscore">
+                                                                        <rect key="frame" x="16" y="15.999999999999943" width="329" height="212"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-team-header">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Football Box Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-boxscore-title">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="329" height="19.333333333333332"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q1-header">
-                                                                                <rect key="frame" x="73.666666666666671" y="0.0" width="43" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q2-header">
-                                                                                <rect key="frame" x="124.66666666666667" y="0.0" width="42.666666666666671" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q3-header">
-                                                                                <rect key="frame" x="175.33333333333334" y="0.0" width="42.666666666666657" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q4-header">
-                                                                                <rect key="frame" x="226" y="0.0" width="43" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-ot-header">
-                                                                                <rect key="frame" x="277" y="0.0" width="42.666666666666686" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-final-header">
-                                                                                <rect key="frame" x="327.66666666666669" y="0.0" width="1.3333333333333144" height="14.333333333333334"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                            </label>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-teams">
+                                                                                <rect key="frame" x="0.0" y="35.333333333333371" width="329" height="46.333333333333343"/>
+                                                                                <subviews>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="46.333333333333336"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home">
+                                                                                                <rect key="frame" x="65.333333333333329" y="0.33333333333333215" width="24" height="23.333333333333336"/>
+                                                                                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="24" id="HtI-home"/>
+                                                                                                    <constraint firstAttribute="width" constant="24" id="WdI-home"/>
+                                                                                                </constraints>
+                                                                                            </imageView>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-team">
+                                                                                                <rect key="frame" x="43.666666666666679" y="31.999999999999996" width="67.333333333333314" height="14.333333333333332"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                    </stackView>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away">
+                                                                                        <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="46.333333333333336"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-away">
+                                                                                                <rect key="frame" x="65.000000000000028" y="0.99999999999999822" width="24" height="22.333333333333336"/>
+                                                                                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="24" id="HtI-away"/>
+                                                                                                    <constraint firstAttribute="width" constant="24" id="WdI-away"/>
+                                                                                                </constraints>
+                                                                                            </imageView>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-team">
+                                                                                                <rect key="frame" x="45.333333333333343" y="31.999999999999996" width="63.333333333333343" height="14.333333333333332"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                    </stackView>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-score-headers">
+                                                                                <rect key="frame" x="0.0" y="97.666666666666742" width="329" height="14.333333333333329"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-team-header">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="17.666666666666668" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q1-header">
+                                                                                        <rect key="frame" x="25.666666666666664" y="0.0" width="42.999999999999993" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q2-header">
+                                                                                        <rect key="frame" x="76.666666666666671" y="0.0" width="42.666666666666671" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q3-header">
+                                                                                        <rect key="frame" x="127.33333333333336" y="0.0" width="42.666666666666671" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-q4-header">
+                                                                                        <rect key="frame" x="178" y="0.0" width="43" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-ot-header">
+                                                                                        <rect key="frame" x="229" y="0.0" width="42.666666666666686" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-final-header">
+                                                                                        <rect key="frame" x="279.66666666666669" y="0.0" width="49.333333333333314" height="14.333333333333334"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="LbS-final-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.15" id="WdL-final-header"/>
+                                                                                    <constraint firstItem="LbS-ot-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-ot-header"/>
+                                                                                    <constraint firstItem="LbS-q1-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q1-header"/>
+                                                                                    <constraint firstItem="LbS-q2-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q2-header"/>
+                                                                                    <constraint firstItem="LbS-q3-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q3-header"/>
+                                                                                    <constraint firstItem="LbS-q4-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q4-header"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home-scores">
+                                                                                <rect key="frame" x="0.0" y="128" width="329" height="34"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-label">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="17.666666666666668" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q1">
+                                                                                        <rect key="frame" x="25.666666666666664" y="0.0" width="42.999999999999993" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q2">
+                                                                                        <rect key="frame" x="76.666666666666671" y="0.0" width="42.666666666666671" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q3">
+                                                                                        <rect key="frame" x="127.33333333333336" y="0.0" width="42.666666666666671" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q4">
+                                                                                        <rect key="frame" x="178" y="0.0" width="43" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-ot">
+                                                                                        <rect key="frame" x="229" y="0.0" width="42.666666666666686" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-final">
+                                                                                        <rect key="frame" x="279.66666666666669" y="0.0" width="49.333333333333314" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="LbS-home-final" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.15" id="WdL-home-final"/>
+                                                                                    <constraint firstItem="TxF-home-ot" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-ot"/>
+                                                                                    <constraint firstItem="TxF-home-q1" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q1"/>
+                                                                                    <constraint firstItem="TxF-home-q2" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q2"/>
+                                                                                    <constraint firstItem="TxF-home-q3" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q3"/>
+                                                                                    <constraint firstItem="TxF-home-q4" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q4"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away-scores">
+                                                                                <rect key="frame" x="0.0" y="178" width="329" height="34"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-label">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="17.666666666666668" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                    </label>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q1">
+                                                                                        <rect key="frame" x="25.666666666666664" y="0.0" width="42.999999999999993" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q2">
+                                                                                        <rect key="frame" x="76.666666666666671" y="0.0" width="42.666666666666671" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q3">
+                                                                                        <rect key="frame" x="127.33333333333336" y="0.0" width="42.666666666666671" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q4">
+                                                                                        <rect key="frame" x="178" y="0.0" width="43" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-ot">
+                                                                                        <rect key="frame" x="229" y="0.0" width="42.666666666666686" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-final">
+                                                                                        <rect key="frame" x="279.66666666666669" y="0.0" width="49.333333333333314" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="LbS-away-final" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.15" id="WdL-away-final"/>
+                                                                                    <constraint firstItem="TxF-away-ot" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-ot"/>
+                                                                                    <constraint firstItem="TxF-away-q1" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q1"/>
+                                                                                    <constraint firstItem="TxF-away-q2" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q2"/>
+                                                                                    <constraint firstItem="TxF-away-q3" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q3"/>
+                                                                                    <constraint firstItem="TxF-away-q4" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q4"/>
+                                                                                </constraints>
+                                                                            </stackView>
                                                                         </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstItem="LbS-final-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.15" id="WdL-final-header"/>
-                                                                            <constraint firstItem="LbS-ot-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-ot-header"/>
-                                                                            <constraint firstItem="LbS-q1-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q1-header"/>
-                                                                            <constraint firstItem="LbS-q2-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q2-header"/>
-                                                                            <constraint firstItem="LbS-q3-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q3-header"/>
-                                                                            <constraint firstItem="LbS-q4-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q4-header"/>
-                                                                            <constraint firstItem="LbS-team-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.2" id="WdL-team-header"/>
-                                                                        </constraints>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home-scores">
-                                                                        <rect key="frame" x="0.0" y="128" width="329" height="34"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-label">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q1">
-                                                                                <rect key="frame" x="73.666666666666671" y="0.0" width="43" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q2">
-                                                                                <rect key="frame" x="124.66666666666667" y="0.0" width="42.666666666666671" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q3">
-                                                                                <rect key="frame" x="175.33333333333334" y="0.0" width="42.666666666666657" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q4">
-                                                                                <rect key="frame" x="226" y="0.0" width="43" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-ot">
-                                                                                <rect key="frame" x="277" y="0.0" width="42.666666666666686" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-final">
-                                                                                <rect key="frame" x="327.66666666666669" y="0.0" width="1.3333333333333144" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                                            </label>
-                                                                        </subviews>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="StV-boxscore" secondAttribute="bottom" constant="16" id="BtS-boxscore-container"/>
+                                                                    <constraint firstItem="StV-boxscore" firstAttribute="leading" secondItem="VwS-boxscore-container" secondAttribute="leading" constant="16" id="LdS-boxscore-container"/>
+                                                                    <constraint firstItem="StV-boxscore" firstAttribute="top" secondItem="VwS-boxscore-container" secondAttribute="top" constant="16" id="TpS-boxscore-container"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="StV-boxscore" secondAttribute="trailing" constant="16" id="TrS-boxscore-container"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="VwS-boxscore-container" secondAttribute="bottom" id="BtV-boxscore-container"/>
+                                                            <constraint firstItem="LbS-boxscore" firstAttribute="leading" secondItem="VwS-boxscore" secondAttribute="leading" id="LdL-boxscore"/>
+                                                            <constraint firstItem="VwS-boxscore-container" firstAttribute="leading" secondItem="VwS-boxscore" secondAttribute="leading" id="LdV-boxscore-container"/>
+                                                            <constraint firstItem="LbS-boxscore" firstAttribute="top" secondItem="VwS-boxscore" secondAttribute="top" id="TpL-boxscore"/>
+                                                            <constraint firstItem="VwS-boxscore-container" firstAttribute="top" secondItem="LbS-boxscore" secondAttribute="bottom" constant="8" id="TpV-boxscore-container"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-boxscore" secondAttribute="trailing" id="TrL-boxscore"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VwS-boxscore-container" secondAttribute="trailing" id="TrV-boxscore-container"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-desc">
+                                                        <rect key="frame" x="0.0" y="686.66666666666663" width="361" height="147.33333333333337"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-desc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter description (max 1000 characters)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-desc">
+                                                                <rect key="frame" x="0.0" y="27.333333333333371" width="361" height="120"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="120" id="HtT-desc"/>
+                                                                </constraints>
+                                                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="12"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="TxV-desc" secondAttribute="bottom" id="BtT-desc"/>
+                                                            <constraint firstItem="LbS-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdL-desc"/>
+                                                            <constraint firstItem="TxV-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdT-desc"/>
+                                                            <constraint firstItem="LbS-desc" firstAttribute="top" secondItem="VwS-desc" secondAttribute="top" id="TpL-desc"/>
+                                                            <constraint firstItem="TxV-desc" firstAttribute="top" secondItem="LbS-desc" secondAttribute="bottom" constant="8" id="TpT-desc"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-desc" secondAttribute="trailing" id="TrL-desc"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TxV-desc" secondAttribute="trailing" id="TrT-desc"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-image-upload">
+                                                        <rect key="frame" x="0.0" y="854" width="361" height="153.33333333333337"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Image Upload (Max 3)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-image-upload">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-image-thumbnails">
+                                                                <rect key="frame" x="0.0" y="27.333333333333371" width="226" height="70"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="LbS-home-final" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.15" id="WdL-home-final"/>
-                                                                            <constraint firstItem="LbS-home-label" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.2" id="WdL-home-label"/>
-                                                                            <constraint firstItem="TxF-home-ot" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-ot"/>
-                                                                            <constraint firstItem="TxF-home-q1" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q1"/>
-                                                                            <constraint firstItem="TxF-home-q2" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q2"/>
-                                                                            <constraint firstItem="TxF-home-q3" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q3"/>
-                                                                            <constraint firstItem="TxF-home-q4" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q4"/>
+                                                                            <constraint firstAttribute="height" constant="70" id="HtI-thumbnail1"/>
+                                                                            <constraint firstAttribute="width" constant="70" id="WdI-thumbnail1"/>
                                                                         </constraints>
-                                                                    </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away-scores">
-                                                                        <rect key="frame" x="0.0" y="178" width="329" height="34"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-label">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q1">
-                                                                                <rect key="frame" x="73.666666666666671" y="0.0" width="43" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q2">
-                                                                                <rect key="frame" x="124.66666666666667" y="0.0" width="42.666666666666671" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q3">
-                                                                                <rect key="frame" x="175.33333333333334" y="0.0" width="42.666666666666657" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-q4">
-                                                                                <rect key="frame" x="226" y="0.0" width="43" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-away-ot">
-                                                                                <rect key="frame" x="277" y="0.0" width="42.666666666666686" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-final">
-                                                                                <rect key="frame" x="327.66666666666669" y="0.0" width="1.3333333333333144" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                                            </label>
-                                                                        </subviews>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail2">
+                                                                        <rect key="frame" x="78" y="0.0" width="70" height="70"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="LbS-away-final" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.15" id="WdL-away-final"/>
-                                                                            <constraint firstItem="LbS-away-label" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.2" id="WdL-away-label"/>
-                                                                            <constraint firstItem="TxF-away-ot" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-ot"/>
-                                                                            <constraint firstItem="TxF-away-q1" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q1"/>
-                                                                            <constraint firstItem="TxF-away-q2" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q2"/>
-                                                                            <constraint firstItem="TxF-away-q3" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q3"/>
-                                                                            <constraint firstItem="TxF-away-q4" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q4"/>
+                                                                            <constraint firstAttribute="height" constant="70" id="HtI-thumbnail2"/>
+                                                                            <constraint firstAttribute="width" constant="70" id="WdI-thumbnail2"/>
                                                                         </constraints>
-                                                                    </stackView>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail3">
+                                                                        <rect key="frame" x="156" y="0.0" width="70" height="70"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="70" id="HtI-thumbnail3"/>
+                                                                            <constraint firstAttribute="width" constant="70" id="WdI-thumbnail3"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-add-image">
+                                                                <rect key="frame" x="0.0" y="113.33333333333326" width="120" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="HtB-add-image"/>
+                                                                    <constraint firstAttribute="width" constant="120" id="WdB-add-image"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                                <state key="normal" title="Add Image"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                        <color key="value" systemColor="systemBlueColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="BtS-add-image" secondAttribute="bottom" id="BtB-add-image"/>
+                                                            <constraint firstItem="BtS-add-image" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdB-add-image"/>
+                                                            <constraint firstItem="LbS-image-upload" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdL-image-upload"/>
+                                                            <constraint firstItem="StV-image-thumbnails" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdS-image-thumbnails"/>
+                                                            <constraint firstItem="BtS-add-image" firstAttribute="top" secondItem="StV-image-thumbnails" secondAttribute="bottom" constant="16" id="TpB-add-image"/>
+                                                            <constraint firstItem="LbS-image-upload" firstAttribute="top" secondItem="VwS-image-upload" secondAttribute="top" id="TpL-image-upload"/>
+                                                            <constraint firstItem="StV-image-thumbnails" firstAttribute="top" secondItem="LbS-image-upload" secondAttribute="bottom" constant="8" id="TpS-image-thumbnails"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-image-upload" secondAttribute="trailing" id="TrL-image-upload"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-quotes">
+                                                        <rect key="frame" x="0.0" y="1027.3333333333333" width="361" height="187.33333333333326"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Quotes (Optional)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-quotes">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-quotes">
+                                                                <rect key="frame" x="0.0" y="27.333333333333485" width="361" height="160"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote2">
+                                                                        <rect key="frame" x="0.0" y="42" width="361" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote3">
+                                                                        <rect key="frame" x="0.0" y="84" width="361" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote4">
+                                                                        <rect key="frame" x="0.0" y="126" width="361" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="StV-boxscore" secondAttribute="bottom" constant="16" id="BtS-boxscore-container"/>
-                                                            <constraint firstItem="StV-boxscore" firstAttribute="leading" secondItem="VwS-boxscore-container" secondAttribute="leading" constant="16" id="LdS-boxscore-container"/>
-                                                            <constraint firstItem="StV-boxscore" firstAttribute="top" secondItem="VwS-boxscore-container" secondAttribute="top" constant="16" id="TpS-boxscore-container"/>
-                                                            <constraint firstAttribute="trailing" secondItem="StV-boxscore" secondAttribute="trailing" constant="16" id="TrS-boxscore-container"/>
+                                                            <constraint firstAttribute="bottom" secondItem="StV-quotes" secondAttribute="bottom" id="BtS-quotes"/>
+                                                            <constraint firstItem="LbS-quotes" firstAttribute="leading" secondItem="VwS-quotes" secondAttribute="leading" id="LdL-quotes"/>
+                                                            <constraint firstItem="StV-quotes" firstAttribute="leading" secondItem="VwS-quotes" secondAttribute="leading" id="LdS-quotes"/>
+                                                            <constraint firstItem="LbS-quotes" firstAttribute="top" secondItem="VwS-quotes" secondAttribute="top" id="TpL-quotes"/>
+                                                            <constraint firstItem="StV-quotes" firstAttribute="top" secondItem="LbS-quotes" secondAttribute="bottom" constant="8" id="TpS-quotes"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LbS-quotes" secondAttribute="trailing" id="TrL-quotes"/>
+                                                            <constraint firstAttribute="trailing" secondItem="StV-quotes" secondAttribute="trailing" id="TrS-quotes"/>
                                                         </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                     </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="VwS-boxscore-container" secondAttribute="bottom" id="BtV-boxscore-container"/>
-                                                    <constraint firstItem="LbS-boxscore" firstAttribute="leading" secondItem="VwS-boxscore" secondAttribute="leading" id="LdL-boxscore"/>
-                                                    <constraint firstItem="VwS-boxscore-container" firstAttribute="leading" secondItem="VwS-boxscore" secondAttribute="leading" id="LdV-boxscore-container"/>
-                                                    <constraint firstItem="LbS-boxscore" firstAttribute="top" secondItem="VwS-boxscore" secondAttribute="top" id="TpL-boxscore"/>
-                                                    <constraint firstItem="VwS-boxscore-container" firstAttribute="top" secondItem="LbS-boxscore" secondAttribute="bottom" constant="8" id="TpV-boxscore-container"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-boxscore" secondAttribute="trailing" id="TrL-boxscore"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VwS-boxscore-container" secondAttribute="trailing" id="TrV-boxscore-container"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-desc">
-                                                <rect key="frame" x="0.0" y="5100" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-desc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="872"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter description (max 1000 characters)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-desc">
-                                                        <rect key="frame" x="0.0" y="880" width="361" height="120"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-submit">
+                                                        <rect key="frame" x="0.0" y="1234.6666666666667" width="361" height="54"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="HtT-desc"/>
+                                                            <constraint firstAttribute="height" constant="54" id="HtB-submit"/>
                                                         </constraints>
-                                                        <color key="textColor" systemColor="placeholderTextColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <state key="normal" title="Submit Sports Brief">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="12"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                <color key="value" systemColor="systemGray4Color"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="TxV-desc" secondAttribute="bottom" id="BtT-desc"/>
-                                                    <constraint firstItem="LbS-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdL-desc"/>
-                                                    <constraint firstItem="TxV-desc" firstAttribute="leading" secondItem="VwS-desc" secondAttribute="leading" id="LdT-desc"/>
-                                                    <constraint firstItem="LbS-desc" firstAttribute="top" secondItem="VwS-desc" secondAttribute="top" id="TpL-desc"/>
-                                                    <constraint firstItem="TxV-desc" firstAttribute="top" secondItem="LbS-desc" secondAttribute="bottom" constant="8" id="TpT-desc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-desc" secondAttribute="trailing" id="TrL-desc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="TxV-desc" secondAttribute="trailing" id="TrT-desc"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-image-upload">
-                                                <rect key="frame" x="0.0" y="6120" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Image Upload (Max 3)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-image-upload">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="866"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-image-thumbnails">
-                                                        <rect key="frame" x="0.0" y="874" width="226" height="70"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="HtI-thumbnail1"/>
-                                                                    <constraint firstAttribute="width" constant="70" id="WdI-thumbnail1"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail2">
-                                                                <rect key="frame" x="78" y="0.0" width="70" height="70"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="HtI-thumbnail2"/>
-                                                                    <constraint firstAttribute="width" constant="70" id="WdI-thumbnail2"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-thumbnail3">
-                                                                <rect key="frame" x="156" y="0.0" width="70" height="70"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="HtI-thumbnail3"/>
-                                                                    <constraint firstAttribute="width" constant="70" id="WdI-thumbnail3"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-add-image">
-                                                        <rect key="frame" x="0.0" y="960" width="120" height="40"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="HtB-add-image"/>
-                                                            <constraint firstAttribute="width" constant="120" id="WdB-add-image"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                        <state key="normal" title="Add Image"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                <color key="value" systemColor="systemBlueColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="BtS-add-image" secondAttribute="bottom" id="BtB-add-image"/>
-                                                    <constraint firstItem="BtS-add-image" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdB-add-image"/>
-                                                    <constraint firstItem="LbS-image-upload" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdL-image-upload"/>
-                                                    <constraint firstItem="StV-image-thumbnails" firstAttribute="leading" secondItem="VwS-image-upload" secondAttribute="leading" id="LdS-image-thumbnails"/>
-                                                    <constraint firstItem="BtS-add-image" firstAttribute="top" secondItem="StV-image-thumbnails" secondAttribute="bottom" constant="16" id="TpB-add-image"/>
-                                                    <constraint firstItem="LbS-image-upload" firstAttribute="top" secondItem="VwS-image-upload" secondAttribute="top" id="TpL-image-upload"/>
-                                                    <constraint firstItem="StV-image-thumbnails" firstAttribute="top" secondItem="LbS-image-upload" secondAttribute="bottom" constant="8" id="TpS-image-thumbnails"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-image-upload" secondAttribute="trailing" id="TrL-image-upload"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-quotes">
-                                                <rect key="frame" x="0.0" y="7140" width="361" height="1000"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Quotes (Optional)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-quotes">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-quotes">
-                                                        <rect key="frame" x="0.0" y="27.333333333332973" width="361" height="972.66666666666652"/>
-                                                        <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="846.66666666666663"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                        <integer key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote2">
-                                                                <rect key="frame" x="0.0" y="854.66666666666697" width="361" height="34"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                        <integer key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote3">
-                                                                <rect key="frame" x="0.0" y="896.66666666666697" width="361" height="34"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                        <integer key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quote 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-quote4">
-                                                                <rect key="frame" x="0.0" y="938.66666666666697" width="361" height="34"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="8"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                        <integer key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                                        <color key="value" systemColor="systemGray4Color"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="StV-quotes" secondAttribute="bottom" id="BtS-quotes"/>
-                                                    <constraint firstItem="LbS-quotes" firstAttribute="leading" secondItem="VwS-quotes" secondAttribute="leading" id="LdL-quotes"/>
-                                                    <constraint firstItem="StV-quotes" firstAttribute="leading" secondItem="VwS-quotes" secondAttribute="leading" id="LdS-quotes"/>
-                                                    <constraint firstItem="LbS-quotes" firstAttribute="top" secondItem="VwS-quotes" secondAttribute="top" id="TpL-quotes"/>
-                                                    <constraint firstItem="StV-quotes" firstAttribute="top" secondItem="LbS-quotes" secondAttribute="bottom" constant="8" id="TpS-quotes"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LbS-quotes" secondAttribute="trailing" id="TrL-quotes"/>
-                                                    <constraint firstAttribute="trailing" secondItem="StV-quotes" secondAttribute="trailing" id="TrS-quotes"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-submit">
-                                                <rect key="frame" x="0.0" y="8160" width="361" height="54"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="54" id="HtB-submit"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <state key="normal" title="Submit Sports Brief">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="12"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="StV-main" secondAttribute="trailing" constant="16" id="aKp-e8-hAS"/>
+                                            <constraint firstItem="StV-main" firstAttribute="leading" secondItem="KkP-mw-IPE" secondAttribute="leading" constant="16" id="hX5-qN-zNZ"/>
+                                            <constraint firstItem="StV-main" firstAttribute="top" secondItem="KkP-mw-IPE" secondAttribute="top" constant="16" id="lbx-6n-U5X"/>
+                                            <constraint firstAttribute="bottom" secondItem="StV-main" secondAttribute="bottom" constant="16" id="srA-Uq-TzL"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="StV-main" secondAttribute="bottom" constant="16" id="BtS-main"/>
-                                    <constraint firstItem="StV-main" firstAttribute="leading" secondItem="ScV-main" secondAttribute="leading" constant="16" id="LdS-main"/>
-                                    <constraint firstItem="StV-main" firstAttribute="top" secondItem="ScV-main" secondAttribute="top" constant="16" id="TpS-main"/>
-                                    <constraint firstAttribute="trailing" secondItem="StV-main" secondAttribute="trailing" constant="16" id="TrS-main"/>
-                                    <constraint firstItem="StV-main" firstAttribute="width" secondItem="ScV-main" secondAttribute="width" constant="-32" id="WdS-main"/>
+                                    <constraint firstItem="KkP-mw-IPE" firstAttribute="leading" secondItem="ScV-main" secondAttribute="leading" id="q3S-71-712"/>
+                                    <constraint firstItem="KkP-mw-IPE" firstAttribute="top" secondItem="ScV-main" secondAttribute="top" id="qAM-u7-Lco"/>
+                                    <constraint firstAttribute="trailing" secondItem="KkP-mw-IPE" secondAttribute="trailing" id="s7W-Mh-7RK"/>
+                                    <constraint firstAttribute="bottom" secondItem="KkP-mw-IPE" secondAttribute="bottom" id="ygT-mF-5au"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="KkP-mw-IPE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1eq-fu-P6C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ScV-main" secondAttribute="bottom" id="BtS-cv"/>
                             <constraint firstItem="ScV-main" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LdS-cv"/>
                             <constraint firstItem="ScV-main" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TpS-cv"/>

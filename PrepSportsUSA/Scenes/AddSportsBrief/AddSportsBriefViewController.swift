@@ -103,8 +103,8 @@ class AddSportsBriefViewController: BaseViewController {
         schoolOrganizationButton.layer.cornerRadius = 8
         schoolOrganizationButton.layer.borderWidth = 1
         schoolOrganizationButton.layer.borderColor = UIColor.systemGray4.cgColor
-        schoolOrganizationButton.contentHorizontalAlignment = .left
-        schoolOrganizationButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+//        schoolOrganizationButton.contentHorizontalAlignment = .left
+//        schoolOrganizationButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         schoolOrganizationButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         // Style team and game buttons similarly
@@ -114,8 +114,8 @@ class AddSportsBriefViewController: BaseViewController {
             button?.layer.cornerRadius = 8
             button?.layer.borderWidth = 1
             button?.layer.borderColor = UIColor.systemGray4.cgColor
-            button?.contentHorizontalAlignment = .left
-            button?.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+//            button?.contentHorizontalAlignment = .left
+//            button?.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         }
         
@@ -139,15 +139,15 @@ class AddSportsBriefViewController: BaseViewController {
         boysButton.backgroundColor = UIColor.clear
         boysButton.setTitleColor(UIColor.label, for: .normal)
         boysButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        boysButton.contentHorizontalAlignment = .left
-        boysButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+//        boysButton.contentHorizontalAlignment = .left
+//        boysButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         // Style Girls button
         girlsButton.backgroundColor = UIColor.clear
         girlsButton.setTitleColor(UIColor.label, for: .normal)
         girlsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        girlsButton.contentHorizontalAlignment = .left
-        girlsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+//        girlsButton.contentHorizontalAlignment = .left
+//        girlsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         // Setup radio button icons
         boysRadioIcon.image = UIImage(systemName: "circle")
