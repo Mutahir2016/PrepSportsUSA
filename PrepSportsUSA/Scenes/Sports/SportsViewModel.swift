@@ -93,7 +93,7 @@ class SportsViewModel: BaseViewModel {
                 }
             }, onError: { [weak self] error in
                 self?.isLoadingRelay.accept(false)
-                if let customError = error as? CustomError, customError == .sessionExpired {
+                if let customError = error as? CustomError, customError == .sessionExpired || customError == .serverError {
                     self?.sessionExpiredRelay.accept(()) // Emit session expired event
                 } else {
                     print("API Error: \(error.localizedDescription)")

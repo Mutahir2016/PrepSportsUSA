@@ -27,4 +27,140 @@ class AddSportsBriefService: BaseServiceClass, AddSportsBriefUseCaseProtocol {
                 print("Sports brief submission \(success ? "successful" : "failed")")
             })
     }
+    
+    // MARK: - Pre Pitch Media Upload
+    func createPrePitchMediaLink(request: PrePitchMediaRequest) -> Observable<PrePitchMediaResponse> {
+        return Observable.create { observer in
+            let endpoint = "/presign/pre_pitch_media"
+            let parameters = self.reqToDic(request: request)
+            
+            var urlRequest = self.buildURLRequest(
+                path: endpoint,
+                httpMethod: .post,
+                parameters: parameters,
+                parameterEncoding: JSONEncoding.default
+            )
+            
+            // Add authorization header
+            if let token = RKStorage.shared.getSignIn()?.token {
+                urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+            
+            self.client.request(urlRequest) { (result: Result<PrePitchMediaResponse, AFError>) in
+                switch result {
+                case .success(let response):
+                    observer.onNext(response)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
+    // MARK: - Upload Image to Presigned URL
+    func uploadImageToPresignedUrl(imageData: Data, presignedUrl: String, contentType: String) -> Observable<Bool> {
+        return Observable.create { observer in
+            guard let url = URL(string: presignedUrl) else {
+                observer.onError(NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+                return Disposables.create()
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.setValue(contentType, forHTTPHeaderField: "Content-Type")
+            request.httpBody = imageData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    observer.onError(error)
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    let success = httpResponse.statusCode == 200
+                    observer.onNext(success)
+                    observer.onCompleted()
+                } else {
+                    observer.onNext(false)
+                    observer.onCompleted()
+                }
+            }
+            
+            task.resume()
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+    
+    // MARK: - Create Pre Pitch
+    func createPrePitch(request: PrePitchCreateRequest) -> Observable<PrePitchResponse> {
+        return Observable.create { observer in
+            let endpoint = "/pre_pitches"
+            let parameters = self.reqToDic(request: request)
+            
+            var urlRequest = self.buildURLRequest(
+                path: endpoint,
+                httpMethod: .post,
+                parameters: parameters,
+                parameterEncoding: JSONEncoding.default
+            )
+            
+            // Add authorization header
+            if let token = RKStorage.shared.getSignIn()?.token {
+                urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+            
+            self.client.request(urlRequest) { (result: Result<PrePitchResponse, AFError>) in
+                switch result {
+                case .success(let response):
+                    observer.onNext(response)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
+    // MARK: - Get Pre Pitch Types
+    func getPrePitchTypes(page: Int, pageSize: Int) -> Observable<PrePitchTypesResponse> {
+        return Observable.create { observer in
+            let endpoint = "/pre_pitch_types"
+            let parameters: [String: Any] = [
+                "page[number]": page,
+                "page[size]": pageSize
+            ]
+            
+            var urlRequest = self.buildURLRequest(
+                path: endpoint,
+                httpMethod: .get,
+                parameters: parameters,
+                parameterEncoding: URLEncoding.default
+            )
+            
+            // Add authorization header
+            if let token = RKStorage.shared.getSignIn()?.token {
+                urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+            
+            self.client.request(urlRequest) { (result: Result<PrePitchTypesResponse, AFError>) in
+                switch result {
+                case .success(let response):
+                    observer.onNext(response)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
 }

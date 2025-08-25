@@ -10,6 +10,10 @@ import RxSwift
 
 protocol AddSportsBriefUseCaseProtocol {
     func submitSportsBrief(title: String, description: String) -> Observable<Bool>
+    func createPrePitchMediaLink(request: PrePitchMediaRequest) -> Observable<PrePitchMediaResponse>
+    func uploadImageToPresignedUrl(imageData: Data, presignedUrl: String, contentType: String) -> Observable<Bool>
+    func createPrePitch(request: PrePitchCreateRequest) -> Observable<PrePitchResponse>
+    func getPrePitchTypes(page: Int, pageSize: Int) -> Observable<PrePitchTypesResponse>
 }
 
 class AddSportsBriefUseCase: AddSportsBriefUseCaseProtocol {
@@ -21,5 +25,21 @@ class AddSportsBriefUseCase: AddSportsBriefUseCaseProtocol {
     
     func submitSportsBrief(title: String, description: String) -> Observable<Bool> {
         return service.submitSportsBrief(title: title, description: description)
+    }
+    
+    func createPrePitchMediaLink(request: PrePitchMediaRequest) -> Observable<PrePitchMediaResponse> {
+        return service.createPrePitchMediaLink(request: request)
+    }
+    
+    func uploadImageToPresignedUrl(imageData: Data, presignedUrl: String, contentType: String) -> Observable<Bool> {
+        return service.uploadImageToPresignedUrl(imageData: imageData, presignedUrl: presignedUrl, contentType: contentType)
+    }
+    
+    func createPrePitch(request: PrePitchCreateRequest) -> Observable<PrePitchResponse> {
+        return service.createPrePitch(request: request)
+    }
+    
+    func getPrePitchTypes(page: Int, pageSize: Int) -> Observable<PrePitchTypesResponse> {
+        return service.getPrePitchTypes(page: page, pageSize: pageSize)
     }
 }

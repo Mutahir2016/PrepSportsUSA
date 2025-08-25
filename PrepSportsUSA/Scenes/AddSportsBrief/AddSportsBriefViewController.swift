@@ -39,10 +39,11 @@ class AddSportsBriefViewController: BaseViewController {
     @IBOutlet weak var quotesView: UIView!
     @IBOutlet weak var quotesLabel: UILabel!
     @IBOutlet weak var quotesStackView: UIStackView!
-    @IBOutlet weak var quote1TextField: UITextField!
-    @IBOutlet weak var quote2TextField: UITextField!
-    @IBOutlet weak var quote3TextField: UITextField!
-    @IBOutlet weak var quote4TextField: UITextField!
+    @IBOutlet weak var quote1TextField: UITextField?
+    @IBOutlet weak var quote2TextField: UITextField?
+    @IBOutlet weak var quote3TextField: UITextField?
+    @IBOutlet weak var quote4TextField: UITextField?
+    @IBOutlet weak var quoteSourceTextField: UITextField?
     
     // Box Score Text Fields
     @IBOutlet weak var homeQ1TextField: UITextField!
@@ -67,6 +68,14 @@ class AddSportsBriefViewController: BaseViewController {
     private var selectedGame: GameData?
     private var selectedImages: [UIImage] = []
     private let maxImageCount = 3
+    private var isUploading = false
+    
+    // Boxscore views for different sports
+    private var currentBoxScoreView: UIView?
+    private var footballBoxScoreView: FootballBoxScoreView?
+    private var volleyballBoxScoreView: VolleyballBoxScoreView?
+    private var tennisBoxScoreView: TennisBoxScoreView?
+    private var golfBoxScoreView: GolfBoxScoreView?
     
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
@@ -89,10 +98,56 @@ class AddSportsBriefViewController: BaseViewController {
     
     
     private func setupButtonAppearances() {
+        // Style school organization button
+        schoolOrganizationButton.backgroundColor = UIColor.clear
+        schoolOrganizationButton.layer.cornerRadius = 8
+        schoolOrganizationButton.layer.borderWidth = 1
+        schoolOrganizationButton.layer.borderColor = UIColor.systemGray4.cgColor
+        schoolOrganizationButton.contentHorizontalAlignment = .left
+        schoolOrganizationButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        schoolOrganizationButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        
+        // Style team and game buttons similarly
+        let dropdownButtons = [teamButton, gameButton]
+        dropdownButtons.forEach { button in
+            button?.backgroundColor = UIColor.clear
+            button?.layer.cornerRadius = 8
+            button?.layer.borderWidth = 1
+            button?.layer.borderColor = UIColor.systemGray4.cgColor
+            button?.contentHorizontalAlignment = .left
+            button?.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+            button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        }
+        
         // Add chevron icons to dropdown buttons
         addChevronToButton(schoolOrganizationButton)
         addChevronToButton(teamButton)
         addChevronToButton(gameButton)
+        
+        // Setup radio button styling
+        setupRadioButtonStyling()
+        
+        // Style submit button
+        submitButton.backgroundColor = UIColor.systemBlue
+        submitButton.setTitleColor(UIColor.white, for: .normal)
+        submitButton.layer.cornerRadius = 12
+        submitButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+    }
+    
+    private func setupRadioButtonStyling() {
+        // Style Boys button
+        boysButton.backgroundColor = UIColor.clear
+        boysButton.setTitleColor(UIColor.label, for: .normal)
+        boysButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        boysButton.contentHorizontalAlignment = .left
+        boysButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        
+        // Style Girls button
+        girlsButton.backgroundColor = UIColor.clear
+        girlsButton.setTitleColor(UIColor.label, for: .normal)
+        girlsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        girlsButton.contentHorizontalAlignment = .left
+        girlsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         // Setup radio button icons
         boysRadioIcon.image = UIImage(systemName: "circle")
@@ -130,6 +185,7 @@ class AddSportsBriefViewController: BaseViewController {
     
     private func setupUI() {
         title = "Add Sports Brief"
+        setupViewStyling()
         setupButtonAppearances()
         updateSchoolOrganizationButton()
         updateGenderViewVisibility()
@@ -143,6 +199,40 @@ class AddSportsBriefViewController: BaseViewController {
         updateImageDisplay()
     }
     
+    private func setupViewStyling() {
+        // Set main background color to match Android design
+        view.backgroundColor = UIColor.systemGroupedBackground
+        
+        // Style container views with white background and rounded corners
+        let containerViews = [genderView, teamView, gameView, boxScoreView, descriptionView, imageUploadView, quotesView]
+        
+        containerViews.forEach { containerView in
+            guard let container = containerView else { return }
+            container.backgroundColor = UIColor.systemBackground
+            container.layer.cornerRadius = 12
+            container.layer.masksToBounds = true
+            
+            // Add subtle shadow for depth
+            container.layer.shadowColor = UIColor.black.cgColor
+            container.layer.shadowOffset = CGSize(width: 0, height: 1)
+            container.layer.shadowRadius = 3
+            container.layer.shadowOpacity = 0.1
+            container.layer.masksToBounds = false
+        }
+        
+        // Style school organization button container
+        if let schoolOrgView = schoolOrganizationButton.superview {
+            schoolOrgView.backgroundColor = UIColor.systemBackground
+            schoolOrgView.layer.cornerRadius = 12
+            schoolOrgView.layer.masksToBounds = true
+            schoolOrgView.layer.shadowColor = UIColor.black.cgColor
+            schoolOrgView.layer.shadowOffset = CGSize(width: 0, height: 1)
+            schoolOrgView.layer.shadowRadius = 3
+            schoolOrgView.layer.shadowOpacity = 0.1
+            schoolOrgView.layer.masksToBounds = false
+        }
+    }
+    
     private func setupActions() {
         schoolOrganizationButton.addTarget(self, action: #selector(schoolOrganizationButtonTapped), for: .touchUpInside)
         boysButton.addTarget(self, action: #selector(boysButtonTapped), for: .touchUpInside)
@@ -150,6 +240,10 @@ class AddSportsBriefViewController: BaseViewController {
         teamButton.addTarget(self, action: #selector(teamButtonTapped), for: .touchUpInside)
         gameButton.addTarget(self, action: #selector(gameButtonTapped), for: .touchUpInside)
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
+        
+        // Setup ViewModel delegate
+        viewModel.delegate = self
     }
     
     @objc private func schoolOrganizationButtonTapped() {
@@ -229,21 +323,21 @@ class AddSportsBriefViewController: BaseViewController {
     private func updateGenderSelection() {
         // Update radio button appearances
         if selectedGender == "Boys" {
-            boysRadioIcon.image = UIImage(systemName: "largecircle.fill.circle")
-            boysRadioIcon.tintColor = UIColor.blue
+            boysRadioIcon.image = UIImage(systemName: "checkmark.circle.fill")
+            boysRadioIcon.tintColor = UIColor.systemBlue
             girlsRadioIcon.image = UIImage(systemName: "circle")
-            girlsRadioIcon.tintColor = UIColor.lightGray
+            girlsRadioIcon.tintColor = UIColor.systemGray3
         } else if selectedGender == "Girls" {
             boysRadioIcon.image = UIImage(systemName: "circle")
-            boysRadioIcon.tintColor = UIColor.lightGray
-            girlsRadioIcon.image = UIImage(systemName: "largecircle.fill.circle")
-            girlsRadioIcon.tintColor = UIColor.blue
+            boysRadioIcon.tintColor = UIColor.systemGray3
+            girlsRadioIcon.image = UIImage(systemName: "checkmark.circle.fill")
+            girlsRadioIcon.tintColor = UIColor.systemBlue
         } else {
             // No selection
             boysRadioIcon.image = UIImage(systemName: "circle")
-            boysRadioIcon.tintColor = UIColor.lightGray
+            boysRadioIcon.tintColor = UIColor.systemGray3
             girlsRadioIcon.image = UIImage(systemName: "circle")
-            girlsRadioIcon.tintColor = UIColor.lightGray
+            girlsRadioIcon.tintColor = UIColor.systemGray3
         }
     }
     
@@ -306,14 +400,112 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     private func updateBoxScoreDisplay() {
-        guard let game = selectedGame else { return }
+        guard let game = selectedGame,
+              let team = selectedTeam else { return }
         
-        // Update team labels
-        homeTeamLabel.text = game.attributes.homeTeam.name
-        awayTeamLabel.text = game.attributes.awayTeam.name
+        let sport = team.attributes.sport.lowercased()
+        setupBoxScoreForSport(sport, homeTeam: game.attributes.homeTeam.name, awayTeam: game.attributes.awayTeam.name)
+    }
+    
+    private func setupBoxScoreForSport(_ sport: String, homeTeam: String, awayTeam: String) {
+        // Remove current boxscore view if exists
+        currentBoxScoreView?.removeFromSuperview()
+        currentBoxScoreView = nil
         
-        // Setup text field delegates for auto-calculation
-        setupBoxScoreTextFields()
+        switch sport {
+        case "football":
+            setupFootballBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
+        case "volleyball":
+            setupVolleyballBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
+        case "tennis":
+            setupTennisBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
+        case "golf":
+            setupGolfBoxScore(homeTeam: homeTeam, awayTeam: awayTeam)
+        default:
+            setupUnsupportedSportView(sport: sport)
+        }
+    }
+    
+    private func setupFootballBoxScore(homeTeam: String, awayTeam: String) {
+        footballBoxScoreView = FootballBoxScoreView.fromNib()
+        guard let boxScoreView = footballBoxScoreView else { return }
+        
+        boxScoreView.homeTeamName = homeTeam
+        boxScoreView.awayTeamName = awayTeam
+        
+        addBoxScoreViewToContainer(boxScoreView)
+        currentBoxScoreView = boxScoreView
+    }
+    
+    private func setupVolleyballBoxScore(homeTeam: String, awayTeam: String) {
+        volleyballBoxScoreView = VolleyballBoxScoreView.fromNib()
+        guard let boxScoreView = volleyballBoxScoreView else { return }
+        
+        boxScoreView.homeTeamName = homeTeam
+        boxScoreView.awayTeamName = awayTeam
+        
+        addBoxScoreViewToContainer(boxScoreView)
+        currentBoxScoreView = boxScoreView
+    }
+    
+    private func setupTennisBoxScore(homeTeam: String, awayTeam: String) {
+        tennisBoxScoreView = TennisBoxScoreView.fromNib()
+        guard let boxScoreView = tennisBoxScoreView else { return }
+        
+        boxScoreView.homeTeamName = homeTeam
+        boxScoreView.awayTeamName = awayTeam
+        
+        addBoxScoreViewToContainer(boxScoreView)
+        currentBoxScoreView = boxScoreView
+    }
+    
+    private func setupGolfBoxScore(homeTeam: String, awayTeam: String) {
+        golfBoxScoreView = GolfBoxScoreView.fromNib()
+        guard let boxScoreView = golfBoxScoreView else { return }
+        
+        boxScoreView.homeTeamName = homeTeam
+        boxScoreView.awayTeamName = awayTeam
+        
+        addBoxScoreViewToContainer(boxScoreView)
+        currentBoxScoreView = boxScoreView
+    }
+    
+    private func setupUnsupportedSportView(sport: String) {
+        let unsupportedView = UIView()
+        unsupportedView.backgroundColor = UIColor.systemGray6
+        unsupportedView.layer.cornerRadius = 12
+        
+        let messageLabel = UILabel()
+        messageLabel.text = "Scoring for \(sport.capitalized) is not configured yet. Please contact support."
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
+        messageLabel.font = UIFont.systemFont(ofSize: 16)
+        messageLabel.textColor = UIColor.systemRed
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        unsupportedView.addSubview(messageLabel)
+        
+        NSLayoutConstraint.activate([
+            messageLabel.centerXAnchor.constraint(equalTo: unsupportedView.centerXAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: unsupportedView.centerYAnchor),
+            messageLabel.leadingAnchor.constraint(greaterThanOrEqualTo: unsupportedView.leadingAnchor, constant: 16),
+            messageLabel.trailingAnchor.constraint(lessThanOrEqualTo: unsupportedView.trailingAnchor, constant: -16)
+        ])
+        
+        addBoxScoreViewToContainer(unsupportedView)
+        currentBoxScoreView = unsupportedView
+    }
+    
+    private func addBoxScoreViewToContainer(_ view: UIView) {
+        boxScoreView.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: boxScoreView.topAnchor),
+            view.leadingAnchor.constraint(equalTo: boxScoreView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: boxScoreView.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: boxScoreView.bottomAnchor)
+        ])
     }
     
     private func setupBoxScoreTextFields() {
@@ -363,7 +555,60 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     @objc private func addImageButtonTapped() {
+        guard selectedImages.count < maxImageCount else {
+            showAlert(title: "Maximum Images", message: "You can only upload up to \(maxImageCount) images.")
+            return
+        }
+        
+        guard !isUploading else {
+            showAlert(title: "Upload in Progress", message: "Please wait for the current image upload to complete.")
+            return
+        }
+        
         presentImagePicker(sourceType: .photoLibrary)
+    }
+    
+    @objc private func submitButtonTapped() {
+        guard let organization = selectedOrganization,
+              let gender = selectedGender,
+              let team = selectedTeam,
+              let game = selectedGame else {
+            showAlert(title: "Missing Information", message: "Please complete all required selections.")
+            return
+        }
+        
+        let description = descriptionTextView.text ?? ""
+        let quotes = getQuotesFromForm()
+        let quoteSource = quoteSourceTextField?.text ?? ""
+        
+        let validation = viewModel.validatePrePitchInput(
+            organization: organization,
+            gender: gender,
+            team: team,
+            game: game,
+            description: description,
+            quotes: quotes,
+            quoteSource: quoteSource
+        )
+        
+        guard validation.isValid else {
+            showAlert(title: "Validation Error", message: validation.errorMessage ?? "Please check your input.")
+            return
+        }
+        
+        // Create boxscore from inputs
+        let boxscore = createBoxscoreFromInputs()
+        
+        // Submit the pre pitch
+        viewModel.submitPrePitch(
+            organizationId: organization.id,
+            teamId: team.id,
+            gameId: game.id,
+            description: description,
+            quotes: quotes,
+            quoteSource: quoteSource,
+            boxscore: boxscore
+        )
     }
     
     private func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
@@ -396,7 +641,7 @@ class AddSportsBriefViewController: BaseViewController {
         addImageButton.isHidden = selectedImages.count >= maxImageCount
     }
     
-    @objc private func deleteImageTapped(_ sender: UIButton) {
+    private func deleteImageTapped(_ sender: UIButton) {
         let index = sender.tag
         guard index < selectedImages.count else { return }
         
@@ -404,9 +649,11 @@ class AddSportsBriefViewController: BaseViewController {
         updateImageDisplay()
     }
     
-    private func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            completion?()
+        })
         present(alert, animated: true)
     }
 }
@@ -444,17 +691,137 @@ extension AddSportsBriefViewController: UITextViewDelegate {
     }
 }
 
-// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+
+extension AddSportsBriefViewController {
+    // MARK: - Helper Methods
+    private func getQuotesFromForm() -> [String] {
+        var quotes: [String] = []
+        
+        let quote1 = quote1TextField?.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        let quote2 = quote2TextField?.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        let quote3 = quote3TextField?.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        let quote4 = quote4TextField?.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        
+        if !quote1.isEmpty { quotes.append(quote1) }
+        if !quote2.isEmpty { quotes.append(quote2) }
+        if !quote3.isEmpty { quotes.append(quote3) }
+        if !quote4.isEmpty { quotes.append(quote4) }
+        
+        return quotes
+    }
+    
+    private func createBoxscoreFromInputs() -> GenericBoxscore {
+        // Get boxscore data based on current sport
+        if let footballView = footballBoxScoreView {
+            return footballView.getBoxscoreData()
+        } else if let volleyballView = volleyballBoxScoreView {
+            return volleyballView.getBoxscoreData()
+        } else if let tennisView = tennisBoxScoreView {
+            return tennisView.getBoxscoreData()
+        } else if let golfView = golfBoxScoreView {
+            return golfView.getBoxscoreData()
+        } else {
+            // Fallback to empty boxscore
+            let emptyData: [String: AnyCodable] = [:]
+            return GenericBoxscore(homeTeam: emptyData, awayTeam: emptyData)
+        }
+    }
+    
+    private func generateImageFilename() -> String {
+        let timestamp = Int(Date().timeIntervalSince1970)
+        return "sports_brief_\(timestamp).jpg"
+    }
+    
+    private func showImageCaptionDialog(for uploadedImage: UploadedImage, at index: Int) {
+        let alert = UIAlertController(title: "Image Details", message: "Add caption and credit for this image", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Caption"
+            textField.text = uploadedImage.caption
+        }
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Credit"
+            textField.text = uploadedImage.credit
+        }
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            let caption = alert.textFields?[0].text ?? ""
+            let credit = alert.textFields?[1].text ?? ""
+            self?.viewModel.updateImageCaption(at: index, caption: caption, credit: credit)
+        })
+        
+        alert.addAction(UIAlertAction(title: "Skip", style: .cancel))
+        
+        present(alert, animated: true)
+    }
+}
+    
+    
+// MARK: - AddSportsBriefViewModelDelegate
+extension AddSportsBriefViewController: AddSportsBriefViewModelDelegate {
+    func briefSubmittedSuccessfully() {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Success", message: "Sports Brief submitted successfully!") {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func briefSubmissionFailed(error: String) {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Submission Failed", message: error)
+        }
+    }
+    
+    func imageUploadProgress(progress: Float) {
+        DispatchQueue.main.async {
+            // Update progress indicator if needed
+            print("Image upload progress: \(progress * 100)%")
+        }
+    }
+    
+    func imageUploadCompleted(uploadedImage: UploadedImage) {
+        DispatchQueue.main.async {
+            self.isUploading = false
+            self.updateImageDisplay()
+            
+            // Show dialog to add caption and credit
+            let index = self.viewModel.getUploadedImages().count - 1
+            self.showImageCaptionDialog(for: uploadedImage, at: index)
+        }
+    }
+    
+    func imageUploadFailed(error: String) {
+        DispatchQueue.main.async {
+            self.isUploading = false
+            self.showAlert(title: "Upload Failed", message: error)
+        }
+    }
+}
+    
+    // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension AddSportsBriefViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         
         if let editedImage = info[.editedImage] as? UIImage {
+            isUploading = true
             selectedImages.append(editedImage)
             updateImageDisplay()
+            
+            // Upload image to server
+            let filename = generateImageFilename()
+            viewModel.uploadImage(editedImage, filename: filename)
+            
         } else if let originalImage = info[.originalImage] as? UIImage {
+            isUploading = true
             selectedImages.append(originalImage)
             updateImageDisplay()
+            
+            // Upload image to server
+            let filename = generateImageFilename()
+            viewModel.uploadImage(originalImage, filename: filename)
         }
     }
     

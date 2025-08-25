@@ -403,6 +403,18 @@
 		8CF0C8A72D12180000AA5033 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0C8A62D12180000AA5033 /* AppConfig.swift */; };
 		8CF68B362D4ABEB000D8855B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF68B352D4ABEA900D8855B /* UserProfile.swift */; };
 		8CF68B372D4ABEB000D8855B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF68B352D4ABEA900D8855B /* UserProfile.swift */; };
+		8CFE94302E5C5A1F00AD6310 /* FootballBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE94292E5C5A1F00AD6310 /* FootballBoxScoreView.swift */; };
+		8CFE94312E5C5A1F00AD6310 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942B2E5C5A1F00AD6310 /* GolfBoxScoreView.swift */; };
+		8CFE94322E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942D2E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift */; };
+		8CFE94332E5C5A1F00AD6310 /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942C2E5C5A1F00AD6310 /* TennisBoxScoreView.swift */; };
+		8CFE94342E5C5A1F00AD6310 /* FootballBoxScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CFE942A2E5C5A1F00AD6310 /* FootballBoxScoreView.xib */; };
+		8CFE94352E5C5A1F00AD6310 /* FootballBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE94292E5C5A1F00AD6310 /* FootballBoxScoreView.swift */; };
+		8CFE94362E5C5A1F00AD6310 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942B2E5C5A1F00AD6310 /* GolfBoxScoreView.swift */; };
+		8CFE94372E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942D2E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift */; };
+		8CFE94382E5C5A1F00AD6310 /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE942C2E5C5A1F00AD6310 /* TennisBoxScoreView.swift */; };
+		8CFE94392E5C5A1F00AD6310 /* FootballBoxScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CFE942A2E5C5A1F00AD6310 /* FootballBoxScoreView.xib */; };
+		8CFE943B2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE943A2E5C5BD000AD6310 /* AddSportsBriefModels.swift */; };
+		8CFE943C2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE943A2E5C5BD000AD6310 /* AddSportsBriefModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -614,6 +626,12 @@
 		8CF0C86A2D120B9100AA5033 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		8CF0C8A62D12180000AA5033 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		8CF68B352D4ABEA900D8855B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		8CFE94292E5C5A1F00AD6310 /* FootballBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballBoxScoreView.swift; sourceTree = "<group>"; };
+		8CFE942A2E5C5A1F00AD6310 /* FootballBoxScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FootballBoxScoreView.xib; sourceTree = "<group>"; };
+		8CFE942B2E5C5A1F00AD6310 /* GolfBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfBoxScoreView.swift; sourceTree = "<group>"; };
+		8CFE942C2E5C5A1F00AD6310 /* TennisBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisBoxScoreView.swift; sourceTree = "<group>"; };
+		8CFE942D2E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballBoxScoreView.swift; sourceTree = "<group>"; };
+		8CFE943A2E5C5BD000AD6310 /* AddSportsBriefModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportsBriefModels.swift; sourceTree = "<group>"; };
 		B10CB08E6C7C1BF184E3C154 /* Pods-PrepSportsUSA_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA_Dev.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA_Dev/Pods-PrepSportsUSA_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		DFCA735438593A8DF32EFC69 /* Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA-PrepSportsUSA_Dev/Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig"; sourceTree = "<group>"; };
 		E41189F63EBE46910A378490 /* Pods-PrepSportsUSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA.release.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA/Pods-PrepSportsUSA.release.xcconfig"; sourceTree = "<group>"; };
@@ -757,6 +775,7 @@
 		8C6312BC2E5B9C53008298FA /* AddSportsBriefUseCase */ = {
 			isa = PBXGroup;
 			children = (
+				8CFE943A2E5C5BD000AD6310 /* AddSportsBriefModels.swift */,
 				8C6312BA2E5B9C53008298FA /* AddSportsBriefService.swift */,
 				8C6312BB2E5B9C53008298FA /* AddSportsBriefUseCase.swift */,
 			);
@@ -1296,6 +1315,7 @@
 		8CF0C86B2D120B9100AA5033 /* PrepSportsUSA */ = {
 			isa = PBXGroup;
 			children = (
+				8CFE942F2E5C5A1F00AD6310 /* Views */,
 				8CD910172D2F136500B30416 /* Extensions */,
 				8C64E2FD2D203972006477D4 /* Storage */,
 				8CCCC6AD2D1BF57C009EC2B2 /* PinCodeView */,
@@ -1312,6 +1332,26 @@
 				8CF0C8692D120B9100AA5033 /* SceneDelegate.swift */,
 			);
 			path = PrepSportsUSA;
+			sourceTree = "<group>";
+		};
+		8CFE942E2E5C5A1F00AD6310 /* BoxScoreViews */ = {
+			isa = PBXGroup;
+			children = (
+				8CFE94292E5C5A1F00AD6310 /* FootballBoxScoreView.swift */,
+				8CFE942A2E5C5A1F00AD6310 /* FootballBoxScoreView.xib */,
+				8CFE942B2E5C5A1F00AD6310 /* GolfBoxScoreView.swift */,
+				8CFE942C2E5C5A1F00AD6310 /* TennisBoxScoreView.swift */,
+				8CFE942D2E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift */,
+			);
+			path = BoxScoreViews;
+			sourceTree = "<group>";
+		};
+		8CFE942F2E5C5A1F00AD6310 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8CFE942E2E5C5A1F00AD6310 /* BoxScoreViews */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9159AF2AEC59AFB5C6EDCDB4 /* Frameworks */ = {
@@ -1432,6 +1472,7 @@
 				04B2BEC72D2D7B02006F16A7 /* TopLocationTableCell.xib in Resources */,
 				04D905552DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy in Resources */,
 				8C5AB3B22D5B0E1900903FE5 /* ViewAllTableViewCell.xib in Resources */,
+				8CFE94392E5C5A1F00AD6310 /* FootballBoxScoreView.xib in Resources */,
 				04B2BEC92D2D7B02006F16A7 /* OutBoundTableCell.xib in Resources */,
 				8C6CE1B02E588C76005F5330 /* SportsTableViewCell.xib in Resources */,
 				04B2BECA2D2D7B02006F16A7 /* InfoCollectionViewCell.xib in Resources */,
@@ -1487,6 +1528,7 @@
 				04B2BEC22D2D7B02006F16A7 /* TopLocationTableCell.xib in Resources */,
 				04D905542DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy in Resources */,
 				8C5AB3B32D5B0E1900903FE5 /* ViewAllTableViewCell.xib in Resources */,
+				8CFE94342E5C5A1F00AD6310 /* FootballBoxScoreView.xib in Resources */,
 				04B2BEC42D2D7B02006F16A7 /* OutBoundTableCell.xib in Resources */,
 				8C6CE1B22E588C76005F5330 /* SportsTableViewCell.xib in Resources */,
 				04B2BEC52D2D7B02006F16A7 /* InfoCollectionViewCell.xib in Resources */,
@@ -1679,6 +1721,10 @@
 				8C64E2DB2D20322B006477D4 /* SigninService.swift in Sources */,
 				8CCCC6A32D1BF4A3009EC2B2 /* AuthVerificationViewController.swift in Sources */,
 				8C8C83992D5E017500C878D2 /* MapRouter.swift in Sources */,
+				8CFE94352E5C5A1F00AD6310 /* FootballBoxScoreView.swift in Sources */,
+				8CFE94362E5C5A1F00AD6310 /* GolfBoxScoreView.swift in Sources */,
+				8CFE94372E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift in Sources */,
+				8CFE94382E5C5A1F00AD6310 /* TennisBoxScoreView.swift in Sources */,
 				8C6312ED2E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */,
 				8C6312EE2E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */,
 				8C6312EF2E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */,
@@ -1784,6 +1830,7 @@
 				8C5AB3AA2D5B07B600903FE5 /* ViewAllUseCase.swift in Sources */,
 				8C9C6C682DBE2572009FBF3D /* ProjectSheetRouter.swift in Sources */,
 				8CB9A19A2D33A5CA00E02ECA /* StoryHomeService.swift in Sources */,
+				8CFE943B2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */,
 				8CDDE92D2D3C2AE70012CAF4 /* StoryUseCase.swift in Sources */,
 				8C64E2E52D20326B006477D4 /* SigninUseCase.swift in Sources */,
 				8CCCC6AE2D1BF57C009EC2B2 /* VKPinCodeView.swift in Sources */,
@@ -1835,6 +1882,10 @@
 				8C64E2DC2D20322B006477D4 /* SigninService.swift in Sources */,
 				8CCCC6A22D1BF4A3009EC2B2 /* AuthVerificationViewController.swift in Sources */,
 				8C8C83982D5E017500C878D2 /* MapRouter.swift in Sources */,
+				8CFE94302E5C5A1F00AD6310 /* FootballBoxScoreView.swift in Sources */,
+				8CFE94312E5C5A1F00AD6310 /* GolfBoxScoreView.swift in Sources */,
+				8CFE94322E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift in Sources */,
+				8CFE94332E5C5A1F00AD6310 /* TennisBoxScoreView.swift in Sources */,
 				8C6312F22E5BAD6A008298FA /* SelectTeamViewController.swift in Sources */,
 				8C6312F32E5BAD6A008298FA /* SelectTeamViewModel.swift in Sources */,
 				8C6312F42E5BAD6A008298FA /* SelectTeamRouter.swift in Sources */,
@@ -1940,6 +1991,7 @@
 				8C5AB3A82D5B07B600903FE5 /* ViewAllUseCase.swift in Sources */,
 				8C9C6C672DBE2572009FBF3D /* ProjectSheetRouter.swift in Sources */,
 				8CB9A19B2D33A5CA00E02ECA /* StoryHomeService.swift in Sources */,
+				8CFE943C2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */,
 				8CDDE92C2D3C2AE70012CAF4 /* StoryUseCase.swift in Sources */,
 				8C64E2E42D20326B006477D4 /* SigninUseCase.swift in Sources */,
 				8CCCC6B12D1BF57C009EC2B2 /* VKPinCodeView.swift in Sources */,
