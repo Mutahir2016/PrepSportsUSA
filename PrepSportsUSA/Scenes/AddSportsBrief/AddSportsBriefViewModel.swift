@@ -169,6 +169,15 @@ class AddSportsBriefViewModel: BaseViewModel {
             boxscore: boxscore
         )
         
+        // Print JSON for debugging
+        if let jsonData = try? JSONEncoder().encode(request),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print("PrePitchCreateRequest JSON:")
+            print(jsonString)
+        } else {
+            print("Failed to encode PrePitchCreateRequest to JSON")
+        }
+        
         addSportsBriefUseCase?
             .createPrePitch(request: request)
             .observe(on: MainScheduler.instance)

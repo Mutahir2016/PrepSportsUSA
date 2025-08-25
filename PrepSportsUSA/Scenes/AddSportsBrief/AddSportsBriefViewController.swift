@@ -43,7 +43,10 @@ class AddSportsBriefViewController: BaseViewController {
     @IBOutlet weak var quote2TextField: UITextField?
     @IBOutlet weak var quote3TextField: UITextField?
     @IBOutlet weak var quote4TextField: UITextField?
-    @IBOutlet weak var quoteSourceTextField: UITextField?
+    
+    // Quote Source Section
+    @IBOutlet weak var quoteSourceView: UIView!
+    @IBOutlet weak var quoteSourceTextField: UITextField!
     
     // Box Score Text Fields
     @IBOutlet weak var homeQ1TextField: UITextField!
@@ -89,6 +92,7 @@ class AddSportsBriefViewController: BaseViewController {
         submitButton.isHidden = true
         imageUploadView.isHidden = true
         quotesView.isHidden = true
+        quoteSourceView.isHidden = true
     }
     
     
@@ -109,11 +113,6 @@ class AddSportsBriefViewController: BaseViewController {
             button?.layer.borderColor = UIColor.systemGray4.cgColor
             button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         }
-        
-        // Add chevron icons to dropdown buttons
-        addChevronToButton(schoolOrganizationButton)
-        addChevronToButton(teamButton)
-        addChevronToButton(gameButton)
         
         // Setup radio button styling
         setupRadioButtonStyling()
@@ -146,14 +145,17 @@ class AddSportsBriefViewController: BaseViewController {
     private func addChevronToButton(_ button: UIButton) {
         let chevronImage = UIImage(systemName: "chevron.down")
         button.setImage(chevronImage, for: .normal)
-        button.tintColor = UIColor.systemGray // Make chevron darker and more visible
+        button.tintColor = UIColor.systemGray
         
-        // Remove semantic content attribute that was causing layout issues
-        // button.semanticContentAttribute = .forceRightToLeft
+        // Use semantic content attribute to position chevron on right
+        button.semanticContentAttribute = .forceRightToLeft
         
-        // Position chevron on the right side with proper spacing
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -16)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        // Set content edge insets to add padding
+        button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        
+        // Add spacing between text and image (chevron)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 8)
         
         // Ensure text alignment is left
         button.contentHorizontalAlignment = .left
@@ -184,8 +186,6 @@ class AddSportsBriefViewController: BaseViewController {
         setupDescriptionTextView()
         updateImageDisplay()
     }
-    
-    // Remove complex view styling - keep it simple
     
     private func setupActions() {
         schoolOrganizationButton.addTarget(self, action: #selector(schoolOrganizationButtonTapped), for: .touchUpInside)
@@ -350,6 +350,7 @@ class AddSportsBriefViewController: BaseViewController {
         descriptionView.isHidden = selectedGame == nil
         imageUploadView.isHidden = selectedGame == nil
         quotesView.isHidden = selectedGame == nil
+        quoteSourceView.isHidden = selectedGame == nil
         submitButton.isHidden = selectedGame == nil
     }
     
@@ -451,7 +452,7 @@ class AddSportsBriefViewController: BaseViewController {
         
         let description = descriptionTextView.text ?? ""
         let quotes = getQuotesFromForm()
-        let quoteSource = quoteSourceTextField?.text ?? ""
+        let quoteSource = quoteSourceTextField.text ?? ""
         
         let validation = viewModel.validatePrePitchInput(
             organization: organization,
@@ -588,18 +589,18 @@ extension AddSportsBriefViewController {
         var awayTeamData: [String: AnyCodable] = [:]
         
         // Get scores from text fields
-        homeTeamData["q1"] = AnyCodable(Int(homeQ1TextField.text ?? "0") ?? 0)
-        homeTeamData["q2"] = AnyCodable(Int(homeQ2TextField.text ?? "0") ?? 0)
-        homeTeamData["q3"] = AnyCodable(Int(homeQ3TextField.text ?? "0") ?? 0)
-        homeTeamData["q4"] = AnyCodable(Int(homeQ4TextField.text ?? "0") ?? 0)
-        homeTeamData["ot"] = AnyCodable(Int(homeOTTextField.text ?? "0") ?? 0)
+        homeTeamData["first_quarter"] = AnyCodable(Int(homeQ1TextField.text ?? "0") ?? 0)
+        homeTeamData["second_quarter"] = AnyCodable(Int(homeQ2TextField.text ?? "0") ?? 0)
+        homeTeamData["third_quarter"] = AnyCodable(Int(homeQ3TextField.text ?? "0") ?? 0)
+        homeTeamData["fourth_quarter"] = AnyCodable(Int(homeQ4TextField.text ?? "0") ?? 0)
+        homeTeamData["overtime"] = AnyCodable([Int(homeOTTextField.text ?? "0") ?? 0])
         homeTeamData["final"] = AnyCodable(Int(homeFinalLabel.text ?? "0") ?? 0)
         
-        awayTeamData["q1"] = AnyCodable(Int(awayQ1TextField.text ?? "0") ?? 0)
-        awayTeamData["q2"] = AnyCodable(Int(awayQ2TextField.text ?? "0") ?? 0)
-        awayTeamData["q3"] = AnyCodable(Int(awayQ3TextField.text ?? "0") ?? 0)
-        awayTeamData["q4"] = AnyCodable(Int(awayQ4TextField.text ?? "0") ?? 0)
-        awayTeamData["ot"] = AnyCodable(Int(awayOTTextField.text ?? "0") ?? 0)
+        awayTeamData["first_quarter"] = AnyCodable(Int(awayQ1TextField.text ?? "0") ?? 0)
+        awayTeamData["second_quarter"] = AnyCodable(Int(awayQ2TextField.text ?? "0") ?? 0)
+        awayTeamData["third_quarter"] = AnyCodable(Int(awayQ3TextField.text ?? "0") ?? 0)
+        awayTeamData["fourth_quarter"] = AnyCodable(Int(awayQ4TextField.text ?? "0") ?? 0)
+        awayTeamData["overtime"] = AnyCodable([Int(awayOTTextField.text ?? "0") ?? 0])
         awayTeamData["final"] = AnyCodable(Int(awayFinalLabel.text ?? "0") ?? 0)
         
         return GenericBoxscore(homeTeam: homeTeamData, awayTeam: awayTeamData)
@@ -611,22 +612,30 @@ extension AddSportsBriefViewController {
     }
     
     private func showImageCaptionDialog(for uploadedImage: UploadedImage, at index: Int) {
-        // Simplified image handling - just show success message
-        showAlert(title: "Image Uploaded", message: "Image uploaded successfully!")
+        // Set default caption and credit like Android version
+        let imagePosition = viewModel.getUploadedImages().count - 1
+        let defaultCaption = "Sample caption for image \(imagePosition + 1)"
+        let defaultCredit = "Photo credit: \(getCurrentUserName())"
+        
+        // Update the uploaded image with default values
+        viewModel.updateImageCaption(at: imagePosition, caption: defaultCaption, credit: defaultCredit)
+        
+        // No alert needed - silent success
+    }
+    
+    private func getCurrentUserName() -> String {
+        // Get user name from RKStorage (equivalent to SharedPreferenceManager)
+        if let user = RKStorage.shared.getUserProfile(),
+           let userName = user.data.attributes.name  {
+            return userName
+        }
+        return "Unknown User"
     }
 }
     
     
 // MARK: - AddSportsBriefViewModelDelegate
 extension AddSportsBriefViewController: AddSportsBriefViewModelDelegate {
-    func briefSubmittedSuccessfully() {
-        DispatchQueue.main.async {
-            self.showAlert(title: "Success", message: "Sports Brief submitted successfully!") {
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
-    }
-    
     func briefSubmissionFailed(error: String) {
         DispatchQueue.main.async {
             self.showAlert(title: "Submission Failed", message: error)
@@ -657,9 +666,18 @@ extension AddSportsBriefViewController: AddSportsBriefViewModelDelegate {
             self.showAlert(title: "Upload Failed", message: error)
         }
     }
-}
     
-    // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+    func briefSubmittedSuccessfully() {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Success", message: "Sports brief submitted successfully!") {
+                // Navigate back or dismiss the view controller
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension AddSportsBriefViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)

@@ -7,93 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5A0925D-F408-4B69-824D-5A524A950B0B"
+            uuid = "27CBD83F-EAF3-4387-A3DC-E802FA49D240"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
+            filePath = "PrepSportsUSA/Scenes/SelectGame/SelectGameViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "fetchPrePitches()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "loadGames()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F5A0925D-F408-4B69-824D-5A524A950B0B - 2bc701bfa8ce79a3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; () in Newmaker_Dev.SportsViewModel.fetchPrePitches() -&gt; ()"
-                  moduleName = "Newmaker_Dev.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syedpirzada/Documents/GitHub/PrepSportsUSA/PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96">
-               </Location>
-               <Location
-                  uuid = "F5A0925D-F408-4B69-824D-5A524A950B0B - 2bc701bfa8ce79a3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; () in Newmaker_Dev.SportsViewModel.fetchPrePitches() -&gt; ()"
-                  moduleName = "Newmaker_Dev.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syedpirzada/Documents/GitHub/PrepSportsUSA/PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51EF9C24-B1E6-4F53-9169-541754A50880"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "fetchPrePitches()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51EF9C24-B1E6-4F53-9169-541754A50880 - fdd2a5244eb4c25b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Newmaker_Dev.PrePitchesModel&gt;) -&gt; () in Newmaker_Dev.SportsViewModel.fetchPrePitches() -&gt; ()"
-                  moduleName = "Newmaker_Dev.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syedpirzada/Documents/GitHub/PrepSportsUSA/PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66">
-               </Location>
-               <Location
-                  uuid = "51EF9C24-B1E6-4F53-9169-541754A50880 - fdd2a5244eb4c25b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Newmaker_Dev.PrePitchesModel&gt;) -&gt; () in Newmaker_Dev.SportsViewModel.fetchPrePitches() -&gt; ()"
-                  moduleName = "Newmaker_Dev.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syedpirzada/Documents/GitHub/PrepSportsUSA/PrepSportsUSA/Scenes/Sports/SportsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

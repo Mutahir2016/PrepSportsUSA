@@ -12,7 +12,6 @@ import Alamofire
 class GameService: BaseServiceClass, GameUseCaseProtocol {
     
     let client = RKAPIClient.shared
-    
     func getGames(teamId: String, pageSize: Int, pageNumber: Int) -> Observable<GameResponse?> {
         let endPoint = "/limpar/teams/\(teamId)/games_from_most_recent_season"
         

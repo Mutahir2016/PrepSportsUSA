@@ -520,7 +520,6 @@
 		8C821C462D51537D0020EFE2 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8C821C492D5158580020EFE2 /* ShimmerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8C8938CF2D3CDD8B00E5AADD /* StoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewModel.swift; sourceTree = "<group>"; };
-		8C8B447A2E0F025C00A6ABC0 /* PrepSportsUSA_DevRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrepSportsUSA_DevRelease.entitlements; sourceTree = "<group>"; };
 		8C8C83912D5E015900C878D2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8C8C83942D5E016400C878D2 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		8C8C83972D5E017300C878D2 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
@@ -632,6 +631,7 @@
 		8CFE942C2E5C5A1F00AD6310 /* TennisBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisBoxScoreView.swift; sourceTree = "<group>"; };
 		8CFE942D2E5C5A1F00AD6310 /* VolleyballBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolleyballBoxScoreView.swift; sourceTree = "<group>"; };
 		8CFE943A2E5C5BD000AD6310 /* AddSportsBriefModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSportsBriefModels.swift; sourceTree = "<group>"; };
+		8CFE94402E5CE3F500AD6310 /* PrepSportsUSA_DevRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrepSportsUSA_DevRelease.entitlements; sourceTree = "<group>"; };
 		B10CB08E6C7C1BF184E3C154 /* Pods-PrepSportsUSA_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA_Dev.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA_Dev/Pods-PrepSportsUSA_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		DFCA735438593A8DF32EFC69 /* Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA-PrepSportsUSA_Dev/Pods-PrepSportsUSA-PrepSportsUSA_Dev.release.xcconfig"; sourceTree = "<group>"; };
 		E41189F63EBE46910A378490 /* Pods-PrepSportsUSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA.release.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA/Pods-PrepSportsUSA.release.xcconfig"; sourceTree = "<group>"; };
@@ -1193,7 +1193,7 @@
 		8CF0C7D32D11F2BA00AA5033 = {
 			isa = PBXGroup;
 			children = (
-				8C8B447A2E0F025C00A6ABC0 /* PrepSportsUSA_DevRelease.entitlements */,
+				8CFE94402E5CE3F500AD6310 /* PrepSportsUSA_DevRelease.entitlements */,
 				04D905532DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy */,
 				8CF0C86B2D120B9100AA5033 /* PrepSportsUSA */,
 				8CF0C7DD2D11F2BA00AA5033 /* Products */,
@@ -2057,13 +2057,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 28;
+				DEVELOPMENT_TEAM = BYVR54K4ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepSportsUSA/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to camera to capture photos for sports briefs.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID instead of a password to access your account.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Newsmaker want to access your location to show Page views";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to photo library to select photos for sports briefs.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2076,7 +2080,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.locallabs.newsmaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.prepsportsusa;
 				PRODUCT_NAME = Newsmaker;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2096,11 +2100,14 @@
 				CURRENT_PROJECT_VERSION = 28;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepSportsUSA/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to camera to capture photos for sports briefs.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID instead of a password to access your account.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Newsmaker want to access your location to show Page views";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Newsmaker want to access your location to show Page views";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to photo library to select photos for sports briefs.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -2113,7 +2120,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.locallabs.newsmakerr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.prepsportsusa;
 				PRODUCT_NAME = Newsmaker;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2251,10 +2258,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PrepSportsUSA/Environment/Dev/PrepSportsUSA_Dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Newsmaker;
+				INFOPLIST_KEY_CFBundleDisplayName = PrepSportsUSA;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID instead of a password to access your account.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2262,13 +2270,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.locallabs.newsmaker;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.prepsportsusa;
 				PRODUCT_NAME = Newmaker_Dev;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2286,10 +2294,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PrepSportsUSA_DevRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BYVR54K4ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/PrepSportsUSA/Environment/Dev/PrepSportsUSA_Dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Newsmaker;
+				INFOPLIST_KEY_CFBundleDisplayName = PrepSportsUSA;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID instead of a password to access your account.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2297,13 +2307,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.locallabs.newsmakerr;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.prepsportsusa;
 				PRODUCT_NAME = Newmaker_Dev;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

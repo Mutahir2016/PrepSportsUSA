@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-main">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-mw-IPE">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1320.6666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1407.6666666666667"/>
                                         <subviews>
                                             <stackView contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-main">
-                                                <rect key="frame" x="16" y="16" width="361" height="1288.6666666666667"/>
+                                                <rect key="frame" x="16" y="16" width="361" height="1375.6666666666667"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-ch-org">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="81.333333333333329"/>
@@ -33,13 +34,14 @@
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-ch-org">
-                                                                <rect key="frame" x="0.0" y="27.333333333333329" width="361" height="54"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333343" width="361" height="54"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-ch-org"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="Select School Organization">
+                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="  Select School Organization">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -54,6 +56,13 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gVL-Sg-6Me">
+                                                                <rect key="frame" x="321" y="42.999999999999986" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="34" id="UZC-gq-KBe"/>
+                                                                    <constraint firstAttribute="width" constant="24" id="Zba-M2-4aT"/>
+                                                                </constraints>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -64,6 +73,8 @@
                                                             <constraint firstItem="LbS-ch-org" firstAttribute="top" secondItem="VwS-ch-org" secondAttribute="top" id="TpL-ch-org"/>
                                                             <constraint firstAttribute="trailing" secondItem="BtS-ch-org" secondAttribute="trailing" id="TrB-ch-org"/>
                                                             <constraint firstAttribute="trailing" secondItem="LbS-ch-org" secondAttribute="trailing" id="TrL-ch-org"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gVL-Sg-6Me" secondAttribute="trailing" constant="16" id="VyQ-D6-zsu"/>
+                                                            <constraint firstAttribute="bottom" secondItem="gVL-Sg-6Me" secondAttribute="bottom" constant="9.6666666666666572" id="WPL-Ax-qzJ"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender">
@@ -74,7 +85,7 @@
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-gender-container">
-                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="361" height="44"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333343" width="361" height="44"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-gender">
                                                                         <rect key="frame" x="16" y="12" width="329" height="20"/>
@@ -160,7 +171,8 @@
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-team"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="Select Team">
+                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="  Select Team">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -175,15 +187,24 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ITK-Q9-fqg">
+                                                                <rect key="frame" x="321" y="42.999999999999957" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="Ad2-2f-HL4"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="RJd-tf-zdE"/>
+                                                                </constraints>
+                                                            </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="BtS-team" secondAttribute="bottom" id="BtB-team"/>
                                                             <constraint firstItem="BtS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdB-team"/>
                                                             <constraint firstItem="LbS-team" firstAttribute="leading" secondItem="VwS-team" secondAttribute="leading" id="LdL-team"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ITK-Q9-fqg" secondAttribute="trailing" constant="16" id="Rkw-TX-dOV"/>
                                                             <constraint firstItem="BtS-team" firstAttribute="top" secondItem="LbS-team" secondAttribute="bottom" constant="8" id="TpB-team"/>
                                                             <constraint firstItem="LbS-team" firstAttribute="top" secondItem="VwS-team" secondAttribute="top" id="TpL-team"/>
                                                             <constraint firstAttribute="trailing" secondItem="BtS-team" secondAttribute="trailing" id="TrB-team"/>
                                                             <constraint firstAttribute="trailing" secondItem="LbS-team" secondAttribute="trailing" id="TrL-team"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ITK-Q9-fqg" secondAttribute="bottom" constant="9.666666666666643" id="ftM-V7-JDH"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-game">
@@ -200,7 +221,8 @@
                                                                     <constraint firstAttribute="height" constant="54" id="HtB-game"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <state key="normal" title="Select Game">
+                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="  Select Game">
                                                                     <color key="titleColor" systemColor="placeholderTextColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -215,6 +237,13 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FX4-xi-oq4">
+                                                                <rect key="frame" x="321" y="43.000000000000014" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="lXb-EB-ohl"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="v0k-zY-o4R"/>
+                                                                </constraints>
+                                                            </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="BtS-game" secondAttribute="bottom" id="BtB-game"/>
@@ -224,6 +253,8 @@
                                                             <constraint firstItem="LbS-game" firstAttribute="top" secondItem="VwS-game" secondAttribute="top" id="TpL-game"/>
                                                             <constraint firstAttribute="trailing" secondItem="BtS-game" secondAttribute="trailing" id="TrB-game"/>
                                                             <constraint firstAttribute="trailing" secondItem="LbS-game" secondAttribute="trailing" id="TrL-game"/>
+                                                            <constraint firstAttribute="bottom" secondItem="FX4-xi-oq4" secondAttribute="bottom" constant="9.666666666666643" id="wJv-VL-5qJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="FX4-xi-oq4" secondAttribute="trailing" constant="16" id="waq-AS-eu9"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore">
@@ -234,10 +265,10 @@
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-boxscore-container">
-                                                                <rect key="frame" x="0.0" y="27.333333333333371" width="361" height="244"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333258" width="361" height="244"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="StV-boxscore">
-                                                                        <rect key="frame" x="16" y="15.999999999999943" width="329" height="212"/>
+                                                                        <rect key="frame" x="16" y="16" width="329" height="212"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Football Box Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-boxscore-title">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="19.333333333333332"/>
@@ -537,7 +568,6 @@
                                                                     <constraint firstAttribute="width" constant="120" id="WdB-add-image"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-
                                                                 <state key="normal" title="Add Image"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -651,8 +681,54 @@
                                                             <constraint firstAttribute="trailing" secondItem="StV-quotes" secondAttribute="trailing" id="TrS-quotes"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cln-QS-joH" userLabel="Quotes source">
+                                                        <rect key="frame" x="0.0" y="1234.6666666666667" width="361" height="67"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Quote Source (Required if any quote is filled)" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuz-BQ-1Q2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="361" height="25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="25" id="CYL-gN-etG"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-MO-NYS">
+                                                                <rect key="frame" x="0.0" y="33" width="361" height="34"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter quote source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fB8-mk-Ggq">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="34" id="GuJ-83-Q96"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="gEA-MO-NYS" secondAttribute="bottom" id="5xO-HM-mYb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gEA-MO-NYS" secondAttribute="trailing" id="GDi-nY-egC"/>
+                                                            <constraint firstItem="Xuz-BQ-1Q2" firstAttribute="top" secondItem="Cln-QS-joH" secondAttribute="top" id="TcX-tC-asT"/>
+                                                            <constraint firstItem="gEA-MO-NYS" firstAttribute="leading" secondItem="Cln-QS-joH" secondAttribute="leading" id="U73-dA-mV8"/>
+                                                            <constraint firstItem="Xuz-BQ-1Q2" firstAttribute="leading" secondItem="Cln-QS-joH" secondAttribute="leading" id="cqB-iO-jQh"/>
+                                                            <constraint firstItem="gEA-MO-NYS" firstAttribute="top" secondItem="Xuz-BQ-1Q2" secondAttribute="bottom" constant="8" id="m5k-L2-e0V"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Xuz-BQ-1Q2" secondAttribute="trailing" id="qW1-lf-Ibc"/>
+                                                        </constraints>
+                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-submit">
-                                                        <rect key="frame" x="0.0" y="1234.6666666666667" width="361" height="54"/>
+                                                        <rect key="frame" x="0.0" y="1321.6666666666667" width="361" height="54"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="54" id="HtB-submit"/>
@@ -730,6 +806,8 @@
                         <outlet property="quote2TextField" destination="TxF-quote2" id="OtT-quote2"/>
                         <outlet property="quote3TextField" destination="TxF-quote3" id="OtT-quote3"/>
                         <outlet property="quote4TextField" destination="TxF-quote4" id="OtT-quote4"/>
+                        <outlet property="quoteSourceTextField" destination="fB8-mk-Ggq" id="3KT-3U-kUB"/>
+                        <outlet property="quoteSourceView" destination="Cln-QS-joH" id="3QY-6Q-dng"/>
                         <outlet property="quotesLabel" destination="LbS-quotes" id="OtL-quotes"/>
                         <outlet property="quotesStackView" destination="StV-quotes" id="OtS-quotes"/>
                         <outlet property="quotesView" destination="VwS-quotes" id="OtV-quotes"/>
@@ -748,6 +826,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
@@ -755,22 +834,22 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="placeholderTextColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

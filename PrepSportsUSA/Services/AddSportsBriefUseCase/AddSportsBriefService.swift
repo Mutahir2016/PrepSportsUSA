@@ -31,11 +31,10 @@ class AddSportsBriefService: BaseServiceClass, AddSportsBriefUseCaseProtocol {
     // MARK: - Pre Pitch Media Upload
     func createPrePitchMediaLink(request: PrePitchMediaRequest) -> Observable<PrePitchMediaResponse> {
         return Observable.create { observer in
-            let endpoint = "/presign/pre_pitch_media"
             let parameters = self.reqToDic(request: request)
             
             var urlRequest = self.buildURLRequest(
-                path: endpoint,
+                path: Environment.prePitchMedia,
                 httpMethod: .post,
                 parameters: parameters,
                 parameterEncoding: JSONEncoding.default
@@ -100,11 +99,10 @@ class AddSportsBriefService: BaseServiceClass, AddSportsBriefUseCaseProtocol {
     // MARK: - Create Pre Pitch
     func createPrePitch(request: PrePitchCreateRequest) -> Observable<PrePitchResponse> {
         return Observable.create { observer in
-            let endpoint = "/pre_pitches"
             let parameters = self.reqToDic(request: request)
             
             var urlRequest = self.buildURLRequest(
-                path: endpoint,
+                path: Environment.prePitches,
                 httpMethod: .post,
                 parameters: parameters,
                 parameterEncoding: JSONEncoding.default
