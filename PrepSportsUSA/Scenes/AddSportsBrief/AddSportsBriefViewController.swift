@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SDWebImage
 
 class AddSportsBriefViewController: BaseViewController {
     var viewModel: AddSportsBriefViewModel!
@@ -49,6 +50,9 @@ class AddSportsBriefViewController: BaseViewController {
     @IBOutlet weak var quoteSourceTextField: UITextField!
     
     // Box Score Text Fields
+    @IBOutlet weak var homeIcon: UIImageView!
+    @IBOutlet weak var awayIcon: UIImageView!
+
     @IBOutlet weak var homeQ1TextField: UITextField!
     @IBOutlet weak var homeQ2TextField: UITextField!
     @IBOutlet weak var homeQ3TextField: UITextField!
@@ -334,7 +338,8 @@ class AddSportsBriefViewController: BaseViewController {
         if let game = selectedGame {
             let homeTeam = game.attributes.homeTeam.name
             let awayTeam = game.attributes.awayTeam.name
-            gameButton.setTitle("\(homeTeam) vs \(awayTeam)", for: .normal)
+            let venue = game.attributes.venue ?? "Unknown"
+            gameButton.setTitle("\(venue) - \(homeTeam) vs \(awayTeam)", for: .normal)
             gameButton.setTitleColor(UIColor.label, for: .normal)
             updateBoxScoreViewVisibility()
         } else {
@@ -361,7 +366,10 @@ class AddSportsBriefViewController: BaseViewController {
         // Update team names in the storyboard labels
         homeTeamLabel.text = game.attributes.homeTeam.name
         awayTeamLabel.text = game.attributes.awayTeam.name
+                
+        homeIcon.sd_setImage(with: URL(string: game.attributes.homeTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
         
+        awayIcon.sd_setImage(with: URL(string: game.attributes.awayTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
         // Clear all score fields
         clearScoreFields()
     }

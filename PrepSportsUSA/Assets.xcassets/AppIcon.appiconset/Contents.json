@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "iconn.png",
+      "filename" : "iconn alpha.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "iconn 1.png",
+      "filename" : "iconn alpha 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "iconn 2.png",
+      "filename" : "iconn alpha 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

@@ -85,20 +85,6 @@ struct LimparTeam: Codable {
     }
 }
 
-// MARK: - Team Image
-struct TeamImage: Codable {
-    let filename: String?
-    let contentType: String?
-    let byteSize: Int?
-    let url: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case filename, url
-        case contentType = "content_type"
-        case byteSize = "byte_size"
-    }
-}
-
 // MARK: - Limpar Game
 struct LimparGame: Codable {
     let id: String?

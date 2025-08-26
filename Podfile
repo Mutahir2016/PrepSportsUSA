@@ -21,6 +21,8 @@ def shared_pods
   pod 'Google-Maps-iOS-Utils'
   pod 'PrettyCards'
   pod 'Fastis'
+  pod 'SDWebImage'
+  
 end
 
 # PrepSportsUSA Target

@@ -7,27 +7,30 @@
 
 import Foundation
 
+// MARK: - Root Response
 struct GameResponse: Codable {
     let data: [GameData]
     let meta: GameMeta
     let links: GameLinks
 }
 
+// MARK: - Data
 struct GameData: Codable {
     let id: String
     let type: String
     let attributes: GameAttributes
 }
 
+// MARK: - Attributes
 struct GameAttributes: Codable {
     let id: String
-    let venue: String
+    let venue: String?
     let dateTime: String
     let homeTeam: GameTeamInfo
     let awayTeam: GameTeamInfo
     let createdAt: String
     let updatedAt: String
-    
+
     enum CodingKeys: String, CodingKey {
         case id, venue
         case dateTime = "date_time"
@@ -36,25 +39,31 @@ struct GameAttributes: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey: .id)
-        venue = try container.decode(String.self, forKey: .venue)
-        dateTime = try container.decode(String.self, forKey: .dateTime)
-        homeTeam = try container.decode(GameTeamInfo.self, forKey: .homeTeam)
-        awayTeam = try container.decode(GameTeamInfo.self, forKey: .awayTeam)
-        createdAt = try container.decode(String.self, forKey: .createdAt)
-        updatedAt = try container.decode(String.self, forKey: .updatedAt)
-    }
 }
 
+// MARK: - Team Info
 struct GameTeamInfo: Codable {
     let id: String
     let name: String
     let image: TeamImage?
 }
 
+// MARK: - Team Image
+struct TeamImage: Codable {
+    let filename: String?
+    let contentType: String?
+    let byteSize: Int?
+    let url: String?
+
+    enum CodingKeys: String, CodingKey {
+        case filename
+        case contentType = "content_type"
+        case byteSize = "byte_size"
+        case url
+    }
+}
+
+// MARK: - Meta
 struct GameMeta: Codable {
     let pagination: GamePagination
 }
@@ -64,12 +73,14 @@ struct GamePagination: Codable {
     let records: Int
 }
 
+// MARK: - Links
 struct GameLinks: Codable {
     let selfLink: String
     let current: String
-    
+
     enum CodingKeys: String, CodingKey {
         case selfLink = "self"
         case current
     }
 }
+

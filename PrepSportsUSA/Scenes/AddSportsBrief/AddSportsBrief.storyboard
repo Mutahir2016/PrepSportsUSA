@@ -776,6 +776,7 @@
                     <connections>
                         <outlet property="addImageButton" destination="BtS-add-image" id="OtB-add-image"/>
                         <outlet property="awayFinalLabel" destination="LbS-away-final" id="OtS-away-final"/>
+                        <outlet property="awayIcon" destination="ImV-away" id="6uP-Cx-xsc"/>
                         <outlet property="awayOTTextField" destination="TxF-away-ot" id="OtS-away-ot"/>
                         <outlet property="awayQ1TextField" destination="TxF-away-q1" id="OtS-away-q1"/>
                         <outlet property="awayQ2TextField" destination="TxF-away-q2" id="OtS-away-q2"/>
@@ -793,6 +794,7 @@
                         <outlet property="girlsButton" destination="BtS-girls" id="OtS-girls"/>
                         <outlet property="girlsRadioIcon" destination="ImV-girls" id="OtS-girls-radio"/>
                         <outlet property="homeFinalLabel" destination="LbS-home-final" id="OtS-home-final"/>
+                        <outlet property="homeIcon" destination="ImV-home" id="aKh-Qh-113"/>
                         <outlet property="homeOTTextField" destination="TxF-home-ot" id="OtS-home-ot"/>
                         <outlet property="homeQ1TextField" destination="TxF-home-q1" id="OtS-home-q1"/>
                         <outlet property="homeQ2TextField" destination="TxF-home-q2" id="OtS-home-q2"/>
