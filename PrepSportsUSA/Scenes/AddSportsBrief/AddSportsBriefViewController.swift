@@ -412,16 +412,19 @@ class AddSportsBriefViewController: BaseViewController {
         
         textFields.forEach { textField in
             textField?.addTarget(self, action: #selector(boxScoreTextFieldChanged), for: .editingChanged)
+            textField?.placeholder = "0"
+            textField?.text = ""
         }
     }
     
     private func clearScoreFields() {
-        // Clear all score text fields
+        // Clear all score text fields to show placeholder
         let textFields = [homeQ1TextField, homeQ2TextField, homeQ3TextField, homeQ4TextField, homeOTTextField,
                          awayQ1TextField, awayQ2TextField, awayQ3TextField, awayQ4TextField, awayOTTextField]
         
         textFields.forEach { textField in
-            textField?.text = "0"
+            textField?.text = ""
+            textField?.placeholder = "0"
         }
         
         // Clear final score labels
