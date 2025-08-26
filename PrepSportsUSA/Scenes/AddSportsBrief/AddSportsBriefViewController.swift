@@ -116,6 +116,10 @@ class AddSportsBriefViewController: BaseViewController {
             button?.layer.borderWidth = 1
             button?.layer.borderColor = UIColor.systemGray4.cgColor
             button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            
+            // Enable multiline text for buttons
+            button?.titleLabel?.numberOfLines = 0
+            button?.titleLabel?.lineBreakMode = .byWordWrapping
         }
         
         // Setup radio button styling
