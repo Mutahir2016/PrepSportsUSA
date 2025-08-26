@@ -146,6 +146,19 @@ class AddSportsBriefViewController: BaseViewController {
         girlsRadioIcon.tintColor = UIColor.systemGray3
     }
     
+    private func setupRadioButtonTapGestures() {
+        // Enable user interaction for radio button images
+        boysRadioIcon.isUserInteractionEnabled = true
+        girlsRadioIcon.isUserInteractionEnabled = true
+        
+        // Add tap gesture recognizers to radio button images
+        let boysTapGesture = UITapGestureRecognizer(target: self, action: #selector(boysRadioIconTapped))
+        boysRadioIcon.addGestureRecognizer(boysTapGesture)
+        
+        let girlsTapGesture = UITapGestureRecognizer(target: self, action: #selector(girlsRadioIconTapped))
+        girlsRadioIcon.addGestureRecognizer(girlsTapGesture)
+    }
+    
     private func addChevronToButton(_ button: UIButton) {
         let chevronImage = UIImage(systemName: "chevron.down")
         button.setImage(chevronImage, for: .normal)
@@ -200,6 +213,9 @@ class AddSportsBriefViewController: BaseViewController {
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         
+        // Add tap gestures to radio button images
+        setupRadioButtonTapGestures()
+        
         // Setup ViewModel delegate
         viewModel.delegate = self
     }
@@ -228,6 +244,16 @@ class AddSportsBriefViewController: BaseViewController {
         updateTeamButton()
         updateGameViewVisibility()
         updateGameButton()
+    }
+    
+    @objc private func boysRadioIconTapped() {
+        // Same functionality as boys button tap
+        boysButtonTapped()
+    }
+    
+    @objc private func girlsRadioIconTapped() {
+        // Same functionality as girls button tap
+        girlsButtonTapped()
     }
     
     @objc private func teamButtonTapped() {
