@@ -16,6 +16,8 @@ protocol AddSportsBriefViewModelDelegate: AnyObject {
     func imageUploadProgress(progress: Float)
     func imageUploadCompleted(uploadedImage: UploadedImage)
     func imageUploadFailed(error: String)
+    func selectedSchoolsLoaded(schools: [SchoolOrganizationData])
+    func selectedSchoolsLoadFailed(error: String)
 }
 
 class AddSportsBriefViewModel: BaseViewModel {
@@ -270,5 +272,29 @@ class AddSportsBriefViewModel: BaseViewModel {
     
     func clearUploadedImages() {
         uploadedImages.removeAll()
+    }
+    
+    // MARK: - Fetch Selected Schools for Non-Admin Users
+    func fetchSelectedSchools() {
+        isLoadingRelay.accept(true)
+        
+        addSportsBriefUseCase?
+            .getSelectedSchools(page: 1, pageSize: 1)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] response in
+                guard let self = self else { return }
+                self.isLoadingRelay.accept(false)
+                
+                print("Selected schools loaded successfully: \(response.data.count) schools")
+                self.delegate?.selectedSchoolsLoaded(schools: response.data)
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
+                self.isLoadingRelay.accept(false)
+                
+                let errorMessage = error.localizedDescription
+                print("Failed to load selected schools: \(errorMessage)")
+                self.delegate?.selectedSchoolsLoadFailed(error: errorMessage)
+            })
+            .disposed(by: disposeBag)
     }
 }

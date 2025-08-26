@@ -76,6 +76,7 @@ class AddSportsBriefViewController: BaseViewController {
     private var selectedImages: [UIImage] = []
     private let maxImageCount = 3
     private var isUploading = false
+    private var isAdmin = false
     
     // Remove complex boxscore view properties - we'll use the storyboard elements
     
@@ -84,6 +85,20 @@ class AddSportsBriefViewController: BaseViewController {
         setupUI()
         setupInitialVisibility()
         setupActions()
+        
+        // Check if user is admin
+        let accType = RKStorage.shared.getUserProfile()?.data.attributes.accountType ?? ""
+        if accType == "admin" {
+            print("is Admin")
+            isAdmin = true
+        } else {
+            print("is not Admin")
+            isAdmin = false
+            // For non-admin users, disable the organization button and fetch selected schools
+            schoolOrganizationButton.isEnabled = false
+            schoolOrganizationButton.alpha = 0.6
+            viewModel.fetchSelectedSchools()
+        }
     }
     
     private func setupInitialVisibility() {
@@ -225,7 +240,11 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     @objc private func schoolOrganizationButtonTapped() {
-        router.navigateToSelectSchoolOrganization()
+        // Only allow navigation for admin users
+        if isAdmin {
+            router.navigateToSelectSchoolOrganization()
+        }
+        // Non-admin users cannot tap this button (it's disabled)
     }
     
     @objc private func boysButtonTapped() {
@@ -721,6 +740,27 @@ extension AddSportsBriefViewController: AddSportsBriefViewModelDelegate {
                 // Navigate back or dismiss the view controller
                 self.navigationController?.popViewController(animated: true)
             }
+        }
+    }
+    
+    func selectedSchoolsLoaded(schools: [SchoolOrganizationData]) {
+        DispatchQueue.main.async {
+            // Auto-select the first school for non-admin users
+            if !schools.isEmpty {
+                let firstSchool = schools[0]
+                self.selectedOrganization = firstSchool
+                self.updateSchoolOrganizationButton()
+                self.updateGenderViewVisibility()
+                print("Auto-selected school for non-admin user: \(firstSchool.attributes.name)")
+            } else {
+                self.showAlert(title: "No Schools Found", message: "No schools are assigned to your account. Please contact your administrator.")
+            }
+        }
+    }
+    
+    func selectedSchoolsLoadFailed(error: String) {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Failed to Load Schools", message: "Unable to load your assigned schools: \(error)")
         }
     }
 }

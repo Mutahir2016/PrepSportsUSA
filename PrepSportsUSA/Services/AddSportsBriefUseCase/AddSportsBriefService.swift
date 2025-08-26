@@ -161,4 +161,39 @@ class AddSportsBriefService: BaseServiceClass, AddSportsBriefUseCaseProtocol {
             return Disposables.create()
         }
     }
+    
+    // MARK: - Get Selected Schools for Non-Admin Users
+    func getSelectedSchools(page: Int = 1, pageSize: Int = 1) -> Observable<SchoolOrganizationResponse> {
+        return Observable.create { observer in
+            let endpoint = "/limpar/organizations/selected_schools"
+            let parameters: [String: Any] = [
+                "page[number]": page,
+                "page[size]": pageSize
+            ]
+            
+            var urlRequest = self.buildURLRequest(
+                path: endpoint,
+                httpMethod: .get,
+                parameters: parameters,
+                parameterEncoding: URLEncoding.default
+            )
+            
+            // Add authorization header
+            if let token = RKStorage.shared.getSignIn()?.token {
+                urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+            
+            self.client.request(urlRequest) { (result: Result<SchoolOrganizationResponse, AFError>) in
+                switch result {
+                case .success(let response):
+                    observer.onNext(response)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
 }

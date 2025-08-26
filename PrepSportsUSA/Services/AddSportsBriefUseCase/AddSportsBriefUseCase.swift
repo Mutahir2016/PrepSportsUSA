@@ -14,6 +14,7 @@ protocol AddSportsBriefUseCaseProtocol {
     func uploadImageToPresignedUrl(imageData: Data, presignedUrl: String, contentType: String) -> Observable<Bool>
     func createPrePitch(request: PrePitchCreateRequest) -> Observable<PrePitchResponse>
     func getPrePitchTypes(page: Int, pageSize: Int) -> Observable<PrePitchTypesResponse>
+    func getSelectedSchools(page: Int, pageSize: Int) -> Observable<SchoolOrganizationResponse>
 }
 
 class AddSportsBriefUseCase: AddSportsBriefUseCaseProtocol {
@@ -41,5 +42,9 @@ class AddSportsBriefUseCase: AddSportsBriefUseCaseProtocol {
     
     func getPrePitchTypes(page: Int, pageSize: Int) -> Observable<PrePitchTypesResponse> {
         return service.getPrePitchTypes(page: page, pageSize: pageSize)
+    }
+    
+    func getSelectedSchools(page: Int, pageSize: Int) -> Observable<SchoolOrganizationResponse> {
+        return service.getSelectedSchools(page: page, pageSize: pageSize)
     }
 }
