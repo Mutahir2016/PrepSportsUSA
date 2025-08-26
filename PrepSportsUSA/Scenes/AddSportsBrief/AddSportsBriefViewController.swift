@@ -489,6 +489,13 @@ class AddSportsBriefViewController: BaseViewController {
         }
         
         let description = descriptionTextView.text ?? ""
+        
+        // Validate description is not empty and not placeholder text
+        if description.isEmpty || description == "Enter description (max 1000 characters)" || descriptionTextView.textColor == UIColor.placeholderText {
+            showAlert(title: "Missing Description", message: "Please enter a description for the sports brief.")
+            return
+        }
+        
         let quotes = getQuotesFromForm()
         let quoteSource = quoteSourceTextField.text ?? ""
         
