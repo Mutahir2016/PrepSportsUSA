@@ -167,6 +167,12 @@
 		8C64E2FC2D203926006477D4 /* AuthStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E2F42D203926006477D4 /* AuthStorage.swift */; };
 		8C64E3022D2039EC006477D4 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E3012D2039EC006477D4 /* CustomError.swift */; };
 		8C64E3032D2039EC006477D4 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64E3012D2039EC006477D4 /* CustomError.swift */; };
+		8C696C972E5F711B0058A1D9 /* GameSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C696C952E5F711B0058A1D9 /* GameSelectionTableViewCell.xib */; };
+		8C696C982E5F711B0058A1D9 /* GameSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C696C942E5F711B0058A1D9 /* GameSelectionTableViewCell.swift */; };
+		8C696C992E5F711B0058A1D9 /* GameSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C696C952E5F711B0058A1D9 /* GameSelectionTableViewCell.xib */; };
+		8C696C9A2E5F711B0058A1D9 /* GameSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C696C942E5F711B0058A1D9 /* GameSelectionTableViewCell.swift */; };
+		8C696C9D2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C696C9B2E5F749C0058A1D9 /* GameSelectionView.swift */; };
+		8C696C9E2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C696C9B2E5F749C0058A1D9 /* GameSelectionView.swift */; };
 		8C6CE1A52E5882B3005F5330 /* SportsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6CE1A12E5882B3005F5330 /* SportsRouter.swift */; };
 		8C6CE1A62E5882B3005F5330 /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6CE1A32E5882B3005F5330 /* SportsViewModel.swift */; };
 		8C6CE1A72E5882B3005F5330 /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6CE1A22E5882B3005F5330 /* SportsViewController.swift */; };
@@ -498,6 +504,9 @@
 		8C64E2F52D203926006477D4 /* TokenAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPIService.swift; sourceTree = "<group>"; };
 		8C64E2F62D203926006477D4 /* TokenHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHandler.swift; sourceTree = "<group>"; };
 		8C64E3012D2039EC006477D4 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		8C696C942E5F711B0058A1D9 /* GameSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		8C696C952E5F711B0058A1D9 /* GameSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		8C696C9B2E5F749C0058A1D9 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
 		8C6CE1A02E5882B3005F5330 /* Sports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sports.storyboard; sourceTree = "<group>"; };
 		8C6CE1A12E5882B3005F5330 /* SportsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsRouter.swift; sourceTree = "<group>"; };
 		8C6CE1A22E5882B3005F5330 /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
@@ -758,6 +767,7 @@
 		8C6312B52E5B9C43008298FA /* AddSportsBrief */ = {
 			isa = PBXGroup;
 			children = (
+				8C696C9C2E5F749C0058A1D9 /* Views */,
 				8CD2BDFA2E5BC49800F129FD /* AddSportsBrief.storyboard */,
 				8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */,
 				8C6312B32E5B9C43008298FA /* AddSportsBriefRouter.swift */,
@@ -827,6 +837,7 @@
 		8C63130B2E5BB315008298FA /* SelectGame */ = {
 			isa = PBXGroup;
 			children = (
+				8C696C962E5F711B0058A1D9 /* TableViewCells */,
 				8C6313072E5BB315008298FA /* SelectGame.storyboard */,
 				8C6313082E5BB315008298FA /* SelectGameRouter.swift */,
 				8C6313092E5BB315008298FA /* SelectGameViewController.swift */,
@@ -873,6 +884,23 @@
 				8C3159872D324E1000D56F57 /* RKStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		8C696C962E5F711B0058A1D9 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8C696C942E5F711B0058A1D9 /* GameSelectionTableViewCell.swift */,
+				8C696C952E5F711B0058A1D9 /* GameSelectionTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		8C696C9C2E5F749C0058A1D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C696C9B2E5F749C0058A1D9 /* GameSelectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8C6CE1A42E5882B3005F5330 /* Sports */ = {
@@ -1443,6 +1471,7 @@
 				8CE217022D5BC57800238534 /* Outbound.storyboard in Resources */,
 				8C3159952D32598100D56F57 /* StoriesHome.storyboard in Resources */,
 				8CF0C8902D120B9100AA5033 /* Signin.storyboard in Resources */,
+				8C696C992E5F711B0058A1D9 /* GameSelectionTableViewCell.xib in Resources */,
 				8CF0C8942D120B9100AA5033 /* Assets.xcassets in Resources */,
 				04B2BEC62D2D7B02006F16A7 /* DetailInfoCollectionViewCell.xib in Resources */,
 				04B2BEC72D2D7B02006F16A7 /* TopLocationTableCell.xib in Resources */,
@@ -1498,6 +1527,7 @@
 				8CE217032D5BC57800238534 /* Outbound.storyboard in Resources */,
 				8C3159962D32598100D56F57 /* StoriesHome.storyboard in Resources */,
 				8CF0C87C2D120B9100AA5033 /* Signin.storyboard in Resources */,
+				8C696C972E5F711B0058A1D9 /* GameSelectionTableViewCell.xib in Resources */,
 				8CF0C8802D120B9100AA5033 /* Assets.xcassets in Resources */,
 				04B2BEC12D2D7B02006F16A7 /* DetailInfoCollectionViewCell.xib in Resources */,
 				04B2BEC22D2D7B02006F16A7 /* TopLocationTableCell.xib in Resources */,
@@ -1704,6 +1734,8 @@
 				8C8938D12D3CDD8F00E5AADD /* StoriesViewModel.swift in Sources */,
 				8CF0C8A02D120B9100AA5033 /* SigninViewController.swift in Sources */,
 				8C3CA6642DB96D7D001AB8B1 /* NetworkRouter.swift in Sources */,
+				8C696C9E2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */,
+				8C696C9A2E5F711B0058A1D9 /* GameSelectionTableViewCell.swift in Sources */,
 				8C96C25D2E0341AE00BE46A3 /* ProjectStoriesRouter.swift in Sources */,
 				8CCCC69B2D1AC97A009EC2B2 /* BaseViewModel.swift in Sources */,
 				8CE216EC2D5BBBA800238534 /* TopOrgRouter.swift in Sources */,
@@ -1864,6 +1896,8 @@
 				8C8938D02D3CDD8F00E5AADD /* StoriesViewModel.swift in Sources */,
 				8CF0C8712D120B9100AA5033 /* SigninViewController.swift in Sources */,
 				8C3CA6652DB96D7D001AB8B1 /* NetworkRouter.swift in Sources */,
+				8C696C9D2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */,
+				8C696C982E5F711B0058A1D9 /* GameSelectionTableViewCell.swift in Sources */,
 				8C96C25E2E0341AE00BE46A3 /* ProjectStoriesRouter.swift in Sources */,
 				8CCCC69C2D1AC97A009EC2B2 /* BaseViewModel.swift in Sources */,
 				8CE216ED2D5BBBA800238534 /* TopOrgRouter.swift in Sources */,

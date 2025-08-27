@@ -22,8 +22,11 @@ class AddSportsBriefViewController: BaseViewController {
     @IBOutlet weak var genderView: UIView!
     @IBOutlet weak var teamButton: UIButton!
     @IBOutlet weak var teamView: UIView!
-    @IBOutlet weak var gameButton: UIButton!
-    @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var gameTitleView: UIView!
+    
+    // Programmatically created views
+    private var gameView: UIView!
+    private var gameSelectionView: GameSelectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var boxScoreView: UIView!
     @IBOutlet weak var descriptionView: UIView!
@@ -130,21 +133,19 @@ class AddSportsBriefViewController: BaseViewController {
         schoolOrganizationButton.layer.borderWidth = 1
         schoolOrganizationButton.layer.borderColor = UIColor.systemGray4.cgColor
         schoolOrganizationButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-
-        // Style team and game buttons similarly
-        let dropdownButtons = [teamButton, gameButton]
-        dropdownButtons.forEach { button in
-            button?.backgroundColor = UIColor.white
-            button?.layer.cornerRadius = 8
-            button?.layer.borderWidth = 1
-            button?.layer.borderColor = UIColor.systemGray4.cgColor
-            button?.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-
-            // Enable multiline text for buttons
-            button?.titleLabel?.numberOfLines = 0
-            button?.titleLabel?.lineBreakMode = .byWordWrapping
-        }
-
+        // Style team button
+        teamButton.backgroundColor = UIColor.white
+        teamButton.layer.cornerRadius = 8
+        teamButton.layer.borderWidth = 1
+        teamButton.layer.borderColor = UIColor.systemGray4.cgColor
+        teamButton.setTitleColor(UIColor.placeholderText, for: .normal)
+        teamButton.contentHorizontalAlignment = .left
+        teamButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        teamButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        
+        // Setup custom game selection view
+        setupGameSelectionView()
+        
         // Setup radio button styling
         setupRadioButtonStyling()
 
@@ -225,12 +226,9 @@ class AddSportsBriefViewController: BaseViewController {
         updateTeamViewVisibility()
         updateTeamButton()
         updateGameViewVisibility()
-        updateGameButton()
-        updateBoxScoreViewVisibility()
+        updateGameButtonDisplay()
         setupDescriptionTextView()
         updateImageDisplay()
-
-
     }
 
     private func setupActions() {
@@ -238,7 +236,6 @@ class AddSportsBriefViewController: BaseViewController {
         boysButton.addTarget(self, action: #selector(boysButtonTapped), for: .touchUpInside)
         girlsButton.addTarget(self, action: #selector(girlsButtonTapped), for: .touchUpInside)
         teamButton.addTarget(self, action: #selector(teamButtonTapped), for: .touchUpInside)
-        gameButton.addTarget(self, action: #selector(gameButtonTapped), for: .touchUpInside)
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
 
@@ -265,7 +262,7 @@ class AddSportsBriefViewController: BaseViewController {
         updateTeamViewVisibility()
         updateTeamButton()
         updateGameViewVisibility()
-        updateGameButton()
+        updateGameButtonDisplay()
     }
 
     @objc private func girlsButtonTapped() {
@@ -276,7 +273,7 @@ class AddSportsBriefViewController: BaseViewController {
         updateTeamViewVisibility()
         updateTeamButton()
         updateGameViewVisibility()
-        updateGameButton()
+        updateGameButtonDisplay()
     }
 
     @objc private func boysRadioIconTapped() {
@@ -305,7 +302,6 @@ class AddSportsBriefViewController: BaseViewController {
             print("Missing team for game selection")
             return
         }
-
         router.navigateToSelectGame(teamId: team.id)
     }
 
@@ -367,13 +363,12 @@ class AddSportsBriefViewController: BaseViewController {
         selectedGame = nil // Reset game selection when team changes
         updateTeamButton()
         updateGameViewVisibility()
-        updateGameButton()
-        updateBoxScoreViewVisibility()
+        updateGameButtonDisplay()
     }
 
     func didSelectGame(_ game: GameData) {
         selectedGame = game
-        updateGameButton()
+        updateGameButtonDisplay()
         updateBoxScoreDisplay()
     }
 
@@ -390,22 +385,69 @@ class AddSportsBriefViewController: BaseViewController {
 
     private func updateGameViewVisibility() {
         // Show game view only if a team is selected
-        gameView.isHidden = selectedTeam == nil
+        gameTitleView.isHidden = selectedTeam == nil
+        gameView?.isHidden = selectedTeam == nil
     }
 
-    private func updateGameButton() {
-        if let game = selectedGame {
-            let homeTeam = game.attributes.homeTeam.name
-            let awayTeam = game.attributes.awayTeam.name
-            let venue = game.attributes.venue ?? "Unknown"
-            gameButton.setTitle("\(venue) - \(homeTeam) vs \(awayTeam)", for: .normal)
-            gameButton.setTitleColor(UIColor.label, for: .normal)
-            updateBoxScoreViewVisibility()
-        } else {
-            gameButton.setTitle("Select Game", for: .normal)
-            gameButton.setTitleColor(UIColor.placeholderText, for: .normal)
-            updateBoxScoreViewVisibility()
+    private func addGameViewToStackView() {
+        // Find the main stack view and add gameView after gameTitleView
+        guard let mainStackView = findMainStackView() else {
+            print("Could not find main stack view")
+            return
         }
+        
+        // Find the index of gameTitleView
+        if let gameTitleIndex = mainStackView.arrangedSubviews.firstIndex(of: gameTitleView) {
+            mainStackView.insertArrangedSubview(gameView, at: gameTitleIndex + 1)
+            // Reduce spacing between game title and game view
+            mainStackView.setCustomSpacing(8, after: gameTitleView)
+        } else {
+            // Fallback: add at the end
+            mainStackView.addArrangedSubview(gameView)
+        }
+    }
+    
+    private func findMainStackView() -> UIStackView? {
+        // Navigate through the view hierarchy to find the main stack view
+        // Based on the storyboard structure: ScrollView -> ContentView -> StackView
+        if let scrollView = view.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView,
+           let contentView = scrollView.subviews.first,
+           let stackView = contentView.subviews.first(where: { $0 is UIStackView }) as? UIStackView {
+            return stackView
+        }
+        return nil
+    }
+    
+    private func updateGameButtonDisplay() {
+        gameSelectionView.configure(with: selectedGame)
+        updateBoxScoreViewVisibility()
+    }
+    
+    private func setupGameSelectionView() {
+        // Create game container view
+        gameView = UIView()
+        gameView.backgroundColor = UIColor.clear
+        gameView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Create game selection view
+        gameSelectionView = GameSelectionView()
+        gameSelectionView.translatesAutoresizingMaskIntoConstraints = false
+        gameView.addSubview(gameSelectionView)
+        
+        NSLayoutConstraint.activate([
+            gameSelectionView.topAnchor.constraint(equalTo: gameView.topAnchor),
+            gameSelectionView.leadingAnchor.constraint(equalTo: gameView.leadingAnchor),
+            gameSelectionView.trailingAnchor.constraint(equalTo: gameView.trailingAnchor),
+            gameSelectionView.bottomAnchor.constraint(equalTo: gameView.bottomAnchor),
+            gameView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60)
+        ])
+        
+        gameSelectionView.onTapped = { [weak self] in
+            self?.gameButtonTapped()
+        }
+        
+        // Add gameView to the main stack view after gameTitleView
+        addGameViewToStackView()
     }
 
     private func updateBoxScoreViewVisibility() {
