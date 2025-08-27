@@ -162,7 +162,8 @@ extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath)
         
         let team = viewModel.teams[indexPath.row]
-        cell.textLabel?.text = team.attributes.name
+        cell.textLabel?.text = "\(team.attributes.name ?? "") (\(team.attributes.sport))"
+        
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none
         cell.selectionStyle = .default
