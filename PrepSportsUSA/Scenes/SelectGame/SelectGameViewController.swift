@@ -48,13 +48,14 @@ class SelectGameViewController: BaseViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = UIColor.systemBackground
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.systemGroupedBackground
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 88
 
-        // Register cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GameCell")
+        // Register custom cell
+        let nib = UINib(nibName: "GameSelectionTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: GameSelectionTableViewCell.identifier)
     }
     
     private func setupNavigationBar() {
@@ -129,34 +130,12 @@ extension SelectGameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
-        
-        let game = viewModel.games[indexPath.row]
-        
-        // Format the game display text
-        let homeTeam = game.attributes.homeTeam.name
-        let awayTeam = game.attributes.awayTeam.name
-        let venue = game.attributes.venue
-        
-        // Format date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        let displayFormatter = DateFormatter()
-        displayFormatter.dateFormat = "MMM dd, yyyy"
-        
-        var dateString = ""
-        if let date = dateFormatter.date(from: game.attributes.dateTime) {
-            dateString = displayFormatter.string(from: date)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GameSelectionTableViewCell.identifier, for: indexPath) as? GameSelectionTableViewCell else {
+            return UITableViewCell()
         }
         
-        cell.textLabel?.numberOfLines = 0 // ✅ wrap text properly
-        cell.textLabel?.text = "\(homeTeam) vs \(awayTeam)"
-        cell.detailTextLabel?.text = "\(venue) • \(dateString)"
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell.detailTextLabel?.textColor = UIColor.systemGray
-        cell.accessoryType = .none
-        cell.selectionStyle = .default
+        let game = viewModel.games[indexPath.row]
+        cell.configure(with: game)
         
         return cell
     }
