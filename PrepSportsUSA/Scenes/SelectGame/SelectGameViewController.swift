@@ -149,6 +149,7 @@ extension SelectGameViewController: UITableViewDelegate, UITableViewDataSource {
             dateString = displayFormatter.string(from: date)
         }
         
+        cell.textLabel?.numberOfLines = 0 // ✅ wrap text properly
         cell.textLabel?.text = "\(homeTeam) vs \(awayTeam)"
         cell.detailTextLabel?.text = "\(venue) • \(dateString)"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)

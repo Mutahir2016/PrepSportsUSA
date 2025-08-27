@@ -167,7 +167,7 @@ extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none
         cell.selectionStyle = .default
-        
+        cell.textLabel?.numberOfLines = 0 // ✅ wrap text properly
         return cell
     }
     
