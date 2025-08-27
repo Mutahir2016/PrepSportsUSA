@@ -51,8 +51,8 @@ class SelectGameViewController: BaseViewController {
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.systemBackground
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
-        
+        tableView.rowHeight = UITableView.automaticDimension
+
         // Register cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GameCell")
     }

@@ -71,7 +71,7 @@ class SelectTeamViewController: BaseViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.systemBackground
-        tableView.rowHeight = 60
+        tableView.rowHeight = UITableView.automaticDimension
         
         // Register cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TeamCell")
@@ -162,7 +162,7 @@ extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath)
         
         let team = viewModel.teams[indexPath.row]
-        cell.textLabel?.text = "\(team.attributes.name ?? "") (\(team.attributes.sport))"
+        cell.textLabel?.text = "\(team.attributes.name) (\(team.attributes.sport))"
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none
