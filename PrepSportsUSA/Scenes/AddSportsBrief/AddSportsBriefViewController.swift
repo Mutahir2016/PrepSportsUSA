@@ -28,7 +28,8 @@ class AddSportsBriefViewController: BaseViewController {
     @IBOutlet weak var boxScoreView: UIView!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var submitButton: UIButton!
-
+    @IBOutlet weak var boxScoreContentView: UIView!
+    
     @IBOutlet weak var imageUploadView: UIView!
     @IBOutlet weak var imageUploadLabel: UILabel!
     @IBOutlet weak var imageThumbnailsStackView: UIStackView!
@@ -79,7 +80,7 @@ class AddSportsBriefViewController: BaseViewController {
     private var isAdmin = false
 
     // Box Score SwiftUI Integration
-    private var boxScoreController: BoxScoreHostingController?
+    private var boxScoreFactory: BoxScoreViewFactory?
     private var swiftUIBoxScoreView: UIView?
 
     // Remove complex boxscore view properties - we'll use the storyboard elements
@@ -499,8 +500,8 @@ class AddSportsBriefViewController: BaseViewController {
             boxScoreType = .golf
         }
 
-        // Create the unified box score hosting controller
-        boxScoreController = BoxScoreHostingController(
+        // Create the unified box score view factory
+        boxScoreFactory = BoxScoreViewFactory(
             homeTeamName: game.attributes.homeTeam.name,
             awayTeamName: game.attributes.awayTeam.name,
             homeTeamImageURL: game.attributes.homeTeam.image?.url,
@@ -508,25 +509,27 @@ class AddSportsBriefViewController: BaseViewController {
             boxScoreType: boxScoreType
         )
 
-        // Add it as a child view controller
-        if let controller = boxScoreController {
-            addChild(controller)
-
-            // Add the view as a subview of boxScoreView
-            boxScoreView.addSubview(controller.view)
-            controller.didMove(toParent: self)
+        // Create and add the hosting controller directly
+        if let controller = boxScoreFactory {
+            let hostingController = controller.createHostingController()
+            
+            // Add the hosting controller as a child
+            addChild(hostingController)
+            boxScoreContentView.addSubview(hostingController.view)
+            hostingController.didMove(toParent: self)
 
             // Set up constraints to fill the boxScoreView completely
-            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
             NSLayoutConstraint.activate([
-                controller.view.topAnchor.constraint(equalTo: boxScoreView.topAnchor),
-                controller.view.leadingAnchor.constraint(equalTo: boxScoreView.leadingAnchor),
-                controller.view.trailingAnchor.constraint(equalTo: boxScoreView.trailingAnchor),
-                controller.view.bottomAnchor.constraint(equalTo: boxScoreView.bottomAnchor)
+                hostingController.view.topAnchor.constraint(equalTo: boxScoreContentView.topAnchor),
+                hostingController.view.leadingAnchor.constraint(equalTo: boxScoreContentView.leadingAnchor),
+                hostingController.view.trailingAnchor.constraint(equalTo: boxScoreContentView.trailingAnchor),
+                hostingController.view.bottomAnchor.constraint(equalTo: boxScoreContentView.bottomAnchor)
             ])
+            
             // Store the view reference
-            swiftUIBoxScoreView = controller.view
+            swiftUIBoxScoreView = hostingController.view
         }
     }
 
@@ -537,13 +540,14 @@ class AddSportsBriefViewController: BaseViewController {
             swiftUIBoxScoreView = nil
         }
 
-        // Remove child view controller if it exists
-        if let controller = boxScoreController {
-            controller.willMove(toParent: nil)
-            controller.view.removeFromSuperview()
-            controller.removeFromParent()
-            boxScoreController = nil
+        // Remove all child view controllers
+        children.forEach { child in
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
         }
+        
+        boxScoreFactory = nil
     }
 
     private func clearScoreFields() {

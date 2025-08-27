@@ -28,8 +28,8 @@
 		106727B1DB2FD60677889715 /* Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C6D817246912BD9D4A8ED3 /* Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework */; };
 		3A171E602E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */; };
 		3A171E632E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */; };
-		3A47676B2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */; };
-		3A47676C2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */; };
+		3A47676B2E5F6543002EBB5A /* BoxScoreViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreViewFactory.swift */; };
+		3A47676C2E5F6543002EBB5A /* BoxScoreViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreViewFactory.swift */; };
 		3A47676E2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */; };
 		3A47676F2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */; };
 		3A989E962E01DC35008080A6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A989E912E01DC35008080A6 /* Search.storyboard */; };
@@ -428,7 +428,7 @@
 		148CD3BA4E72A55A519BDE0A /* Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA-PrepSportsUSA_Dev/Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		23B204BE2715DADCE23338E3 /* Pods-PrepSportsUSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA/Pods-PrepSportsUSA.debug.xcconfig"; sourceTree = "<group>"; };
 		3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfBoxScoreView.swift; sourceTree = "<group>"; };
-		3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxScoreHostingController.swift; sourceTree = "<group>"; };
+		3A47676A2E5F6543002EBB5A /* BoxScoreViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxScoreViewFactory.swift; sourceTree = "<group>"; };
 		3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisBoxScoreView.swift; sourceTree = "<group>"; };
 		3A989E912E01DC35008080A6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		3A989E922E01DC35008080A6 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -762,7 +762,7 @@
 				8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */,
 				8C6312B32E5B9C43008298FA /* AddSportsBriefRouter.swift */,
 				8C6312B42E5B9C43008298FA /* AddSportsBriefViewController.swift */,
-				3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */,
+				3A47676A2E5F6543002EBB5A /* BoxScoreViewFactory.swift */,
 				3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */,
 				3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */,
 			);
@@ -1835,7 +1835,7 @@
 				8C64E2E12D20324B006477D4 /* SignModel.swift in Sources */,
 				8CD9100D2D2CEC4900B30416 /* TabBar.swift in Sources */,
 				8CBFD27F2D3ED6D6008316DA /* StoryModel.swift in Sources */,
-				3A47676B2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */,
+				3A47676B2E5F6543002EBB5A /* BoxScoreViewFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,7 +1995,7 @@
 				8C64E2E22D20324B006477D4 /* SignModel.swift in Sources */,
 				8CD9100F2D2CEC4900B30416 /* TabBar.swift in Sources */,
 				8CBFD2802D3ED6D6008316DA /* StoryModel.swift in Sources */,
-				3A47676C2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */,
+				3A47676C2E5F6543002EBB5A /* BoxScoreViewFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

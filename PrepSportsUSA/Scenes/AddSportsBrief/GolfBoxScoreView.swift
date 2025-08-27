@@ -81,14 +81,6 @@ struct GolfBoxScoreView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // Top title - positioned outside the bordered view
-            Text("Box Score")
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(.black)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 10)
-            
             // Main card
             VStack(spacing: 20) {
                 // Golf Box Score title

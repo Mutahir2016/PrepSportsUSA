@@ -7,7 +7,7 @@ enum BoxScoreType {
     case volleyball
 }
 
-class BoxScoreHostingController: UIViewController {
+class BoxScoreViewFactory: UIViewController {
     
     let homeTeamName: String
     let awayTeamName: String
@@ -30,10 +30,10 @@ class BoxScoreHostingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSwiftUIView()
+        // Don't set up the view here - let the parent handle it
     }
     
-    private func setupSwiftUIView() {
+    func createHostingController() -> UIHostingController<AnyView> {
         let boxScoreView: AnyView
         
         // Create the appropriate SwiftUI view based on sport type
@@ -59,20 +59,6 @@ class BoxScoreHostingController: UIViewController {
         }
         
         let hostingController = UIHostingController(rootView: boxScoreView)
-        
-        // Add the hosting controller as a child
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        view.backgroundColor = .clear
-        hostingController.didMove(toParent: self)
-        
-        // Set up constraints
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        return hostingController
     }
 }
