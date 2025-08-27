@@ -56,6 +56,8 @@ class AddSportsBriefViewController: BaseViewController {
     // Box Score Text Fields
     @IBOutlet weak var homeIcon: UIImageView!
     @IBOutlet weak var awayIcon: UIImageView!
+    @IBOutlet weak var homeScoreIcon: UIImageView!
+    @IBOutlet weak var awayScoreIcon: UIImageView!
 
     @IBOutlet weak var homeQ1TextField: UITextField!
     @IBOutlet weak var homeQ2TextField: UITextField!
@@ -471,10 +473,14 @@ class AddSportsBriefViewController: BaseViewController {
                 // Show football box score, clean up SwiftUI views
                 boxScoreView.isHidden = false
                 cleanupSwiftUIViews()
+                // Show the storyboard football content
+                showFootballBoxScoreContent(true)
 
             } else if sport == "golf" || sport == "tennis" || sport == "volleyball" {
                 // Keep boxScoreView visible but show SwiftUI content inside it
                 boxScoreView.isHidden = false
+                // Hide the storyboard football content for SwiftUI sports
+                showFootballBoxScoreContent(false)
                 if swiftUIBoxScoreView == nil {
                     setupBoxScoreView()
                 }
@@ -483,6 +489,7 @@ class AddSportsBriefViewController: BaseViewController {
             } else {
                 boxScoreView.isHidden = false
                 cleanupSwiftUIViews()
+                showFootballBoxScoreContent(true)
             }
         }
 
@@ -503,8 +510,11 @@ class AddSportsBriefViewController: BaseViewController {
         awayTeamLabel.text = game.attributes.awayTeam.name
 
         homeIcon.sd_setImage(with: URL(string: game.attributes.homeTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
-
         awayIcon.sd_setImage(with: URL(string: game.attributes.awayTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
+        
+        // Set the same team icons for the score rows
+        homeScoreIcon.sd_setImage(with: URL(string: game.attributes.homeTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
+        awayScoreIcon.sd_setImage(with: URL(string: game.attributes.awayTeam.image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
         // Clear all score fields
         clearScoreFields()
     }
@@ -590,6 +600,13 @@ class AddSportsBriefViewController: BaseViewController {
         }
         
         boxScoreFactory = nil
+    }
+
+    private func showFootballBoxScoreContent(_ show: Bool) {
+        // Find all the football-specific UI elements in the storyboard and hide/show them
+        if let boxScoreStackView = boxScoreView.subviews.first(where: { $0 is UIStackView }) {
+            boxScoreStackView.isHidden = !show
+        }
     }
 
     private func clearScoreFields() {
