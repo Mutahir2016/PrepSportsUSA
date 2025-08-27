@@ -26,6 +26,12 @@
 		04D905542DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04D905532DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy */; };
 		04D905552DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04D905532DAFF80000D6F9A9 /* PrivacyInfo.xcprivacy */; };
 		106727B1DB2FD60677889715 /* Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C6D817246912BD9D4A8ED3 /* Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework */; };
+		3A171E602E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */; };
+		3A171E632E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */; };
+		3A47676B2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */; };
+		3A47676C2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */; };
+		3A47676E2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */; };
+		3A47676F2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */; };
 		3A989E962E01DC35008080A6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A989E912E01DC35008080A6 /* Search.storyboard */; };
 		3A989E972E01DC35008080A6 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A989E922E01DC35008080A6 /* SearchRouter.swift */; };
 		3A989E982E01DC35008080A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A989E942E01DC35008080A6 /* SearchViewModel.swift */; };
@@ -421,6 +427,9 @@
 		107D0779908E86DD1DB2E6BF /* Pods-PrepSportsUSA_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA_Dev.release.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA_Dev/Pods-PrepSportsUSA_Dev.release.xcconfig"; sourceTree = "<group>"; };
 		148CD3BA4E72A55A519BDE0A /* Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA-PrepSportsUSA_Dev/Pods-PrepSportsUSA-PrepSportsUSA_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		23B204BE2715DADCE23338E3 /* Pods-PrepSportsUSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrepSportsUSA.debug.xcconfig"; path = "Target Support Files/Pods-PrepSportsUSA/Pods-PrepSportsUSA.debug.xcconfig"; sourceTree = "<group>"; };
+		3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfBoxScoreView.swift; sourceTree = "<group>"; };
+		3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxScoreHostingController.swift; sourceTree = "<group>"; };
+		3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisBoxScoreView.swift; sourceTree = "<group>"; };
 		3A989E912E01DC35008080A6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		3A989E922E01DC35008080A6 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		3A989E932E01DC35008080A6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -753,6 +762,9 @@
 				8C6312C12E5B9DFE008298FA /* AddSportsBriefViewModel.swift */,
 				8C6312B32E5B9C43008298FA /* AddSportsBriefRouter.swift */,
 				8C6312B42E5B9C43008298FA /* AddSportsBriefViewController.swift */,
+				3A47676A2E5F6543002EBB5A /* BoxScoreHostingController.swift */,
+				3A171E5D2E5F48F500340B65 /* GolfBoxScoreView.swift */,
+				3A47676D2E5F65DF002EBB5A /* TennisBoxScoreView.swift */,
 			);
 			path = AddSportsBrief;
 			sourceTree = "<group>";
@@ -1752,6 +1764,7 @@
 				8C6CE1C62E5903C8005F5330 /* SportsService.swift in Sources */,
 				8C6CE1C72E5903C8005F5330 /* SportsUseCase.swift in Sources */,
 				8C7644A62DBDFE4D00944E53 /* NetworkUseCase.swift in Sources */,
+				3A47676E2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */,
 				04B2BECE2D2D7B02006F16A7 /* TopLocationTableCell.swift in Sources */,
 				8CE216FA2D5BC09C00238534 /* OutboundRouter.swift in Sources */,
 				8CDC8B332D29163600E9C02B /* ForgotPasswordUseCase.swift in Sources */,
@@ -1813,6 +1826,7 @@
 				8CCCC6B02D1BF57C009EC2B2 /* VKLabel.swift in Sources */,
 				8CCBA2542D5A9500007EDF9B /* TopLocViewModel.swift in Sources */,
 				8C266BE52D486FF000445A92 /* HomeUseCase.swift in Sources */,
+				3A171E602E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */,
 				8C9C6C842DBE53BC009FBF3D /* NetworkSheetRouter.swift in Sources */,
 				8CDC8B202D28D35A00E9C02B /* HomeViewController.swift in Sources */,
 				8CB9A1AD2D34273D00E02ECA /* Date+Displayable.swift in Sources */,
@@ -1821,6 +1835,7 @@
 				8C64E2E12D20324B006477D4 /* SignModel.swift in Sources */,
 				8CD9100D2D2CEC4900B30416 /* TabBar.swift in Sources */,
 				8CBFD27F2D3ED6D6008316DA /* StoryModel.swift in Sources */,
+				3A47676B2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1909,6 +1924,7 @@
 				8C6CE1C92E5903C8005F5330 /* SportsService.swift in Sources */,
 				8C6CE1CA2E5903C8005F5330 /* SportsUseCase.swift in Sources */,
 				8C7644A52DBDFE4D00944E53 /* NetworkUseCase.swift in Sources */,
+				3A47676F2E5F65DF002EBB5A /* TennisBoxScoreView.swift in Sources */,
 				04B2BEC02D2D7B02006F16A7 /* TopLocationTableCell.swift in Sources */,
 				8CE216F92D5BC09C00238534 /* OutboundRouter.swift in Sources */,
 				8CDC8B322D29163600E9C02B /* ForgotPasswordUseCase.swift in Sources */,
@@ -1970,6 +1986,7 @@
 				8CCCC6B32D1BF57C009EC2B2 /* VKLabel.swift in Sources */,
 				8CCBA2552D5A9500007EDF9B /* TopLocViewModel.swift in Sources */,
 				8C266BE42D486FF000445A92 /* HomeUseCase.swift in Sources */,
+				3A171E632E5F48F500340B65 /* GolfBoxScoreView.swift in Sources */,
 				8C9C6C852DBE53BC009FBF3D /* NetworkSheetRouter.swift in Sources */,
 				8CDC8B212D28D35A00E9C02B /* HomeViewController.swift in Sources */,
 				8CB9A1AE2D34273D00E02ECA /* Date+Displayable.swift in Sources */,
@@ -1978,6 +1995,7 @@
 				8C64E2E22D20324B006477D4 /* SignModel.swift in Sources */,
 				8CD9100F2D2CEC4900B30416 /* TabBar.swift in Sources */,
 				8CBFD2802D3ED6D6008316DA /* StoryModel.swift in Sources */,
+				3A47676C2E5F6543002EBB5A /* BoxScoreHostingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
