@@ -80,7 +80,7 @@ class SelectTeamViewModel: BaseViewModel {
     
     // MARK: - Private Methods
     private func loadTeams() {
-        guard !organizationId.isEmpty && !sex.isEmpty else {
+        guard !organizationId.isEmpty else {
             print("Missing required parameters: organizationId or sex")
             return
         }
@@ -88,7 +88,7 @@ class SelectTeamViewModel: BaseViewModel {
         isLoadingRelay.accept(true)
         currentPage = 1
         
-        useCase.getTeams(organizationId: organizationId, sex: sex, pageSize: pageSize, pageNumber: currentPage)
+        useCase.getTeams(organizationId: organizationId, sex: "", pageSize: pageSize, pageNumber: currentPage)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
