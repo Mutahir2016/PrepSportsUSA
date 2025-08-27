@@ -4,6 +4,7 @@ import SwiftUI
 enum BoxScoreType {
     case golf
     case tennis
+    case volleyball
 }
 
 class BoxScoreHostingController: UIViewController {
@@ -46,24 +47,23 @@ class BoxScoreHostingController: UIViewController {
             )
             boxScoreView = AnyView(golfView)
             
-        case .tennis:
+        case .tennis, .volleyball:
             let tennisView = TennisBoxScoreView(
                 homeTeamName: homeTeamName,
                 awayTeamName: awayTeamName,
                 homeTeamImageURL: homeTeamImageURL,
-                awayTeamImageURL: awayTeamImageURL
+                awayTeamImageURL: awayTeamImageURL,
+                isTennisScore: boxScoreType == .tennis
             )
             boxScoreView = AnyView(tennisView)
         }
         
         let hostingController = UIHostingController(rootView: boxScoreView)
         
-        // Set the hosting controller's view background to white to preserve the card appearance
-        hostingController.view.backgroundColor = .white
-        
         // Add the hosting controller as a child
         addChild(hostingController)
         view.addSubview(hostingController.view)
+        view.backgroundColor = .clear
         hostingController.didMove(toParent: self)
         
         // Set up constraints

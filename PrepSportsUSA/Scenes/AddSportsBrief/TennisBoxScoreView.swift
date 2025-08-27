@@ -8,7 +8,8 @@ struct TennisBoxScoreView: View {
     let awayTeamName: String
     let homeTeamImageURL: String?
     let awayTeamImageURL: String?
-    
+    let isTennisScore: Bool
+
     // Custom binding for score validation
     private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
         Binding(
@@ -92,7 +93,7 @@ struct TennisBoxScoreView: View {
             // Main card
             VStack(spacing: 20) {
                 // Tennis Box Score title
-                Text("Tennis Box Score")
+                Text(isTennisScore ? "Tennis Box Score" : "Volleyball Box Score")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
                 
@@ -166,28 +167,6 @@ struct TennisBoxScoreView: View {
                             .frame(width: 60, alignment: .trailing)
                     }
                 }
-                
-                // Total section
-                HStack {
-                    Text("TOTAL")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                    
-                    HStack(spacing: 20) {
-                        Text("\(homeScores.reduce(0, +))")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                        
-                        Text("\(awayScores.reduce(0, +))")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                    }
-                }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 15)
                 .background(Color.gray.opacity(0.1))
@@ -226,7 +205,8 @@ struct TennisUnderlinedTextFieldStyle: TextFieldStyle {
         homeTeamName: "Reavis Rams",
         awayTeamName: "Lincoln-Way West Warriors",
         homeTeamImageURL: nil,
-        awayTeamImageURL: nil
+        awayTeamImageURL: nil,
+        isTennisScore: false
     )
     .background(Color.gray.opacity(0.1))
 }

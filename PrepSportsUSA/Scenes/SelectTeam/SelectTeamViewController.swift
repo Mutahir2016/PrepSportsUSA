@@ -13,22 +13,22 @@ import Foundation
 class SelectTeamViewController: BaseViewController {
     var viewModel: SelectTeamViewModel!
     var router: SelectTeamRouter!
-    
+
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: LoadingIndicatorView!
-    
+
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
         setupUI()
         bindViewModel()
         viewModel.viewDidLoad()
     }
-    
+
     override func setUp() {
-        
+
     }
-    
+
     private func setupViewModelAndRouter() {
         // View model should be set by the router when navigating
         if viewModel == nil {
@@ -37,16 +37,16 @@ class SelectTeamViewController: BaseViewController {
         viewModel.delegate = self
         router = SelectTeamRouter(self)
     }
-    
+
     private func setupUI() {
         title = "Select Team"
         view.backgroundColor = UIColor.systemBackground
-        
+
         setupSearchField()
         setupTableView()
         setupNavigationBar()
     }
-    
+
     private func setupSearchField() {
         searchTextField.placeholder = "Search"
         searchTextField.borderStyle = .roundedRect
@@ -54,7 +54,7 @@ class SelectTeamViewController: BaseViewController {
         searchTextField.clearButtonMode = .whileEditing
         searchTextField.returnKeyType = .search
         searchTextField.delegate = self
-        
+
         // Add search icon
         let searchIcon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         searchIcon.tintColor = UIColor.systemGray
@@ -65,18 +65,18 @@ class SelectTeamViewController: BaseViewController {
         searchTextField.rightView = iconContainer
         searchTextField.rightViewMode = .always
     }
-    
+
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.systemBackground
         tableView.rowHeight = UITableView.automaticDimension
-        
+
         // Register cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TeamCell")
     }
-    
+
     private func setupNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .cancel,
@@ -84,7 +84,7 @@ class SelectTeamViewController: BaseViewController {
             action: #selector(cancelButtonTapped)
         )
     }
-    
+
     private func bindViewModel() {
         // Bind loading state
         viewModel.isLoadingRelay
@@ -93,7 +93,7 @@ class SelectTeamViewController: BaseViewController {
                 self?.handleLoadingState(isLoading)
             })
             .disposed(by: disposeBag)
-        
+
         // Bind session expiration
         viewModel.sessionExpiredRelay
             .observe(on: MainScheduler.instance)
@@ -101,7 +101,7 @@ class SelectTeamViewController: BaseViewController {
                 self?.showSessionExpiredAlert()
             })
             .disposed(by: disposeBag)
-        
+
         // Handle text field clear button
         searchTextField.rx.text.orEmpty
             .subscribe(onNext: { [weak self] searchText in
@@ -111,7 +111,7 @@ class SelectTeamViewController: BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
+
         // Handle pagination - load more when scrolling near the end
         tableView.rx.willDisplayCell
             .subscribe(onNext: { [weak self] (cell, indexPath) in
@@ -119,7 +119,7 @@ class SelectTeamViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
-    
+
     private func handleLoadingState(_ isLoading: Bool) {
         if isLoading {
             activityIndicator.startAnimating()
@@ -127,11 +127,11 @@ class SelectTeamViewController: BaseViewController {
             activityIndicator.stopAnimating()
         }
     }
-    
+
     @objc private func cancelButtonTapped() {
         router.dismiss()
     }
-    
+
     private func showSessionExpiredAlert() {
         let alert = UIAlertController(title: "Session Expired", message: "Please login again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -146,7 +146,7 @@ extension SelectTeamViewController: SelectTeamViewModelDelegate {
     func reloadTableData() {
         tableView.reloadData()
     }
-    
+
     func teamSelected(_ team: TeamData) {
         router.dismissWithSelection(team)
     }
@@ -157,20 +157,20 @@ extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.teams.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath)
-        
+
         let team = viewModel.teams[indexPath.row]
         cell.textLabel?.text = "\(team.attributes.name) (\(team.attributes.sport))"
-        
+
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none
         cell.selectionStyle = .default
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let team = viewModel.teams[indexPath.row]

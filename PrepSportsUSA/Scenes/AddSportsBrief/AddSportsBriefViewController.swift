@@ -418,37 +418,29 @@ class AddSportsBriefViewController: BaseViewController {
             quotesView.isHidden = true
             quoteSourceView.isHidden = true
             submitButton.isHidden = true
+            swiftUIBoxScoreView = nil
             return
         }
 
         // Show appropriate box score view based on sport
         if let team = selectedTeam {
             let sport = team.attributes.sport.lowercased()
-            print("🎯 Team sport detected: \(sport)")
-
-            if sport == "soccer" || sport == "football" || sport == "Football" {
-                print("🏈 Showing football box score")
+            if sport == "football" {
+                // Show football box score, clean up SwiftUI views
                 boxScoreView.isHidden = false
-                // Hide SwiftUI box score view if it exists
-                swiftUIBoxScoreView?.isHidden = true
-            } else if sport == "golf" || sport == "volleyball" {
-                print("🏌️ Showing golf box score (for golf/volleyball)")
-                // Hide the football box score view
-                boxScoreView.isHidden = true
-                
+                cleanupSwiftUIViews()
+
+            } else if sport == "golf" || sport == "tennis" || sport == "volleyball" {
+                // Keep boxScoreView visible but show SwiftUI content inside it
+                boxScoreView.isHidden = false
                 if swiftUIBoxScoreView == nil {
                     setupBoxScoreView()
                 }
-                
                 // Show the SwiftUI box score view
                 swiftUIBoxScoreView?.isHidden = false
-                
-                print("📏 BoxScoreView frame: \(boxScoreView.frame)")
-                print("📏 SwiftUI BoxScore view frame: \(swiftUIBoxScoreView?.frame ?? .zero)")
             } else {
-                print("⚽ Defaulting to football box score for sport: \(sport)")
                 boxScoreView.isHidden = false
-                swiftUIBoxScoreView?.isHidden = true
+                cleanupSwiftUIViews()
             }
         }
 
@@ -489,28 +481,23 @@ class AddSportsBriefViewController: BaseViewController {
     }
 
     private func setupBoxScoreView() {
-        print("🏀 Setting up box score view...")
-
         guard let game = selectedGame,
               let team = selectedTeam else {
-            print("❌ No game or team selected for box score")
             return
         }
 
         let sport = team.attributes.sport.lowercased()
         let boxScoreType: BoxScoreType
 
-        // Determine the box score type based on sport
-        if sport == "golf" || sport == "volleyball" {
+        // TODO: - make volleyball separate
+        if sport == "golf" {
             boxScoreType = .golf
-            print("🏌️ Setting up golf box score")
         } else if sport == "tennis" {
             boxScoreType = .tennis
-            print("🎾 Setting up tennis box score")
+        } else if sport == "volleyball" {
+            boxScoreType = .volleyball
         } else {
-            // Default to golf for other sports
             boxScoreType = .golf
-            print("⚽ Defaulting to golf box score for sport: \(sport)")
         }
 
         // Create the unified box score hosting controller
@@ -526,7 +513,7 @@ class AddSportsBriefViewController: BaseViewController {
         if let controller = boxScoreController {
             addChild(controller)
 
-            // Add the view INSIDE the boxScoreView
+            // Add the view as a subview of boxScoreView
             boxScoreView.addSubview(controller.view)
             controller.didMove(toParent: self)
 
@@ -539,13 +526,24 @@ class AddSportsBriefViewController: BaseViewController {
                 controller.view.trailingAnchor.constraint(equalTo: boxScoreView.trailingAnchor),
                 controller.view.bottomAnchor.constraint(equalTo: boxScoreView.bottomAnchor)
             ])
-
             // Store the view reference
             swiftUIBoxScoreView = controller.view
+        }
+    }
 
-            print("✅ Box score view setup complete - embedded inside boxScoreView")
-            print("📏 BoxScoreView frame: \(boxScoreView.frame)")
-            print("📏 BoxScore view frame: \(controller.view.frame)")
+    private func cleanupSwiftUIViews() {
+        // Remove SwiftUI view from parent if it exists
+        if let swiftUIView = swiftUIBoxScoreView {
+            swiftUIView.removeFromSuperview()
+            swiftUIBoxScoreView = nil
+        }
+
+        // Remove child view controller if it exists
+        if let controller = boxScoreController {
+            controller.willMove(toParent: nil)
+            controller.view.removeFromSuperview()
+            controller.removeFromParent()
+            boxScoreController = nil
         }
     }
 
