@@ -280,15 +280,14 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     @objc private func teamButtonTapped() {
-        guard let organization = selectedOrganization,
-              let gender = selectedGender else {
+        guard let organization = selectedOrganization else {
             print("Missing organization or gender for team selection")
             return
         }
         
         // Convert gender to API format
-        let apiGender = gender == "Boys" ? "Men" : "Women"
-        router.navigateToSelectTeam(organizationId: organization.id, sex: apiGender)
+//        let apiGender = gender == "Boys" ? "Men" : "Women"
+        router.navigateToSelectTeam(organizationId: organization.id, sex: "")
     }
     
     @objc private func gameButtonTapped() {
@@ -324,7 +323,7 @@ class AddSportsBriefViewController: BaseViewController {
     
     private func updateGenderViewVisibility() {
         // Show gender view only if a school organization is selected
-        genderView.isHidden = selectedOrganization == nil
+        genderView.isHidden = true
     }
     
     private func updateGenderSelection() {
@@ -350,7 +349,7 @@ class AddSportsBriefViewController: BaseViewController {
     
     private func updateTeamViewVisibility() {
         // Show team view only if a gender is selected
-        teamView.isHidden = selectedGender == nil
+        teamView.isHidden = selectedOrganization == nil
     }
     
     func didSelectTeam(_ team: TeamData) {
