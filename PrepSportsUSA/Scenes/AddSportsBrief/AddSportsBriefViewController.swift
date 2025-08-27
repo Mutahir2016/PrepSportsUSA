@@ -379,7 +379,8 @@ class AddSportsBriefViewController: BaseViewController {
 
     private func updateTeamButton() {
         if let team = selectedTeam {
-            teamButton.setTitle(team.attributes.name, for: .normal)
+            let teamTitle = "\(team.attributes.name) (\(team.attributes.sport))"
+            teamButton.setTitle(teamTitle, for: .normal)
             teamButton.setTitleColor(UIColor.label, for: .normal)
         } else {
             teamButton.setTitle("Select Team", for: .normal)

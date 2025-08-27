@@ -68,8 +68,8 @@ class SelectSchoolOrganizationViewController: BaseViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
         tableView.backgroundColor = UIColor.systemBackground
-        tableView.rowHeight = 60
-        
+        tableView.rowHeight = UITableView.automaticDimension
+
         // Register cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SchoolCell")
     }
