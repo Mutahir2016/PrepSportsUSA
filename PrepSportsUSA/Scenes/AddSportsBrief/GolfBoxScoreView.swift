@@ -40,18 +40,20 @@ struct GolfBoxScoreView: View {
     @ViewBuilder
     private var teamNamesAndImagesSection: some View {
         HStack {
-            teamInfoView(
-                teamName: homeTeamName,
-                imageURL: homeTeamImageURL,
-                isHomeTeam: true
-            )
-            
-            Spacer()
-            
+            // Away team on the left
             teamInfoView(
                 teamName: awayTeamName,
                 imageURL: awayTeamImageURL,
                 isHomeTeam: false
+            )
+            
+            Spacer()
+            
+            // Home team on the right
+            teamInfoView(
+                teamName: homeTeamName,
+                imageURL: homeTeamImageURL,
+                isHomeTeam: true
             )
         }
         .padding(.horizontal, 20)
@@ -113,28 +115,7 @@ struct GolfBoxScoreView: View {
                             .frame(width: 60, alignment: .trailing)
                     }
                     
-                    // Home row
-                    HStack(spacing: 0) {
-                        Text("Home")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .leading)
-                        
-                        ForEach(0..<9, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: .infinity)
-                                .padding(.horizontal, 4)
-                        }
-                        
-                        Text("\(homeScores[0..<9].reduce(0, +))")
-                            .font(.caption)
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .trailing)
-                    }
-                    
-                    // Away row
+                    // Away row (top)
                     HStack(spacing: 0) {
                         Text("Away")
                             .font(.system(size: 12, weight: .medium))
@@ -150,6 +131,27 @@ struct GolfBoxScoreView: View {
                         }
                         
                         Text("\(awayScores[0..<9].reduce(0, +))")
+                            .font(.caption)
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .trailing)
+                    }
+                    
+                    // Home row (bottom)
+                    HStack(spacing: 0) {
+                        Text("Home")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .leading)
+                        
+                        ForEach(0..<9, id: \.self) { index in
+                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
+                                .textFieldStyle(UnderlinedTextFieldStyle())
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: .infinity)
+                                .padding(.horizontal, 4)
+                        }
+                        
+                        Text("\(homeScores[0..<9].reduce(0, +))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
@@ -178,28 +180,7 @@ struct GolfBoxScoreView: View {
                             .frame(width: 60, alignment: .trailing)
                     }
                     
-                    // Home row
-                    HStack(spacing: 0) {
-                        Text("Home")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .leading)
-                        
-                        ForEach(9..<18, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: .infinity)
-                                .padding(.horizontal, 4)
-                        }
-                        
-                        Text("\(homeScores[9..<18].reduce(0, +))")
-                            .font(.caption)
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .trailing)
-                    }
-                    
-                    // Away row
+                    // Away row (top)
                     HStack(spacing: 0) {
                         Text("Away")
                             .font(.system(size: 12, weight: .medium))
@@ -219,6 +200,27 @@ struct GolfBoxScoreView: View {
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
+                    
+                    // Home row (bottom)
+                    HStack(spacing: 0) {
+                        Text("Home")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .leading)
+                        
+                        ForEach(9..<18, id: \.self) { index in
+                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
+                                .textFieldStyle(UnderlinedTextFieldStyle())
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: .infinity)
+                                .padding(.horizontal, 4)
+                        }
+                        
+                        Text("\(homeScores[9..<18].reduce(0, +))")
+                            .font(.caption)
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .trailing)
+                    }
                 }
                 
                 // Total section
@@ -231,12 +233,12 @@ struct GolfBoxScoreView: View {
                     Spacer()
                     
                     HStack(spacing: 20) {
-                        Text("\(homeScores.reduce(0, +))")
+                        Text("\(awayScores.reduce(0, +))")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
                         
-                        Text("\(awayScores.reduce(0, +))")
+                        Text("\(homeScores.reduce(0, +))")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(.black)

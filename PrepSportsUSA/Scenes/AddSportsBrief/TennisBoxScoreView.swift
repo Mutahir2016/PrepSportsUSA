@@ -41,18 +41,20 @@ struct TennisBoxScoreView: View {
     @ViewBuilder
     private var teamNamesAndImagesSection: some View {
         HStack {
-            teamInfoView(
-                teamName: homeTeamName,
-                imageURL: homeTeamImageURL,
-                isHomeTeam: true
-            )
-            
-            Spacer()
-            
+            // Away team on the left
             teamInfoView(
                 teamName: awayTeamName,
                 imageURL: awayTeamImageURL,
                 isHomeTeam: false
+            )
+            
+            Spacer()
+            
+            // Home team on the right
+            teamInfoView(
+                teamName: homeTeamName,
+                imageURL: homeTeamImageURL,
+                isHomeTeam: true
             )
         }
         .padding(.horizontal, 20)
@@ -117,28 +119,7 @@ struct TennisBoxScoreView: View {
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(6)
                     
-                    // Home row
-                    HStack(spacing: 0) {
-                        Text("Home")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .leading)
-                        
-                        ForEach(0..<5, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: .infinity)
-                                .padding(.horizontal, 4)
-                        }
-                        
-                        Text("\(homeScores.reduce(0, +))")
-                            .font(.caption)
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .trailing)
-                    }
-                    
-                    // Away row
+                    // Away row (top)
                     HStack(spacing: 0) {
                         Text("Away")
                             .font(.system(size: 12, weight: .medium))
@@ -154,6 +135,27 @@ struct TennisBoxScoreView: View {
                         }
                         
                         Text("\(awayScores.reduce(0, +))")
+                            .font(.caption)
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .trailing)
+                    }
+                    
+                    // Home row (bottom)
+                    HStack(spacing: 0) {
+                        Text("Home")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.black)
+                            .frame(width: 60, alignment: .leading)
+                        
+                        ForEach(0..<5, id: \.self) { index in
+                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
+                                .textFieldStyle(UnderlinedTextFieldStyle())
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: .infinity)
+                                .padding(.horizontal, 4)
+                        }
+                        
+                        Text("\(homeScores.reduce(0, +))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)

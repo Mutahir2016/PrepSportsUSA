@@ -246,28 +246,11 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="StV-teams">
                                                                                 <rect key="frame" x="0.0" y="35.333333333333371" width="329" height="46.333333333333343"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home">
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="46.333333333333336"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home">
-                                                                                                <rect key="frame" x="65.333333333333329" y="0.33333333333333215" width="24" height="23.333333333333336"/>
-                                                                                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="height" constant="24" id="HtI-home"/>
-                                                                                                    <constraint firstAttribute="width" constant="24" id="WdI-home"/>
-                                                                                                </constraints>
-                                                                                            </imageView>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-team">
-                                                                                                <rect key="frame" x="43.666666666666679" y="31.999999999999996" width="67.333333333333314" height="14.333333333333332"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                            </label>
-                                                                                        </subviews>
-                                                                                    </stackView>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away">
-                                                                                        <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="46.333333333333336"/>
-                                                                                        <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-away">
-                                                                                                <rect key="frame" x="65.000000000000028" y="0.99999999999999822" width="24" height="22.333333333333336"/>
+                                                                                                <rect key="frame" x="65.333333333333329" y="0.99999999999999822" width="24" height="22.333333333333336"/>
                                                                                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="24" id="HtI-away"/>
@@ -276,6 +259,23 @@
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-away-team">
                                                                                                 <rect key="frame" x="45.333333333333343" y="31.999999999999996" width="63.333333333333343" height="14.333333333333332"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                    </stackView>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home">
+                                                                                        <rect key="frame" x="174.66666666666663" y="0.0" width="154.33333333333337" height="46.333333333333336"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home">
+                                                                                                <rect key="frame" x="65.000000000000028" y="0.33333333333333215" width="24" height="23.333333333333336"/>
+                                                                                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="24" id="HtI-home"/>
+                                                                                                    <constraint firstAttribute="width" constant="24" id="WdI-home"/>
+                                                                                                </constraints>
+                                                                                            </imageView>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-team">
+                                                                                                <rect key="frame" x="43.666666666666679" y="31.999999999999996" width="67.333333333333314" height="14.333333333333332"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -323,58 +323,8 @@
                                                                                     <constraint firstItem="LbS-q4-header" firstAttribute="width" secondItem="StV-score-headers" secondAttribute="width" multiplier="0.13" id="WdL-q4-header"/>
                                                                                 </constraints>
                                                                             </stackView>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home-scores">
-                                                                                <rect key="frame" x="0.0" y="163.66666666666663" width="329" height="24"/>
-                                                                                <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home-score-icon">
-                                                                                        <rect key="frame" x="0.0" y="0.33333333333333215" width="17.666666666666668" height="23.333333333333336"/>
-                                                                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="height" constant="24" id="HtI-home-score-icon"/>
-                                                                                            <constraint firstAttribute="width" constant="24" id="WdI-home-score-icon"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q1">
-                                                                                        <rect key="frame" x="25.666666666666664" y="0.0" width="42.999999999999993" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                    </textField>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q2">
-                                                                                        <rect key="frame" x="76.666666666666671" y="0.0" width="42.666666666666671" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                    </textField>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q3">
-                                                                                        <rect key="frame" x="127.33333333333336" y="0.0" width="42.666666666666671" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                    </textField>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q4">
-                                                                                        <rect key="frame" x="178" y="0.0" width="43" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                    </textField>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-ot">
-                                                                                        <rect key="frame" x="229" y="0.0" width="42.666666666666686" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                                    </textField>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-final">
-                                                                                        <rect key="frame" x="279.66666666666669" y="0.0" width="49.333333333333314" height="24"/>
-                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                                                    </label>
-                                                                                </subviews>
-                                                                                <constraints>
-                                                                                    <constraint firstItem="LbS-home-final" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.15" id="WdL-home-final"/>
-                                                                                    <constraint firstItem="TxF-home-ot" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-ot"/>
-                                                                                    <constraint firstItem="TxF-home-q1" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q1"/>
-                                                                                    <constraint firstItem="TxF-home-q2" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q2"/>
-                                                                                    <constraint firstItem="TxF-home-q3" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q3"/>
-                                                                                    <constraint firstItem="TxF-home-q4" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q4"/>
-                                                                                </constraints>
-                                                                            </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-away-scores">
-                                                                                <rect key="frame" x="0.0" y="203.66666666666663" width="329" height="24"/>
+                                                                                <rect key="frame" x="0.0" y="163.66666666666663" width="329" height="24"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="airplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-away-score-icon">
                                                                                         <rect key="frame" x="0.0" y="0.66666666666666607" width="17.666666666666668" height="22.666666666666671"/>
@@ -421,6 +371,56 @@
                                                                                     <constraint firstItem="TxF-away-q2" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q2"/>
                                                                                     <constraint firstItem="TxF-away-q3" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q3"/>
                                                                                     <constraint firstItem="TxF-away-q4" firstAttribute="width" secondItem="StV-away-scores" secondAttribute="width" multiplier="0.13" id="WdT-away-q4"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="StV-home-scores">
+                                                                                <rect key="frame" x="0.0" y="203.66666666666663" width="329" height="24"/>
+                                                                                <subviews>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImV-home-score-icon">
+                                                                                        <rect key="frame" x="0.0" y="0.33333333333333215" width="17.666666666666668" height="23.333333333333336"/>
+                                                                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="24" id="HtI-home-score-icon"/>
+                                                                                            <constraint firstAttribute="width" constant="24" id="WdI-home-score-icon"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q1">
+                                                                                        <rect key="frame" x="25.666666666666664" y="0.0" width="42.999999999999993" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q2">
+                                                                                        <rect key="frame" x="76.666666666666671" y="0.0" width="42.666666666666671" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q3">
+                                                                                        <rect key="frame" x="127.33333333333336" y="0.0" width="42.666666666666671" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-q4">
+                                                                                        <rect key="frame" x="178" y="0.0" width="43" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-home-ot">
+                                                                                        <rect key="frame" x="229" y="0.0" width="42.666666666666686" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                    </textField>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-home-final">
+                                                                                        <rect key="frame" x="279.66666666666669" y="0.0" width="49.333333333333314" height="24"/>
+                                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="LbS-home-final" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.15" id="WdL-home-final"/>
+                                                                                    <constraint firstItem="TxF-home-ot" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-ot"/>
+                                                                                    <constraint firstItem="TxF-home-q1" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q1"/>
+                                                                                    <constraint firstItem="TxF-home-q2" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q2"/>
+                                                                                    <constraint firstItem="TxF-home-q3" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q3"/>
+                                                                                    <constraint firstItem="TxF-home-q4" firstAttribute="width" secondItem="StV-home-scores" secondAttribute="width" multiplier="0.13" id="WdT-home-q4"/>
                                                                                 </constraints>
                                                                             </stackView>
                                                                         </subviews>
