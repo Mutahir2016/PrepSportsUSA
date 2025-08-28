@@ -434,7 +434,8 @@ class AddSportsBriefViewController: BaseViewController {
     }
     
     private func updateGameButtonDisplay() {
-        gameSelectionView.configure(with: selectedGame)
+        let currentTeamId = selectedTeam?.id
+        gameSelectionView.configure(with: selectedGame, currentTeamId: currentTeamId)
         updateBoxScoreViewVisibility()
     }
     
@@ -494,9 +495,9 @@ class AddSportsBriefViewController: BaseViewController {
                 boxScoreView.isHidden = false
                 // Hide the storyboard football content for SwiftUI sports
                 showFootballBoxScoreContent(false)
-                if swiftUIBoxScoreView == nil {
-                    setupBoxScoreView()
-                }
+                // Always recreate SwiftUI view when game changes to update with new data
+                cleanupSwiftUIViews()
+                setupBoxScoreView()
                 // Show the SwiftUI box score view
                 swiftUIBoxScoreView?.isHidden = false
             } else {

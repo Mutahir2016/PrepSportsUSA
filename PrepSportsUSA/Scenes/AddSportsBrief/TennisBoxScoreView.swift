@@ -121,10 +121,16 @@ struct TennisBoxScoreView: View {
                     
                     // Away row (top)
                     HStack(spacing: 0) {
-                        Text("Away")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .leading)
+                        AsyncImage(url: URL(string: awayTeamImageURL ?? "")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            Image(systemName: "photo")
+                                .foregroundColor(.gray)
+                        }
+                        .frame(width: 35, height: 35)
+                        .padding(.trailing, 10)
                         
                         ForEach(0..<5, id: \.self) { index in
                             TextField("0", text: scoreBinding(for: $awayScores, at: index))
@@ -142,10 +148,16 @@ struct TennisBoxScoreView: View {
                     
                     // Home row (bottom)
                     HStack(spacing: 0) {
-                        Text("Home")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.black)
-                            .frame(width: 60, alignment: .leading)
+                        AsyncImage(url: URL(string: homeTeamImageURL ?? "")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            Image(systemName: "photo")
+                                .foregroundColor(.gray)
+                        }
+                        .frame(width: 35, height: 35)
+                        .padding(.trailing, 10)
                         
                         ForEach(0..<5, id: \.self) { index in
                             TextField("0", text: scoreBinding(for: $homeScores, at: index))
