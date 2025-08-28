@@ -10,6 +10,19 @@ struct TennisBoxScoreView: View {
     let awayTeamImageURL: String?
     let isTennisScore: Bool
 
+    // Calculate sets won for volleyball scoring
+    private func calculateSetsWon(_ teamScores: [Int], _ opponentScores: [Int]) -> Int {
+        var setsWon = 0
+        for i in 0..<teamScores.count {
+            if teamScores[i] > 0 || opponentScores[i] > 0 {
+                if teamScores[i] > opponentScores[i] {
+                    setsWon += 1
+                }
+            }
+        }
+        return setsWon
+    }
+    
     // Custom binding for score validation
     private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
         Binding(
@@ -138,9 +151,10 @@ struct TennisBoxScoreView: View {
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
+                                .keyboardType(.numberPad)
                         }
                         
-                        Text("\(awayScores.reduce(0, +))")
+                        Text("\(isTennisScore ? awayScores.reduce(0, +) : calculateSetsWon(awayScores, homeScores))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
@@ -165,9 +179,10 @@ struct TennisBoxScoreView: View {
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
+                                .keyboardType(.numberPad)
                         }
                         
-                        Text("\(homeScores.reduce(0, +))")
+                        Text("\(isTennisScore ? homeScores.reduce(0, +) : calculateSetsWon(homeScores, awayScores))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)

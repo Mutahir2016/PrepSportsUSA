@@ -3,4 +3,22 @@
    uuid = "6B5969FD-ACC8-4A35-985B-061A257ED858"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "651D0287-2C05-4F5A-8D52-4DDE7B96B3AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrepSportsUSA/Scenes/AddSportsBrief/AddSportsBriefViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "submitPrePitch(organizationId:teamId:gameId:description:quotes:quoteSource:boxscore:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

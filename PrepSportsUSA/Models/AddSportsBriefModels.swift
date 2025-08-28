@@ -25,6 +25,8 @@ struct AnyCodable: Codable {
             value = stringValue
         } else if let arrayValue = try? container.decode([String].self) {
             value = arrayValue
+        } else if let intArrayValue = try? container.decode([Int].self) {
+            value = intArrayValue
         } else {
             value = ()
         }
@@ -39,6 +41,8 @@ struct AnyCodable: Codable {
             try container.encode(stringValue)
         } else if let arrayValue = value as? [String] {
             try container.encode(arrayValue)
+        } else if let intArrayValue = value as? [Int] {
+            try container.encode(intArrayValue)
         }
     }
 }

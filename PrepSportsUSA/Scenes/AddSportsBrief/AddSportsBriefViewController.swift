@@ -307,9 +307,9 @@ class AddSportsBriefViewController: BaseViewController {
             return
         }
 
-        // Convert gender to API format
-//        let apiGender = gender == "Boys" ? "Men" : "Women"
-        router.navigateToSelectTeam(organizationId: organization.id, sex: "")
+        // Use Boys/Girls format consistently with SelectTeamViewController
+        let genderForAPI = selectedGender ?? ""
+        router.navigateToSelectTeam(organizationId: organization.id, sex: genderForAPI)
     }
 
     @objc private func gameButtonTapped() {
@@ -389,7 +389,7 @@ class AddSportsBriefViewController: BaseViewController {
 
     private func updateTeamButton() {
         if let team = selectedTeam {
-            let teamTitle = "\(team.attributes.sport) (\(team.attributes.sex))"
+            let teamTitle = "\(team.attributes.sport) (\(team.attributes.displaySex))"
             teamButton.setTitle(teamTitle, for: .normal)
             teamButton.setTitleColor(UIColor.label, for: .normal)
         } else {
@@ -690,7 +690,6 @@ class AddSportsBriefViewController: BaseViewController {
 
     @objc private func submitButtonTapped() {
         guard let organization = selectedOrganization,
-              let gender = selectedGender,
               let team = selectedTeam,
               let game = selectedGame else {
             showAlert(title: "Missing Information", message: "Please complete all required selections.")
@@ -710,7 +709,6 @@ class AddSportsBriefViewController: BaseViewController {
 
         let validation = viewModel.validatePrePitchInput(
             organization: organization,
-            gender: gender,
             team: team,
             game: game,
             description: description,
@@ -847,14 +845,22 @@ extension AddSportsBriefViewController {
         homeTeamData["second_quarter"] = AnyCodable(Int(homeQ2TextField.text ?? "0") ?? 0)
         homeTeamData["third_quarter"] = AnyCodable(Int(homeQ3TextField.text ?? "0") ?? 0)
         homeTeamData["fourth_quarter"] = AnyCodable(Int(homeQ4TextField.text ?? "0") ?? 0)
-        homeTeamData["overtime"] = AnyCodable([Int(homeOTTextField.text ?? "0") ?? 0])
+        
+        // Handle overtime as array - only add value if it's greater than 0
+        let homeOTScore = Int(homeOTTextField.text ?? "0") ?? 0
+        homeTeamData["overtime"] = AnyCodable(homeOTScore > 0 ? [homeOTScore] : [])
+        
         homeTeamData["final"] = AnyCodable(Int(homeFinalLabel.text ?? "0") ?? 0)
 
         awayTeamData["first_quarter"] = AnyCodable(Int(awayQ1TextField.text ?? "0") ?? 0)
         awayTeamData["second_quarter"] = AnyCodable(Int(awayQ2TextField.text ?? "0") ?? 0)
         awayTeamData["third_quarter"] = AnyCodable(Int(awayQ3TextField.text ?? "0") ?? 0)
         awayTeamData["fourth_quarter"] = AnyCodable(Int(awayQ4TextField.text ?? "0") ?? 0)
-        awayTeamData["overtime"] = AnyCodable([Int(awayOTTextField.text ?? "0") ?? 0])
+        
+        // Handle overtime as array - only add value if it's greater than 0
+        let awayOTScore = Int(awayOTTextField.text ?? "0") ?? 0
+        awayTeamData["overtime"] = AnyCodable(awayOTScore > 0 ? [awayOTScore] : [])
+        
         awayTeamData["final"] = AnyCodable(Int(awayFinalLabel.text ?? "0") ?? 0)
 
         return GenericBoxscore(homeTeam: homeTeamData, awayTeam: awayTeamData)

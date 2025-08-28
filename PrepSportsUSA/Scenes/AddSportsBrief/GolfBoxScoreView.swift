@@ -13,7 +13,8 @@ struct GolfBoxScoreView: View {
     private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
         Binding(
             get: { 
-                String(scores.wrappedValue[index]) 
+                let value = scores.wrappedValue[index]
+                return value == 0 ? "" : String(value)
             },
             set: { newValue in
                 // Remove spaces

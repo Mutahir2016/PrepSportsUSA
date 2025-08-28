@@ -218,7 +218,6 @@ class AddSportsBriefViewModel: BaseViewModel {
     
     func validatePrePitchInput(
         organization: SchoolOrganizationData?,
-        gender: String?,
         team: TeamData?,
         game: GameData?,
         description: String?,
@@ -228,10 +227,6 @@ class AddSportsBriefViewModel: BaseViewModel {
         
         guard organization != nil else {
             return (false, "Please select School Organization")
-        }
-        
-        guard gender != nil else {
-            return (false, "Please select Gender")
         }
         
         guard team != nil else {
