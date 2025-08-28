@@ -17,6 +17,9 @@ class SelectTeamViewController: BaseViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: LoadingIndicatorView!
+    
+    // No teams found label
+    private var noTeamsLabel: UILabel!
 
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
@@ -45,6 +48,7 @@ class SelectTeamViewController: BaseViewController {
         setupSearchField()
         setupTableView()
         setupNavigationBar()
+        setupNoTeamsLabel()
     }
 
     private func setupSearchField() {
@@ -83,6 +87,26 @@ class SelectTeamViewController: BaseViewController {
             target: self,
             action: #selector(cancelButtonTapped)
         )
+    }
+    
+    private func setupNoTeamsLabel() {
+        noTeamsLabel = UILabel()
+        noTeamsLabel.text = "No teams found"
+        noTeamsLabel.font = UIFont(name: "IBMPlexSans-Medium", size: 16) ?? UIFont.systemFont(ofSize: 16, weight: .medium)
+        noTeamsLabel.textColor = UIColor.label
+        noTeamsLabel.textAlignment = .center
+        noTeamsLabel.isHidden = true
+        noTeamsLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add to table view instead of main view to maintain stack view layout
+        tableView.addSubview(noTeamsLabel)
+        
+        NSLayoutConstraint.activate([
+            noTeamsLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            noTeamsLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor, constant: -50),
+            noTeamsLabel.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 20),
+            noTeamsLabel.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: -20)
+        ])
     }
 
     private func bindViewModel() {
@@ -123,9 +147,27 @@ class SelectTeamViewController: BaseViewController {
     private func handleLoadingState(_ isLoading: Bool) {
         if isLoading {
             activityIndicator.startAnimating()
+            noTeamsLabel.isHidden = true
         } else {
             activityIndicator.stopAnimating()
+            updateNoTeamsLabelVisibility()
         }
+    }
+    
+    private func updateNoTeamsLabelVisibility() {
+        let hasTeams = viewModel.teams.count > 0
+        
+        if hasTeams {
+            noTeamsLabel.isHidden = true
+            tableView.isScrollEnabled = true
+        } else {
+            noTeamsLabel.isHidden = false
+            tableView.isScrollEnabled = false
+        }
+        
+        // Keep table view visible to maintain stack view layout
+        tableView.isHidden = false
+        searchTextField.isHidden = false
     }
 
     @objc private func cancelButtonTapped() {
@@ -145,6 +187,7 @@ class SelectTeamViewController: BaseViewController {
 extension SelectTeamViewController: SelectTeamViewModelDelegate {
     func reloadTableData() {
         tableView.reloadData()
+        updateNoTeamsLabelVisibility()
     }
 
     func teamSelected(_ team: TeamData) {
@@ -162,7 +205,7 @@ extension SelectTeamViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath)
 
         let team = viewModel.teams[indexPath.row]
-        cell.textLabel?.text = "\(team.attributes.name) (\(team.attributes.sport))"
+        cell.textLabel?.text = "\(team.attributes.sport) (\(team.attributes.displaySex))"
 
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.accessoryType = .none

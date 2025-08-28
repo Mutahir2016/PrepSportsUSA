@@ -17,6 +17,9 @@ class SelectGameViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: LoadingIndicatorView!
     
+    // No games found label
+    private var noGamesLabel: UILabel!
+    
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
         setupUI()
@@ -43,6 +46,7 @@ class SelectGameViewController: BaseViewController {
         
         setupTableView()
         setupNavigationBar()
+        setupNoGamesLabel()
     }
     
     private func setupTableView() {
@@ -64,6 +68,23 @@ class SelectGameViewController: BaseViewController {
             target: self,
             action: #selector(cancelButtonTapped)
         )
+    }
+    
+    private func setupNoGamesLabel() {
+        noGamesLabel = UILabel()
+        noGamesLabel.text = "No games found"
+        noGamesLabel.font = UIFont(name: "IBMPlexSans-Medium", size: 16) ?? UIFont.systemFont(ofSize: 16, weight: .medium)
+        noGamesLabel.textColor = UIColor.label
+        noGamesLabel.textAlignment = .center
+        noGamesLabel.isHidden = true
+        noGamesLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(noGamesLabel)
+        
+        NSLayoutConstraint.activate([
+            noGamesLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noGamesLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func bindViewModel() {
@@ -94,9 +115,17 @@ class SelectGameViewController: BaseViewController {
     private func handleLoadingState(_ isLoading: Bool) {
         if isLoading {
             activityIndicator.startAnimating()
+            noGamesLabel.isHidden = true
         } else {
             activityIndicator.stopAnimating()
+            updateNoGamesLabelVisibility()
         }
+    }
+    
+    private func updateNoGamesLabelVisibility() {
+        let hasGames = viewModel.games.count > 0
+        noGamesLabel.isHidden = hasGames
+        tableView.isHidden = !hasGames
     }
     
     @objc private func cancelButtonTapped() {
@@ -116,6 +145,7 @@ class SelectGameViewController: BaseViewController {
 extension SelectGameViewController: SelectGameViewModelDelegate {
     func reloadTableData() {
         tableView.reloadData()
+        updateNoGamesLabelVisibility()
     }
     
     func gameSelected(_ game: GameData) {
@@ -135,7 +165,7 @@ extension SelectGameViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let game = viewModel.games[indexPath.row]
-        cell.configure(with: game)
+        cell.configure(with: game, currentTeamId: viewModel.getCurrentTeamId())
         
         return cell
     }

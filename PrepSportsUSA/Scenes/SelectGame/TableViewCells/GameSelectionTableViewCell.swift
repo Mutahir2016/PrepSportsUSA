@@ -55,25 +55,27 @@ class GameSelectionTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     func configure(with game: GameData, currentTeamId: String? = nil) {
-        let venue = game.attributes.venue ?? ""
+        let homeTeamId = game.attributes.homeTeam.id
+        let awayTeamId = game.attributes.awayTeam.id
         let homeTeamName = game.attributes.homeTeam.name
         let awayTeamName = game.attributes.awayTeam.name
         
-        // Dynamic logic to determine if venue is a team name or actual venue:
-        // 1. If venue matches either home or away team name exactly, it's a team
-        // 2. If venue is similar to either team name (contains team name), it's a team
-        // 3. Otherwise, it's an actual venue location
-        
-        let isTeamName = venue == homeTeamName || 
-                        venue == awayTeamName ||
-                        homeTeamName.contains(venue) || 
-                        awayTeamName.contains(venue) ||
-                        venue.contains(homeTeamName) ||
-                        venue.contains(awayTeamName)
-        
-        if isTeamName {
-            venueLabel.text = "vs \(venue)"
+        // Determine if the current team is home or away
+        if let teamId = currentTeamId {
+            if homeTeamId == teamId {
+                // Current team is home, show away team with "vs"
+                venueLabel.text = "vs \(awayTeamName)"
+            } else if awayTeamId == teamId {
+                // Current team is away, show home team with "@"
+                venueLabel.text = "@ \(homeTeamName)"
+            } else {
+                // Fallback: show venue or home team
+                let venue = game.attributes.venue ?? homeTeamName
+                venueLabel.text = "@ \(venue)"
+            }
         } else {
+            // Fallback: show venue or home team
+            let venue = game.attributes.venue ?? homeTeamName
             venueLabel.text = "@ \(venue)"
         }
         

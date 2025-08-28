@@ -98,9 +98,11 @@ class AddSportsBriefViewController: BaseViewController {
 
         // Check if user is admin
         let accType = RKStorage.shared.getUserProfile()?.data.attributes.accountType ?? ""
-        if accType == "admin" {
-            print("is Admin")
+        if accType.lowercased() == "admin" || accType.lowercased() == "sysadmin" {
+            print("is Admin or SysAdmin")
             isAdmin = true
+            // For admin and sysadmin users, keep button enabled and fetch selected schools
+            viewModel.fetchSelectedSchools()
         } else {
             print("is not Admin")
             isAdmin = false
@@ -110,8 +112,6 @@ class AddSportsBriefViewController: BaseViewController {
             viewModel.fetchSelectedSchools()
         }
     }
-
-
 
     private func setupInitialVisibility() {
         // Hide all sections initially except school organization
@@ -188,6 +188,16 @@ class AddSportsBriefViewController: BaseViewController {
         let girlsTapGesture = UITapGestureRecognizer(target: self, action: #selector(girlsRadioIconTapped))
         girlsRadioIcon.addGestureRecognizer(girlsTapGesture)
     }
+    
+    private func setupTapToDismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     private func addChevronToButton(_ button: UIButton) {
         let chevronImage = UIImage(systemName: "chevron.down")
@@ -243,13 +253,16 @@ class AddSportsBriefViewController: BaseViewController {
 
         // Add tap gestures to radio button images
         setupRadioButtonTapGestures()
+        
+        // Add tap gesture to dismiss keyboard
+        setupTapToDismissKeyboard()
 
         // Setup ViewModel delegate
         viewModel.delegate = self
     }
 
     @objc private func schoolOrganizationButtonTapped() {
-        // Only allow navigation for admin users
+        // Allow navigation for admin and sysadmin users
         if isAdmin {
             router.navigateToSelectSchoolOrganization()
         }
@@ -376,7 +389,7 @@ class AddSportsBriefViewController: BaseViewController {
 
     private func updateTeamButton() {
         if let team = selectedTeam {
-            let teamTitle = "\(team.attributes.name) (\(team.attributes.sport))"
+            let teamTitle = "\(team.attributes.sport) (\(team.attributes.sex))"
             teamButton.setTitle(teamTitle, for: .normal)
             teamButton.setTitleColor(UIColor.label, for: .normal)
         } else {
@@ -918,15 +931,25 @@ extension AddSportsBriefViewController: AddSportsBriefViewModelDelegate {
 
     func selectedSchoolsLoaded(schools: [SchoolOrganizationData]) {
         DispatchQueue.main.async {
-            // Auto-select the first school for non-admin users
+            // Handle selected schools for all user types
             if !schools.isEmpty {
                 let firstSchool = schools[0]
                 self.selectedOrganization = firstSchool
                 self.updateSchoolOrganizationButton()
-                self.updateGenderViewVisibility()
-                print("Auto-selected school for non-admin user: \(firstSchool.attributes.name)")
+                self.updateTeamViewVisibility()
+                if self.isAdmin {
+                    print("Auto-selected school for admin/sysadmin user: \(firstSchool.attributes.name)")
+                } else {
+                    print("Auto-selected school for non-admin user: \(firstSchool.attributes.name)")
+                }
             } else {
-                self.showAlert(title: "No Schools Found", message: "No schools are assigned to your account. Please contact your administrator.")
+                // No selected schools found
+                if self.isAdmin {
+                    // For admin/sysadmin users, they can still select from all organizations
+                    print("No selected schools found for admin/sysadmin user, can select from all organizations")
+                } else {
+                    self.showAlert(title: "No Schools Found", message: "No schools are assigned to your account. Please contact your administrator.")
+                }
             }
         }
     }

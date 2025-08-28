@@ -21,13 +21,7 @@ class TabBar: UIViewController {
         
     @IBOutlet weak var pFirstTabImg: UIImageView!
     @IBOutlet weak var pFirstTabTitleLbl: UILabel!
-    
-    @IBOutlet weak var pSecondTabImg: UIImageView!
-    @IBOutlet weak var pSecondTabTitleLbl: UILabel!
-    
-//    @IBOutlet weak var pThirdTabTitleLbl: UILabel!
-//    @IBOutlet weak var pThirdTabImg: UIImageView!
-    
+        
     @IBOutlet weak var pFourthTabTitleLbl: UILabel!
     @IBOutlet weak var pFourthTabImg: UIImageView!
         
@@ -51,8 +45,6 @@ class TabBar: UIViewController {
 
     private func setupUI() {
         pFirstTabTitleLbl.textColor = UIColor.tabBarUnSelectedColor
-        pSecondTabTitleLbl.textColor = UIColor.tabBarUnSelectedColor
-//        pThirdTabTitleLbl.textColor = UIColor.tabBarUnSelectedColor
         pFourthTabTitleLbl.textColor = UIColor.tabBarUnSelectedColor
     }
     
@@ -89,8 +81,6 @@ class TabBar: UIViewController {
     func setTabbarUI() {
         // setting UI for selected tab
         pFirstTabTitleLbl.font = UIFont.ibmRegular(size: 12.0)
-        pSecondTabTitleLbl.font = UIFont.ibmRegular(size: 12.0)
-//        pThirdTabTitleLbl.font = UIFont.ibmRegular(size: 12.0)
         pFourthTabTitleLbl.font = UIFont.ibmRegular(size: 12.0)
     }
     
@@ -102,35 +92,10 @@ class TabBar: UIViewController {
     func setTabBarFor(nTabType: Int) {
         setTabbarUI()
         pFirstTabTitleLbl.textColor = nTabType == 1 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
-        pSecondTabTitleLbl.textColor = nTabType == 2 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
-//        pThirdTabTitleLbl.textColor = nTabType == 3 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
         pFourthTabTitleLbl.textColor = nTabType == 4 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
         
         pFirstTabImg.image = nTabType == 1 ? UIImage(named: "Home_active") : UIImage(named: "Home_Inactive")
-        pSecondTabImg.image = nTabType == 2 ? UIImage(named: "Monitor") : UIImage(named: "Monitor_unselected")
-//        pThirdTabImg.image = nTabType == 3 ? UIImage(named: "GlobeSimple") : UIImage(named: "GlobeSimple")
         pFourthTabImg.image = nTabType == 4 ? UIImage(named: "DotsThreeCircle") : UIImage(named: "DotsThreeCircle")
-
-        // Configure Monitor icon with template rendering
-        if let monitorImage = UIImage(named: "Monitor") {
-            let templateImage = monitorImage.withRenderingMode(.alwaysTemplate)
-            pSecondTabImg.image = templateImage
-            pSecondTabImg.tintColor = nTabType == 2 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
-        }
-        
-        // Configure MagnifyingGlass icon with template rendering for color fill
-        if let magnifyingGlassImage = UIImage(named: "MagnifyingGlass") {
-            let templateImage = magnifyingGlassImage.withRenderingMode(.alwaysTemplate)
-//            pThirdTabImg.image = templateImage
-//            pThirdTabImg.tintColor = nTabType == 5 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
-        }
-        
-        // Configure DotsThreeCircle icon with template rendering
-        if let dotsImage = UIImage(named: "DotsThreeCircle") {
-            let templateImage = dotsImage.withRenderingMode(.alwaysTemplate)
-            pFourthTabImg.image = templateImage
-            pFourthTabImg.tintColor = nTabType == 4 ? UIColor.tabBarSelectedColor : UIColor.tabBarUnSelectedColor
-        }
     }
     
     /*****************************************************************************/

@@ -53,6 +53,18 @@ struct TeamAttributes: Codable {
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
     }
+    
+    // Computed property to convert Men/Women to Boys/Girls
+    var displaySex: String {
+        switch sex.lowercased() {
+        case "men":
+            return "Boys"
+        case "women":
+            return "Girls"
+        default:
+            return sex
+        }
+    }
 }
 
 struct TeamMeta: Codable {

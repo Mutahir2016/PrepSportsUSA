@@ -20,6 +20,7 @@ class SportsViewController: BaseViewController {
 
     override func callingInsideViewDidLoad() {
         setupViewModelAndRouter()
+        setupNavigationBar()
         addTabBarView()
         setupTableView()
         bindViewModel()
@@ -34,6 +35,12 @@ class SportsViewController: BaseViewController {
         viewModel = SportsViewModel()
         viewModel.delegate = self
         router = SportsRouter(self)
+    }
+    
+    private func setupNavigationBar() {
+        // Hide the back button to prevent overlap with logo
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = nil
     }
     
     private func setupTableView() {

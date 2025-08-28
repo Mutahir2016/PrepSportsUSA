@@ -61,6 +61,10 @@ class SelectGameViewModel: BaseViewModel {
         self.teamId = teamId
     }
     
+    func getCurrentTeamId() -> String {
+        return teamId
+    }
+    
     // MARK: - Private Methods
     private func loadGames() {
         guard !teamId.isEmpty else {

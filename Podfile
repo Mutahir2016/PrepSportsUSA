@@ -22,7 +22,7 @@ def shared_pods
   pod 'PrettyCards'
   pod 'Fastis'
   pod 'SDWebImage'
-  
+
 end
 
 # PrepSportsUSA Target
