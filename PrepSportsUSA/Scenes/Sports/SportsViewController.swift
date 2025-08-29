@@ -177,13 +177,20 @@ extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
         let homeScore = extractScore(from: attributes.payload?.boxscore?.homeTeam, sport: sport)
         let awayScore = extractScore(from: attributes.payload?.boxscore?.awayTeam, sport: sport)
         
+        // Build display sport and date
+        let displaySport = (attributes.payload?.limparTeam?.sport ?? "").capitalized
+        let rawDate = attributes.payload?.limparGame?.dateTime
+        let formattedDate = formatGameDate(rawDate)
+
         let matchData = SportsMatchData(
             title: title,
             subtitle: teamName,
             homeTeam: homeTeamName,
             awayTeam: awayTeamName,
             homeScore: homeScore,
-            awayScore: awayScore
+            awayScore: awayScore,
+            sport: displaySport,
+            dateTime: formattedDate
         )
         
         cell.configure(with: matchData)
@@ -237,6 +244,25 @@ extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
         
         print("No \(scoreKey) found, returning 0")
         return 0
+    }
+    
+    // Format ISO date string (e.g., 2025-08-15T19:00:00Z) to "Aug 15, 2025 @ 7:00 PM"
+    private func formatGameDate(_ isoString: String?) -> String? {
+        guard let isoString = isoString, !isoString.isEmpty else { return nil }
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        var date = isoFormatter.date(from: isoString)
+        if date == nil {
+            // Try without fractional seconds
+            let altFormatter = ISO8601DateFormatter()
+            altFormatter.formatOptions = [.withInternetDateTime]
+            date = altFormatter.date(from: isoString)
+        }
+        guard let date = date else { return nil }
+        let out = DateFormatter()
+        out.locale = Locale(identifier: "en_US_POSIX")
+        out.dateFormat = "MMM d, yyyy @ h:mm a"
+        return out.string(from: date)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
