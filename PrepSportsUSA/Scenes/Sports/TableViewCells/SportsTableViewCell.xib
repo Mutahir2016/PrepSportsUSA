@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,47 +19,47 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="container-view">
-                        <rect key="frame" x="16" y="8" width="358" height="144"/>
+                        <rect key="frame" x="16" y="8" width="358" height="210"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pre Pitch for Joliet Catholic Hilltoppers - Football" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-label">
-                                <rect key="frame" x="16" y="16" width="326" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pre Pitch for Joliet Catholic Hilltoppers - Football" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-label">
+                                <rect key="frame" x="16" y="16" width="326" height="67"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Joliet Catholic Hilltoppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-label">
-                                <rect key="frame" x="16" y="46" width="326" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Joliet Catholic Hilltoppers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-label">
+                                <rect key="frame" x="16" y="91" width="326" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-label">
-                                <rect key="frame" x="16.000000000000004" y="54" width="34.333333333333343" height="14"/>
+                                <rect key="frame" x="16.000000000000004" y="120" width="34.333333333333343" height="14"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-label">
-                                <rect key="frame" x="311.66666666666669" y="54" width="30.333333333333314" height="14"/>
+                                <rect key="frame" x="311.66666666666669" y="120" width="30.333333333333314" height="14"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-label">
-                                <rect key="frame" x="16" y="76" width="89.666666666666671" height="19"/>
+                                <rect key="frame" x="16" y="142" width="89.666666666666671" height="19"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-label">
-                                <rect key="frame" x="257" y="76" width="85" height="19"/>
+                                <rect key="frame" x="257" y="142" width="85" height="19"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs-label">
-                                <rect key="frame" x="169.66666666666666" y="77" width="18.666666666666657" height="17"/>
+                                <rect key="frame" x="169.66666666666666" y="143" width="18.666666666666657" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-score-label">
-                                <rect key="frame" x="16" y="99" width="27" height="29"/>
+                                <rect key="frame" x="130.66666666666666" y="165" width="27" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-score-label">
-                                <rect key="frame" x="314.66666666666669" y="99" width="27.333333333333314" height="29"/>
+                                <rect key="frame" x="200.33333333333334" y="165" width="27.333333333333343" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                             </label>
@@ -68,15 +69,15 @@
                             <constraint firstItem="away-label" firstAttribute="top" secondItem="subtitle-label" secondAttribute="bottom" constant="12" id="away-label-top"/>
                             <constraint firstAttribute="trailing" secondItem="away-label" secondAttribute="trailing" constant="16" id="away-label-trailing"/>
                             <constraint firstAttribute="bottom" secondItem="away-score-label" secondAttribute="bottom" constant="16" id="away-score-bottom"/>
+                            <constraint firstItem="away-score-label" firstAttribute="centerX" secondItem="away-team-label" secondAttribute="centerX" id="away-score-centerX-to-away-team"/>
                             <constraint firstItem="away-score-label" firstAttribute="top" secondItem="away-team-label" secondAttribute="bottom" constant="4" id="away-score-top"/>
-                            <constraint firstAttribute="trailing" secondItem="away-score-label" secondAttribute="trailing" constant="16" id="away-score-trailing"/>
                             <constraint firstItem="away-team-label" firstAttribute="top" secondItem="away-label" secondAttribute="bottom" constant="8" id="away-team-top"/>
                             <constraint firstAttribute="trailing" secondItem="away-team-label" secondAttribute="trailing" constant="16" id="away-team-trailing"/>
                             <constraint firstItem="home-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-label-leading"/>
                             <constraint firstItem="home-label" firstAttribute="top" secondItem="subtitle-label" secondAttribute="bottom" constant="12" id="home-label-top"/>
                             <constraint firstAttribute="bottom" secondItem="home-score-label" secondAttribute="bottom" constant="16" id="home-score-bottom"/>
-                            <constraint firstItem="home-score-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-score-leading"/>
                             <constraint firstItem="home-score-label" firstAttribute="top" secondItem="home-team-label" secondAttribute="bottom" constant="4" id="home-score-top"/>
+                            <constraint firstItem="home-score-label" firstAttribute="centerX" secondItem="home-team-label" secondAttribute="centerX" id="home-score-centerX-to-home-team"/>
                             <constraint firstItem="home-team-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="home-team-leading"/>
                             <constraint firstItem="home-team-label" firstAttribute="top" secondItem="home-label" secondAttribute="bottom" constant="8" id="home-team-top"/>
                             <constraint firstItem="subtitle-label" firstAttribute="leading" secondItem="container-view" secondAttribute="leading" constant="16" id="subtitle-leading"/>
