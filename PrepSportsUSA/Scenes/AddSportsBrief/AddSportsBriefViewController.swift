@@ -500,11 +500,6 @@ class AddSportsBriefViewController: BaseViewController {
                 setupBoxScoreView()
                 // Show the SwiftUI box score view
                 swiftUIBoxScoreView?.isHidden = false
-            } else if sport == "soccer" {
-                // Show soccer not configured message
-                boxScoreView.isHidden = false
-                cleanupSwiftUIViews()
-                showFootballBoxScoreContent(true)
             } else {
                 boxScoreView.isHidden = false
                 cleanupSwiftUIViews()
@@ -616,13 +611,6 @@ class AddSportsBriefViewController: BaseViewController {
             child.willMove(toParent: nil)
             child.view.removeFromSuperview()
             child.removeFromParent()
-        }
-        
-        // Remove any custom message views (like soccer message)
-        boxScoreContentView.subviews.forEach { subview in
-            if subview != swiftUIBoxScoreView {
-                subview.removeFromSuperview()
-            }
         }
         
         boxScoreFactory = nil
