@@ -1,5 +1,5 @@
-import UIKit
 import SwiftUI
+import UIKit
 
 enum BoxScoreType {
     case golf
@@ -7,13 +7,12 @@ enum BoxScoreType {
     case volleyball
 }
 
-class BoxScoreViewFactory: UIViewController {
-    
-    let homeTeamName: String
-    let awayTeamName: String
-    let homeTeamImageURL: String?
-    let awayTeamImageURL: String?
-    let boxScoreType: BoxScoreType
+class BoxScoreViewFactory {
+    private let homeTeamName: String
+    private let awayTeamName: String
+    private let homeTeamImageURL: String?
+    private let awayTeamImageURL: String?
+    private let boxScoreType: BoxScoreType
     
     init(homeTeamName: String, awayTeamName: String, homeTeamImageURL: String?, awayTeamImageURL: String?, boxScoreType: BoxScoreType) {
         self.homeTeamName = homeTeamName
@@ -21,44 +20,45 @@ class BoxScoreViewFactory: UIViewController {
         self.homeTeamImageURL = homeTeamImageURL
         self.awayTeamImageURL = awayTeamImageURL
         self.boxScoreType = boxScoreType
-        super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func createGolfHostingController(homeScores: Binding<[Int]>, awayScores: Binding<[Int]>) -> UIHostingController<GolfBoxScoreView> {
+        let golfView = GolfBoxScoreView(
+            homeScores: homeScores,
+            awayScores: awayScores,
+            homeTeamName: homeTeamName,
+            awayTeamName: awayTeamName,
+            homeTeamImageURL: homeTeamImageURL,
+            awayTeamImageURL: awayTeamImageURL
+        )
+        return UIHostingController(rootView: golfView)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Don't set up the view here - let the parent handle it
+    func createTennisHostingController(homeScores: Binding<[Int]>, awayScores: Binding<[Int]>) -> UIHostingController<TennisBoxScoreView> {
+        let tennisView = TennisBoxScoreView(
+            homeScores: homeScores,
+            awayScores: awayScores,
+            homeTeamName: homeTeamName,
+            awayTeamName: awayTeamName,
+            homeTeamImageURL: homeTeamImageURL,
+            awayTeamImageURL: awayTeamImageURL,
+            isTennisScore: true
+        )
+        return UIHostingController(rootView: tennisView)
     }
     
-    func createHostingController() -> UIHostingController<AnyView> {
-        let boxScoreView: AnyView
-        
-        // Create the appropriate SwiftUI view based on sport type
-        switch boxScoreType {
-        case .golf:
-            let golfView = GolfBoxScoreView(
-                homeTeamName: homeTeamName,
-                awayTeamName: awayTeamName,
-                homeTeamImageURL: homeTeamImageURL,
-                awayTeamImageURL: awayTeamImageURL
-            )
-            boxScoreView = AnyView(golfView)
-            
-        case .tennis, .volleyball:
-            let tennisView = TennisBoxScoreView(
-                homeTeamName: homeTeamName,
-                awayTeamName: awayTeamName,
-                homeTeamImageURL: homeTeamImageURL,
-                awayTeamImageURL: awayTeamImageURL,
-                isTennisScore: boxScoreType == .tennis
-            )
-            boxScoreView = AnyView(tennisView)
-        }
-        
-        let hostingController = UIHostingController(rootView: boxScoreView)
-        return hostingController
+    func createVolleyballHostingController(homeScores: Binding<[Int]>, awayScores: Binding<[Int]>) -> UIHostingController<TennisBoxScoreView> {
+        let volleyballView = TennisBoxScoreView(
+            homeScores: homeScores,
+            awayScores: awayScores,
+            homeTeamName: homeTeamName,
+            awayTeamName: awayTeamName,
+            homeTeamImageURL: homeTeamImageURL,
+            awayTeamImageURL: awayTeamImageURL,
+            isTennisScore: false
+        )
+        return UIHostingController(rootView: volleyballView)
     }
+    
+
 }

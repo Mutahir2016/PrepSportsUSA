@@ -1,43 +1,89 @@
 import SwiftUI
 
 struct GolfBoxScoreView: View {
-    @State private var homeScores: [Int] = Array(repeating: 0, count: 18)
-    @State private var awayScores: [Int] = Array(repeating: 0, count: 18)
+    @Binding var homeScores: [Int]
+    @Binding var awayScores: [Int]
     
+    // Local state that will trigger view updates
+    @State private var localHomeScores: [Int] = Array(repeating: 0, count: 18)
+    @State private var localAwayScores: [Int] = Array(repeating: 0, count: 18)
+
     let homeTeamName: String
     let awayTeamName: String
     let homeTeamImageURL: String?
     let awayTeamImageURL: String?
     
-    // Custom binding for score validation
-    private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
+    // Computed properties for final scores that will update automatically
+    private var homeOutScore: Int {
+        localHomeScores[0..<9].reduce(0, +)
+    }
+    
+    private var awayOutScore: Int {
+        localAwayScores[0..<9].reduce(0, +)
+    }
+    
+    private var homeInScore: Int {
+        localHomeScores[9..<18].reduce(0, +)
+    }
+    
+    private var awayInScore: Int {
+        localAwayScores[9..<18].reduce(0, +)
+    }
+    
+    private var homeTotalScore: Int {
+        localHomeScores.reduce(0, +)
+    }
+    
+    private var awayTotalScore: Int {
+        localAwayScores.reduce(0, +)
+    }
+
+    // MARK: - Boxscore Creation
+    func createGolfBoxscore() -> GolfBoxscore {
+        return GolfBoxscore(
+            homeTeam: GolfTeamScores(scores: homeScores),
+            awayTeam: GolfTeamScores(scores: awayScores)
+        )
+    }
+
+    // MARK: - Score Validation
+    private func scoreBinding(for team: TeamType, at index: Int) -> Binding<String> {
         Binding(
-            get: { 
-                let value = scores.wrappedValue[index]
+            get: {
+                let value = team == .home ? localHomeScores[index] : localAwayScores[index]
                 return value == 0 ? "" : String(value)
             },
             set: { newValue in
                 // Remove spaces
                 let noSpaces = newValue.replacingOccurrences(of: " ", with: "")
-                
+
                 // Remove non-numeric characters
                 let numericOnly = noSpaces.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-                
+
                 // Limit to 2 characters
                 let limitedValue = String(numericOnly.prefix(2))
-                
+
                 // Convert to Int, default to 0 if invalid
-                if let intValue = Int(limitedValue) {
-                    scores.wrappedValue[index] = intValue
+                let intValue = Int(limitedValue) ?? 0
+                
+                // Update both local state (for UI reactivity) and binding (for parent)
+                if team == .home {
+                    localHomeScores[index] = intValue
+                    homeScores[index] = intValue
                 } else {
-                    scores.wrappedValue[index] = 0
+                    localAwayScores[index] = intValue
+                    awayScores[index] = intValue
                 }
             }
         )
     }
     
+    private enum TeamType {
+        case home, away
+    }
+
     // MARK: - Team Display Methods
-    
+
     @ViewBuilder
     private var teamNamesAndImagesSection: some View {
         HStack {
@@ -47,9 +93,9 @@ struct GolfBoxScoreView: View {
                 imageURL: awayTeamImageURL,
                 isHomeTeam: false
             )
-            
+
             Spacer()
-            
+
             // Home team on the right
             teamInfoView(
                 teamName: homeTeamName,
@@ -59,7 +105,7 @@ struct GolfBoxScoreView: View {
         }
         .padding(.horizontal, 20)
     }
-    
+
     @ViewBuilder
     private func teamInfoView(teamName: String, imageURL: String?, isHomeTeam: Bool) -> some View {
         VStack(spacing: 8) {
@@ -74,14 +120,14 @@ struct GolfBoxScoreView: View {
             }
             .frame(width: 50, height: 50)
             .cornerRadius(8)
-            
+
             Text(teamName)
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
         }
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Main card
@@ -90,10 +136,10 @@ struct GolfBoxScoreView: View {
                 Text("Golf Box Score")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
-                
+
                 // Team names with images
                 teamNamesAndImagesSection
-                
+
                 // First 9 holes (OUT)
                 VStack(spacing: 15) {
                     // Header row
@@ -102,20 +148,20 @@ struct GolfBoxScoreView: View {
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .leading)
-                        
+
                         ForEach(1...9, id: \.self) { hole in
                             Text("\(hole)")
                                 .font(.caption)
                                 .foregroundColor(.black)
                                 .frame(maxWidth: .infinity)
                         }
-                        
+
                         Text("OUT")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Away row (top)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: awayTeamImageURL ?? "")) { image in
@@ -128,21 +174,21 @@ struct GolfBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<9, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $awayScores, at: index))
+                            TextField("0", text: scoreBinding(for: .away, at: index))
                                 .textFieldStyle(UnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                         }
-                        
-                        Text("\(awayScores[0..<9].reduce(0, +))")
+
+                        Text("\(awayOutScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Home row (bottom)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: homeTeamImageURL ?? "")) { image in
@@ -155,22 +201,22 @@ struct GolfBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<9, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
+                            TextField("0", text: scoreBinding(for: .home, at: index))
                                 .textFieldStyle(UnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                         }
-                        
-                        Text("\(homeScores[0..<9].reduce(0, +))")
+
+                        Text("\(homeOutScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
                 }
-                
+
                 // Second 9 holes (IN)
                 VStack(spacing: 15) {
                     // Header row
@@ -179,20 +225,20 @@ struct GolfBoxScoreView: View {
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .leading)
-                        
+
                         ForEach(10...18, id: \.self) { hole in
                             Text("\(hole)")
                                 .font(.caption)
                                 .foregroundColor(.black)
                                 .frame(maxWidth: .infinity)
                         }
-                        
+
                         Text("IN")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Away row (top)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: awayTeamImageURL ?? "")) { image in
@@ -205,21 +251,21 @@ struct GolfBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(9..<18, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $awayScores, at: index))
+                            TextField("0", text: scoreBinding(for: .away, at: index))
                                 .textFieldStyle(UnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                         }
-                        
-                        Text("\(awayScores[9..<18].reduce(0, +))")
+
+                        Text("\(awayInScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Home row (bottom)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: homeTeamImageURL ?? "")) { image in
@@ -232,38 +278,38 @@ struct GolfBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(9..<18, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
+                            TextField("0", text: scoreBinding(for: .home, at: index))
                                 .textFieldStyle(UnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                         }
-                        
-                        Text("\(homeScores[9..<18].reduce(0, +))")
+
+                        Text("\(homeInScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
                 }
-                
+
                 // Total section
                 HStack {
                     Text("TOTAL")
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                    
+
                     Spacer()
-                    
+
                     HStack(spacing: 20) {
-                        Text("\(awayScores.reduce(0, +))")
+                        Text("\(awayTotalScore)")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
-                        
-                        Text("\(homeScores.reduce(0, +))")
+
+                        Text("\(homeTotalScore)")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
@@ -283,6 +329,11 @@ struct GolfBoxScoreView: View {
             )
         }
         .background(Color.clear)
+        .onAppear {
+            // Sync local state with bindings on appear
+            localHomeScores = homeScores
+            localAwayScores = awayScores
+        }
     }
 }
 
@@ -294,20 +345,10 @@ struct UnderlinedTextFieldStyle: TextFieldStyle {
                 .textFieldStyle(PlainTextFieldStyle())
                 .multilineTextAlignment(.center)
                 .foregroundColor(.primary) // Use system text color
-            
+
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(.gray)
         }
     }
-}
-
-#Preview {
-    GolfBoxScoreView(
-        homeTeamName: "Florida Gulf Coast Eagles",
-        awayTeamName: "AAMU Bulldogs",
-        homeTeamImageURL: nil,
-        awayTeamImageURL: nil
-    )
-    .background(Color.gray.opacity(0.1))
 }

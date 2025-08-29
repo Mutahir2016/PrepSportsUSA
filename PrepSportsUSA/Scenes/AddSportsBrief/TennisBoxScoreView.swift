@@ -1,14 +1,27 @@
 import SwiftUI
 
 struct TennisBoxScoreView: View {
-    @State private var homeScores: [Int] = Array(repeating: 0, count: 5)
-    @State private var awayScores: [Int] = Array(repeating: 0, count: 5)
+    @Binding var homeScores: [Int]
+    @Binding var awayScores: [Int]
     
+    // Local state that will trigger view updates
+    @State private var localHomeScores: [Int] = Array(repeating: 0, count: 5)
+    @State private var localAwayScores: [Int] = Array(repeating: 0, count: 5)
+
     let homeTeamName: String
     let awayTeamName: String
     let homeTeamImageURL: String?
     let awayTeamImageURL: String?
     let isTennisScore: Bool
+    
+    // Computed properties for final scores that will update automatically
+    private var homeFinalScore: Int {
+        isTennisScore ? localHomeScores.reduce(0, +) : calculateSetsWon(localHomeScores, localAwayScores)
+    }
+    
+    private var awayFinalScore: Int {
+        isTennisScore ? localAwayScores.reduce(0, +) : calculateSetsWon(localAwayScores, localHomeScores)
+    }
 
     // Calculate sets won for volleyball scoring
     private func calculateSetsWon(_ teamScores: [Int], _ opponentScores: [Int]) -> Int {
@@ -22,35 +35,45 @@ struct TennisBoxScoreView: View {
         }
         return setsWon
     }
-    
+
     // Custom binding for score validation
-    private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
+    private func scoreBinding(for team: TeamType, at index: Int) -> Binding<String> {
         Binding(
-            get: { 
-                String(scores.wrappedValue[index]) 
+            get: {
+                let value = team == .home ? localHomeScores[index] : localAwayScores[index]
+                return String(value)
             },
             set: { newValue in
                 // Remove spaces
                 let noSpaces = newValue.replacingOccurrences(of: " ", with: "")
-                
+
                 // Remove non-numeric characters
                 let numericOnly = noSpaces.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-                
+
                 // Limit to 2 characters
                 let limitedValue = String(numericOnly.prefix(2))
-                
+
                 // Convert to Int, default to 0 if invalid
-                if let intValue = Int(limitedValue) {
-                    scores.wrappedValue[index] = intValue
+                let intValue = Int(limitedValue) ?? 0
+                
+                // Update both local state (for UI reactivity) and binding (for parent)
+                if team == .home {
+                    localHomeScores[index] = intValue
+                    homeScores[index] = intValue
                 } else {
-                    scores.wrappedValue[index] = 0
+                    localAwayScores[index] = intValue
+                    awayScores[index] = intValue
                 }
             }
         )
     }
     
+    private enum TeamType {
+        case home, away
+    }
+
     // MARK: - Team Display Methods
-    
+
     @ViewBuilder
     private var teamNamesAndImagesSection: some View {
         HStack {
@@ -60,9 +83,9 @@ struct TennisBoxScoreView: View {
                 imageURL: awayTeamImageURL,
                 isHomeTeam: false
             )
-            
+
             Spacer()
-            
+
             // Home team on the right
             teamInfoView(
                 teamName: homeTeamName,
@@ -72,7 +95,7 @@ struct TennisBoxScoreView: View {
         }
         .padding(.horizontal, 20)
     }
-    
+
     @ViewBuilder
     private func teamInfoView(teamName: String, imageURL: String?, isHomeTeam: Bool) -> some View {
         VStack(spacing: 8) {
@@ -87,14 +110,14 @@ struct TennisBoxScoreView: View {
             }
             .frame(width: 50, height: 50)
             .cornerRadius(8)
-            
+
             Text(teamName)
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
         }
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Main card
@@ -103,10 +126,10 @@ struct TennisBoxScoreView: View {
                 Text(isTennisScore ? "Tennis Box Score" : "Volleyball Box Score")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
-                
+
                 // Team names with images
                 teamNamesAndImagesSection
-                
+
                 // Score table section
                 VStack(spacing: 15) {
                     // Header row with light gray background
@@ -115,14 +138,14 @@ struct TennisBoxScoreView: View {
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .leading)
-                        
+
                         ForEach(1...5, id: \.self) { set in
                             Text("Set \(set)")
                                 .font(.caption)
                                 .foregroundColor(.black)
                                 .frame(maxWidth: .infinity)
                         }
-                        
+
                         Text("Final")
                             .font(.caption)
                             .foregroundColor(.black)
@@ -131,7 +154,7 @@ struct TennisBoxScoreView: View {
                     .padding(.vertical, 8)
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(6)
-                    
+
                     // Away row (top)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: awayTeamImageURL ?? "")) { image in
@@ -144,22 +167,22 @@ struct TennisBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<5, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $awayScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
+                            TextField("0", text: scoreBinding(for: .away, at: index))
+                                .textFieldStyle(TennisUnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                                 .keyboardType(.numberPad)
                         }
-                        
-                        Text("\(isTennisScore ? awayScores.reduce(0, +) : calculateSetsWon(awayScores, homeScores))")
+
+                        Text("\(awayFinalScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Home row (bottom)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: homeTeamImageURL ?? "")) { image in
@@ -172,17 +195,17 @@ struct TennisBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<5, id: \.self) { index in
-                            TextField("0", text: scoreBinding(for: $homeScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
+                            TextField("0", text: scoreBinding(for: .home, at: index))
+                                .textFieldStyle(TennisUnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                                 .keyboardType(.numberPad)
                         }
-                        
-                        Text("\(isTennisScore ? homeScores.reduce(0, +) : calculateSetsWon(homeScores, awayScores))")
+
+                        Text("\(homeFinalScore)")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
@@ -202,6 +225,11 @@ struct TennisBoxScoreView: View {
             )
         }
         .background(Color.clear)
+        .onAppear {
+            // Sync local state with bindings on appear
+            localHomeScores = homeScores
+            localAwayScores = awayScores
+        }
     }
 }
 
@@ -213,21 +241,10 @@ struct TennisUnderlinedTextFieldStyle: TextFieldStyle {
                 .textFieldStyle(PlainTextFieldStyle())
                 .multilineTextAlignment(.center)
                 .foregroundColor(.primary) // Use system text color
-            
+
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(.gray)
         }
     }
-}
-
-#Preview {
-    TennisBoxScoreView(
-        homeTeamName: "Reavis Rams",
-        awayTeamName: "Lincoln-Way West Warriors",
-        homeTeamImageURL: nil,
-        awayTeamImageURL: nil,
-        isTennisScore: false
-    )
-    .background(Color.gray.opacity(0.1))
 }

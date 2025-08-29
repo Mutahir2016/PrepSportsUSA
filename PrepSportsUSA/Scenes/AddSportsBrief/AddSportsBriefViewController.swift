@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SDWebImage
+import SwiftUI
 
 class AddSportsBriefViewController: BaseViewController {
     var viewModel: AddSportsBriefViewModel!
@@ -87,6 +88,15 @@ class AddSportsBriefViewController: BaseViewController {
     // Box Score SwiftUI Integration
     private var boxScoreFactory: BoxScoreViewFactory?
     private var swiftUIBoxScoreView: UIView?
+    private var displayedHostingController: UIHostingController<AnyView>?
+    
+    // Store score arrays that will be bound to SwiftUI views
+    private var homeScores: [Int] = Array(repeating: 0, count: 5)  // For tennis/volleyball (5 sets)
+    private var awayScores: [Int] = Array(repeating: 0, count: 5)  // For tennis/volleyball (5 sets)
+    
+    // Golf has 18 holes, so we need separate arrays
+    private var golfHomeScores: [Int] = Array(repeating: 0, count: 18)
+    private var golfAwayScores: [Int] = Array(repeating: 0, count: 18)
 
     // Remove complex boxscore view properties - we'll use the storyboard elements
 
@@ -577,7 +587,51 @@ class AddSportsBriefViewController: BaseViewController {
 
         // Create and add the hosting controller directly
         if let controller = boxScoreFactory {
-            let hostingController = controller.createHostingController()
+            // Create hosting controller with bindings to our score arrays
+            let hostingController: UIHostingController<AnyView>
+            switch boxScoreType {
+            case .golf:
+                let golfHostingController = controller.createGolfHostingController(
+                    homeScores: Binding(
+                        get: { self.golfHomeScores },
+                        set: { self.golfHomeScores = $0 }
+                    ),
+                    awayScores: Binding(
+                        get: { self.golfAwayScores },
+                        set: { self.golfAwayScores = $0 }
+                    )
+                )
+                hostingController = UIHostingController(rootView: AnyView(golfHostingController.rootView))
+            case .tennis:
+                let tennisHostingController = controller.createTennisHostingController(
+                    homeScores: Binding(
+                        get: { self.homeScores },
+                        set: { self.homeScores = $0 }
+                    ),
+                    awayScores: Binding(
+                        get: { self.awayScores },
+                        set: { self.awayScores = $0 }
+                    )
+                )
+                hostingController = UIHostingController(rootView: AnyView(tennisHostingController.rootView))
+            case .volleyball:
+                let volleyballHostingController = controller.createVolleyballHostingController(
+                    homeScores: Binding(
+                        get: { self.homeScores },
+                        set: { self.homeScores = $0 }
+                    ),
+                    awayScores: Binding(
+                        get: { self.awayScores },
+                        set: { self.awayScores = $0 }
+                    )
+                )
+                hostingController = UIHostingController(rootView: AnyView(volleyballHostingController.rootView))
+            }
+            
+
+            
+            // Store the reference to the displayed hosting controller
+            displayedHostingController = hostingController
             
             // Add the hosting controller as a child
             addChild(hostingController)
@@ -721,8 +775,8 @@ class AddSportsBriefViewController: BaseViewController {
             return
         }
 
-        // Create boxscore from inputs
-        let boxscore = createBoxscoreFromInputs()
+        // Create boxscore from inputs based on sport type
+        let boxscore = orchestrateSportSpecificBoxscoreCreation()
 
         // Submit the pre pitch
         viewModel.submitPrePitch(
@@ -836,7 +890,7 @@ extension AddSportsBriefViewController {
     }
 
     private func createBoxscoreFromInputs() -> GenericBoxscore {
-        // Create boxscore from the storyboard text fields
+        // Create football boxscore from the storyboard text fields
         var homeTeamData: [String: AnyCodable] = [:]
         var awayTeamData: [String: AnyCodable] = [:]
 
@@ -865,6 +919,95 @@ extension AddSportsBriefViewController {
 
         return GenericBoxscore(homeTeam: homeTeamData, awayTeam: awayTeamData)
     }
+    
+
+    
+    private func orchestrateSportSpecificBoxscoreCreation() -> GenericBoxscore {
+        guard let team = selectedTeam else {
+            return GenericBoxscore(homeTeam: [:], awayTeam: [:])
+        }
+        
+        let sport = team.attributes.sport.lowercased()
+        
+        switch sport {
+        case "golf":
+            // Get golf scores from SwiftUI view and create boxscore via ViewModel
+            if let homeScores = getGolfScores(from: .home),
+               let awayScores = getGolfScores(from: .away) {
+                return viewModel.createSportSpecificBoxscore(
+                    sport: sport,
+                    homeScores: homeScores,
+                    awayScores: awayScores
+                )
+            }
+            return GenericBoxscore(homeTeam: [:], awayTeam: [:])
+            
+        case "tennis":
+            // Get tennis scores from stored arrays and create boxscore via ViewModel
+            if let homeScores = getTennisScores(from: .home),
+               let awayScores = getTennisScores(from: .away) {
+                
+                print("🎾 Tennis scores being sent to ViewModel:")
+                print("   Home: \(homeScores)")
+                print("   Away: \(awayScores)")
+                print("   Home Final: \(homeScores.reduce(0, +))")
+                print("   Away Final: \(awayScores.reduce(0, +))")
+                
+                return viewModel.createSportSpecificBoxscore(
+                    sport: sport,
+                    homeScores: homeScores,
+                    awayScores: awayScores
+                )
+            }
+            return GenericBoxscore(homeTeam: [:], awayTeam: [:])
+            
+        case "volleyball":
+            // Get volleyball scores from stored arrays and create boxscore via ViewModel
+            if let homeScores = getVolleyballScores(from: .home),
+               let awayScores = getVolleyballScores(from: .away) {
+                return viewModel.createSportSpecificBoxscore(
+                    sport: sport,
+                    homeScores: homeScores,
+                    awayScores: awayScores
+                )
+            }
+            return GenericBoxscore(homeTeam: [:], awayTeam: [:])
+            
+        default:
+            // Football and other sports use the storyboard text fields
+            return createBoxscoreFromInputs()
+        }
+    }
+    
+    // MARK: - Helper Methods for Getting Scores from SwiftUI Views
+    
+    private func getGolfScores(from team: TeamSide) -> [Int]? {
+        switch team {
+        case .home:
+            return golfHomeScores
+        case .away:
+            return golfAwayScores
+        }
+    }
+    
+    private func getTennisScores(from team: TeamSide) -> [Int]? {
+        switch team {
+        case .home:
+            return homeScores
+        case .away:
+            return awayScores
+        }
+    }
+    
+    private func getVolleyballScores(from team: TeamSide) -> [Int]? {
+        switch team {
+        case .home:
+            return homeScores
+        case .away:
+            return awayScores
+        }
+    }
+
 
     private func generateImageFilename() -> String {
         let timestamp = Int(Date().timeIntervalSince1970)
