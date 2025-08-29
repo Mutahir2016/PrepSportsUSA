@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="content-stack">
-                                        <rect key="frame" x="16" y="16" width="361" height="463.66666666666669"/>
+                                        <rect key="frame" x="16" y="16" width="361" height="701"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="header-section">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="135"/>
@@ -134,6 +134,304 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="game-info-card">
+                                                <rect key="frame" x="0.0" y="479.66666666666657" width="361" height="221.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="game-info-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-logo">
+                                                        <rect key="frame" x="16" y="53.666666666666742" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="away-logo-height"/>
+                                                            <constraint firstAttribute="width" constant="60" id="away-logo-width"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plainfield East Bengals" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-name">
+                                                        <rect key="frame" x="8" y="121.66666666666676" width="76" height="33.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs-label">
+                                                        <rect key="frame" x="165.66666666666666" y="74" width="30" height="19.333333333333329"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="vs-width"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-logo">
+                                                        <rect key="frame" x="285" y="53.666666666666742" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="home-logo-height"/>
+                                                            <constraint firstAttribute="width" constant="60" id="home-logo-width"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lincoln-Way West Warriors" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-name">
+                                                        <rect key="frame" x="277" y="121.66666666666676" width="76" height="33.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="date-time-label">
+                                                        <rect key="frame" x="16" y="163.33333333333337" width="86.666666666666671" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mar 31, 2025 @ 09:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="game-date-time">
+                                                        <rect key="frame" x="110.66666666666667" y="163.33333333333337" width="234.33333333333331" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="venue-label">
+                                                        <rect key="frame" x="15.999999999999996" y="188.33333333333337" width="46.666666666666657" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Plainfield East High School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="game-venue">
+                                                        <rect key="frame" x="70.666666666666657" y="188.33333333333337" width="274.33333333333337" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="away-team-logo" firstAttribute="leading" secondItem="game-info-card" secondAttribute="leading" constant="16" id="away-logo-leading"/>
+                                                    <constraint firstItem="away-team-logo" firstAttribute="top" secondItem="game-info-header" secondAttribute="bottom" constant="16" id="away-logo-top"/>
+                                                    <constraint firstItem="away-team-name" firstAttribute="leading" secondItem="away-team-logo" secondAttribute="leading" constant="-8" id="away-name-leading"/>
+                                                    <constraint firstItem="away-team-name" firstAttribute="top" secondItem="away-team-logo" secondAttribute="bottom" constant="8" id="away-name-top"/>
+                                                    <constraint firstItem="away-team-name" firstAttribute="trailing" secondItem="away-team-logo" secondAttribute="trailing" constant="8" id="away-name-trailing"/>
+                                                    <constraint firstItem="date-time-label" firstAttribute="leading" secondItem="game-info-card" secondAttribute="leading" constant="16" id="date-label-leading"/>
+                                                    <constraint firstItem="date-time-label" firstAttribute="top" secondItem="away-team-name" secondAttribute="bottom" constant="8" id="date-label-top"/>
+                                                    <constraint firstItem="game-date-time" firstAttribute="centerY" secondItem="date-time-label" secondAttribute="centerY" id="game-date-centerY"/>
+                                                    <constraint firstItem="game-date-time" firstAttribute="leading" secondItem="date-time-label" secondAttribute="trailing" constant="8" id="game-date-leading"/>
+                                                    <constraint firstAttribute="trailing" secondItem="game-date-time" secondAttribute="trailing" constant="16" id="game-date-trailing"/>
+                                                    <constraint firstItem="game-info-header" firstAttribute="leading" secondItem="game-info-card" secondAttribute="leading" constant="16" id="game-header-leading"/>
+                                                    <constraint firstItem="game-info-header" firstAttribute="top" secondItem="game-info-card" secondAttribute="top" constant="16" id="game-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="game-info-header" secondAttribute="trailing" constant="16" id="game-header-trailing"/>
+                                                    <constraint firstItem="game-venue" firstAttribute="centerY" secondItem="venue-label" secondAttribute="centerY" id="game-venue-centerY"/>
+                                                    <constraint firstItem="game-venue" firstAttribute="leading" secondItem="venue-label" secondAttribute="trailing" constant="8" id="game-venue-leading"/>
+                                                    <constraint firstAttribute="trailing" secondItem="game-venue" secondAttribute="trailing" constant="16" id="game-venue-trailing"/>
+                                                    <constraint firstItem="home-team-logo" firstAttribute="top" secondItem="game-info-header" secondAttribute="bottom" constant="16" id="home-logo-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="home-team-logo" secondAttribute="trailing" constant="16" id="home-logo-trailing"/>
+                                                    <constraint firstItem="home-team-name" firstAttribute="leading" secondItem="home-team-logo" secondAttribute="leading" constant="-8" id="home-name-leading"/>
+                                                    <constraint firstItem="home-team-name" firstAttribute="top" secondItem="home-team-logo" secondAttribute="bottom" constant="8" id="home-name-top"/>
+                                                    <constraint firstItem="home-team-name" firstAttribute="trailing" secondItem="home-team-logo" secondAttribute="trailing" constant="8" id="home-name-trailing"/>
+                                                    <constraint firstAttribute="bottom" secondItem="venue-label" secondAttribute="bottom" constant="16" id="venue-bottom"/>
+                                                    <constraint firstItem="venue-label" firstAttribute="leading" secondItem="game-info-card" secondAttribute="leading" constant="16" id="venue-label-leading"/>
+                                                    <constraint firstItem="venue-label" firstAttribute="top" secondItem="date-time-label" secondAttribute="bottom" constant="8" id="venue-label-top"/>
+                                                    <constraint firstItem="vs-label" firstAttribute="centerX" secondItem="game-info-card" secondAttribute="centerX" id="vs-centerX"/>
+                                                    <constraint firstItem="vs-label" firstAttribute="centerY" secondItem="away-team-logo" secondAttribute="centerY" id="vs-centerY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quotes-card">
+                                                <rect key="frame" x="0.0" y="717" width="361" height="150"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quotes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quotes-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: jsuajajsjsjsj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quote-source">
+                                                        <rect key="frame" x="16" y="45.666666666666686" width="329" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="quotes-stack">
+                                                        <rect key="frame" x="16" y="70.666666666666686" width="329" height="63.333333333333343"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;nsisjsisnsjss&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quote-1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;beisjsjsjsjsks&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quote-2">
+                                                                <rect key="frame" x="0.0" y="29" width="329" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;ndisjskwjsjsj&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quote-3">
+                                                                <rect key="frame" x="0.0" y="46" width="329" height="17.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;nsisjsksjsj&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quote-4">
+                                                                <rect key="frame" x="0.0" y="63.333333333333329" width="329" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="quotes-stack" secondAttribute="bottom" constant="16" id="quotes-stack-bottom"/>
+                                                    <constraint firstItem="quotes-stack" firstAttribute="leading" secondItem="quotes-card" secondAttribute="leading" constant="16" id="quotes-stack-leading"/>
+                                                    <constraint firstItem="quotes-stack" firstAttribute="top" secondItem="quote-source" secondAttribute="bottom" constant="8" id="quotes-stack-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="quotes-stack" secondAttribute="trailing" constant="16" id="quotes-stack-trailing"/>
+                                                    <constraint firstItem="quotes-header" firstAttribute="leading" secondItem="quotes-card" secondAttribute="leading" constant="16" id="quotes-header-leading"/>
+                                                    <constraint firstItem="quotes-header" firstAttribute="top" secondItem="quotes-card" secondAttribute="top" constant="16" id="quotes-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="quotes-header" secondAttribute="trailing" constant="16" id="quotes-header-trailing"/>
+                                                    <constraint firstItem="quote-source" firstAttribute="leading" secondItem="quotes-card" secondAttribute="leading" constant="16" id="quote-source-leading"/>
+                                                    <constraint firstItem="quote-source" firstAttribute="top" secondItem="quotes-header" secondAttribute="bottom" constant="8" id="quote-source-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="quote-source" secondAttribute="trailing" constant="16" id="quote-source-trailing"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="media-card">
+                                                <rect key="frame" x="0.0" y="883" width="361" height="200"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="media-stack">
+                                                        <rect key="frame" x="16" y="45.666666666666686" width="329" height="138.33333333333331"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="media-item-1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="138.33333333333334"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="media-image-1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="90"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="90" id="media-1-height"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <real key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample caption for image 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-caption-1">
+                                                                        <rect key="frame" x="0.0" y="98" width="101.66666666666667" height="28.333333333333343"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo credit: Muhammad Z..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-credit-1">
+                                                                        <rect key="frame" x="0.0" y="126.33333333333334" width="101.66666666666667" height="12"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="media-image-1" firstAttribute="leading" secondItem="media-item-1" secondAttribute="leading" id="img1-leading"/>
+                                                                    <constraint firstItem="media-image-1" firstAttribute="top" secondItem="media-item-1" secondAttribute="top" id="img1-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-image-1" secondAttribute="trailing" id="img1-trailing"/>
+                                                                    <constraint firstItem="media-caption-1" firstAttribute="leading" secondItem="media-item-1" secondAttribute="leading" id="cap1-leading"/>
+                                                                    <constraint firstItem="media-caption-1" firstAttribute="top" secondItem="media-image-1" secondAttribute="bottom" constant="8" id="cap1-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-caption-1" secondAttribute="trailing" id="cap1-trailing"/>
+                                                                    <constraint firstItem="media-credit-1" firstAttribute="leading" secondItem="media-item-1" secondAttribute="leading" id="cred1-leading"/>
+                                                                    <constraint firstItem="media-credit-1" firstAttribute="top" secondItem="media-caption-1" secondAttribute="bottom" constant="0" id="cred1-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-credit-1" secondAttribute="trailing" id="cred1-trailing"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="media-credit-1" secondAttribute="bottom" id="cred1-bottom"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="media-item-2">
+                                                                <rect key="frame" x="113.66666666666667" y="0.0" width="101.66666666666667" height="138.33333333333334"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="media-image-2">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="90"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="90" id="media-2-height"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <real key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample caption for image 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-caption-2">
+                                                                        <rect key="frame" x="0.0" y="98" width="101.66666666666667" height="28.333333333333343"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo credit: Muhammad Z..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-credit-2">
+                                                                        <rect key="frame" x="0.0" y="126.33333333333334" width="101.66666666666667" height="12"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="media-image-2" firstAttribute="leading" secondItem="media-item-2" secondAttribute="leading" id="img2-leading"/>
+                                                                    <constraint firstItem="media-image-2" firstAttribute="top" secondItem="media-item-2" secondAttribute="top" id="img2-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-image-2" secondAttribute="trailing" id="img2-trailing"/>
+                                                                    <constraint firstItem="media-caption-2" firstAttribute="leading" secondItem="media-item-2" secondAttribute="leading" id="cap2-leading"/>
+                                                                    <constraint firstItem="media-caption-2" firstAttribute="top" secondItem="media-image-2" secondAttribute="bottom" constant="8" id="cap2-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-caption-2" secondAttribute="trailing" id="cap2-trailing"/>
+                                                                    <constraint firstItem="media-credit-2" firstAttribute="leading" secondItem="media-item-2" secondAttribute="leading" id="cred2-leading"/>
+                                                                    <constraint firstItem="media-credit-2" firstAttribute="top" secondItem="media-caption-2" secondAttribute="bottom" constant="0" id="cred2-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-credit-2" secondAttribute="trailing" id="cred2-trailing"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="media-credit-2" secondAttribute="bottom" id="cred2-bottom"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="media-item-3">
+                                                                <rect key="frame" x="227.33333333333334" y="0.0" width="101.66666666666666" height="138.33333333333334"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="media-image-3">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666666" height="90"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="90" id="media-3-height"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <real key="value" value="8"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample caption for image 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-caption-3">
+                                                                        <rect key="frame" x="0.0" y="98" width="101.66666666666666" height="28.333333333333343"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo credit: Muhammad Z..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="media-credit-3">
+                                                                        <rect key="frame" x="0.0" y="126.33333333333334" width="101.66666666666666" height="12"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="media-image-3" firstAttribute="leading" secondItem="media-item-3" secondAttribute="leading" id="img3-leading"/>
+                                                                    <constraint firstItem="media-image-3" firstAttribute="top" secondItem="media-item-3" secondAttribute="top" id="img3-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-image-3" secondAttribute="trailing" id="img3-trailing"/>
+                                                                    <constraint firstItem="media-caption-3" firstAttribute="leading" secondItem="media-item-3" secondAttribute="leading" id="cap3-leading"/>
+                                                                    <constraint firstItem="media-caption-3" firstAttribute="top" secondItem="media-image-3" secondAttribute="bottom" constant="8" id="cap3-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-caption-3" secondAttribute="trailing" id="cap3-trailing"/>
+                                                                    <constraint firstItem="media-credit-3" firstAttribute="leading" secondItem="media-item-3" secondAttribute="leading" id="cred3-leading"/>
+                                                                    <constraint firstItem="media-credit-3" firstAttribute="top" secondItem="media-caption-3" secondAttribute="bottom" constant="0" id="cred3-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="media-credit-3" secondAttribute="trailing" id="cred3-trailing"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="media-credit-3" secondAttribute="bottom" id="cred3-bottom"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="media-header" firstAttribute="leading" secondItem="media-card" secondAttribute="leading" constant="16" id="media-header-leading"/>
+                                                    <constraint firstItem="media-header" firstAttribute="top" secondItem="media-card" secondAttribute="top" constant="16" id="media-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="media-header" secondAttribute="trailing" constant="16" id="media-header-trailing"/>
+                                                    <constraint firstItem="media-stack" firstAttribute="leading" secondItem="media-card" secondAttribute="leading" constant="16" id="media-stack-leading"/>
+                                                    <constraint firstItem="media-stack" firstAttribute="top" secondItem="media-header" secondAttribute="bottom" constant="8" id="media-stack-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="media-stack" secondAttribute="trailing" constant="16" id="media-stack-trailing"/>
+                                                    <constraint firstAttribute="bottom" secondItem="media-stack" secondAttribute="bottom" constant="16" id="media-stack-bottom"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -157,10 +455,29 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="awayTeamLogo" destination="away-team-logo" id="away-logo-outlet"/>
+                        <outlet property="awayTeamNameGame" destination="away-team-name" id="away-name-outlet"/>
                         <outlet property="dateLabel" destination="date-label" id="date-outlet"/>
                         <outlet property="descriptionText" destination="description-text" id="desc-text-outlet"/>
+                        <outlet property="gameDateTimeLabel" destination="game-date-time" id="game-date-outlet"/>
+                        <outlet property="gameVenueLabel" destination="game-venue" id="game-venue-outlet"/>
                         <outlet property="genderLabel" destination="gender-label" id="gender-outlet"/>
+                        <outlet property="homeTeamLogo" destination="home-team-logo" id="home-logo-outlet"/>
+                        <outlet property="homeTeamNameGame" destination="home-team-name" id="home-name-outlet"/>
+                        <outlet property="mediaCard" destination="media-card" id="media-card-outlet"/>
+                        <outlet property="mediaImage1" destination="media-image-1" id="media-img1-outlet"/>
+                        <outlet property="mediaImage2" destination="media-image-2" id="media-img2-outlet"/>
+                        <outlet property="mediaImage3" destination="media-image-3" id="media-img3-outlet"/>
+                        <outlet property="mediaItem1" destination="media-item-1" id="media-item1-outlet"/>
+                        <outlet property="mediaItem2" destination="media-item-2" id="media-item2-outlet"/>
+                        <outlet property="mediaItem3" destination="media-item-3" id="media-item3-outlet"/>
                         <outlet property="nicknameLabel" destination="nickname-label" id="nickname-outlet"/>
+                        <outlet property="quote1Label" destination="quote-1" id="quote1-outlet"/>
+                        <outlet property="quote2Label" destination="quote-2" id="quote2-outlet"/>
+                        <outlet property="quote3Label" destination="quote-3" id="quote3-outlet"/>
+                        <outlet property="quote4Label" destination="quote-4" id="quote4-outlet"/>
+                        <outlet property="quoteSourceLabel" destination="quote-source" id="quote-source-outlet"/>
+                        <outlet property="quotesCard" destination="quotes-card" id="quotes-card-outlet"/>
                         <outlet property="schoolLabel" destination="school-label" id="school-outlet"/>
                         <outlet property="sportLabel" destination="sport-label" id="sport-outlet"/>
                         <outlet property="teamNameLabel" destination="team-name" id="team-name-outlet"/>
