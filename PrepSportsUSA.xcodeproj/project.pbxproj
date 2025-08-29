@@ -53,6 +53,18 @@
 		8C0834AB2D36D06C00ABB393 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0834A92D36D06C00ABB393 /* LoadingView.swift */; };
 		8C0834AC2D36D06C00ABB393 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0834A82D36D06C00ABB393 /* LoadingIndicatorView.swift */; };
 		8C0834AD2D36D06C00ABB393 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0834A92D36D06C00ABB393 /* LoadingView.swift */; };
+		8C12DB802E623E9E00C39E4B /* SportsBriefDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB7D2E623E9E00C39E4B /* SportsBriefDetailViewController.swift */; };
+		8C12DB812E623E9E00C39E4B /* SportsBriefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB7E2E623E9E00C39E4B /* SportsBriefDetailViewModel.swift */; };
+		8C12DB822E623E9E00C39E4B /* SportsBriefDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB7D2E623E9E00C39E4B /* SportsBriefDetailViewController.swift */; };
+		8C12DB832E623E9E00C39E4B /* SportsBriefDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB7E2E623E9E00C39E4B /* SportsBriefDetailViewModel.swift */; };
+		8C12DB872E623ECE00C39E4B /* SportsBriefDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB852E623ECE00C39E4B /* SportsBriefDetailUseCase.swift */; };
+		8C12DB882E623ECE00C39E4B /* SportsBriefDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB842E623ECE00C39E4B /* SportsBriefDetailService.swift */; };
+		8C12DB892E623ECE00C39E4B /* SportsBriefDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB852E623ECE00C39E4B /* SportsBriefDetailUseCase.swift */; };
+		8C12DB8A2E623ECE00C39E4B /* SportsBriefDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB842E623ECE00C39E4B /* SportsBriefDetailService.swift */; };
+		8C12DB8D2E623FF700C39E4B /* SportsBriefDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB8C2E623FF700C39E4B /* SportsBriefDetailRouter.swift */; };
+		8C12DB8F2E623FF700C39E4B /* SportsBriefDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12DB8C2E623FF700C39E4B /* SportsBriefDetailRouter.swift */; };
+		8C12DB922E6240E800C39E4B /* SportsBriefDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C12DB912E6240E800C39E4B /* SportsBriefDetail.storyboard */; };
+		8C12DB932E6240E800C39E4B /* SportsBriefDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C12DB912E6240E800C39E4B /* SportsBriefDetail.storyboard */; };
 		8C266BE42D486FF000445A92 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C266BE32D486FEB00445A92 /* HomeUseCase.swift */; };
 		8C266BE52D486FF000445A92 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C266BE32D486FEB00445A92 /* HomeUseCase.swift */; };
 		8C266BE72D486FF900445A92 /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C266BE62D486FF400445A92 /* HomeServices.swift */; };
@@ -447,6 +459,12 @@
 		62C6D817246912BD9D4A8ED3 /* Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrepSportsUSA_PrepSportsUSA_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C0834A82D36D06C00ABB393 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		8C0834A92D36D06C00ABB393 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		8C12DB7D2E623E9E00C39E4B /* SportsBriefDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsBriefDetailViewController.swift; sourceTree = "<group>"; };
+		8C12DB7E2E623E9E00C39E4B /* SportsBriefDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsBriefDetailViewModel.swift; sourceTree = "<group>"; };
+		8C12DB842E623ECE00C39E4B /* SportsBriefDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsBriefDetailService.swift; sourceTree = "<group>"; };
+		8C12DB852E623ECE00C39E4B /* SportsBriefDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsBriefDetailUseCase.swift; sourceTree = "<group>"; };
+		8C12DB8C2E623FF700C39E4B /* SportsBriefDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsBriefDetailRouter.swift; sourceTree = "<group>"; };
+		8C12DB912E6240E800C39E4B /* SportsBriefDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SportsBriefDetail.storyboard; sourceTree = "<group>"; };
 		8C266BE32D486FEB00445A92 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		8C266BE62D486FF400445A92 /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 		8C3159842D2F191B00D56F57 /* Stories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stories.storyboard; sourceTree = "<group>"; };
@@ -703,6 +721,26 @@
 			path = SearchUseCase;
 			sourceTree = "<group>";
 		};
+		8C12DB7F2E623E9E00C39E4B /* SportsBriefDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8C12DB8C2E623FF700C39E4B /* SportsBriefDetailRouter.swift */,
+				8C12DB7D2E623E9E00C39E4B /* SportsBriefDetailViewController.swift */,
+				8C12DB7E2E623E9E00C39E4B /* SportsBriefDetailViewModel.swift */,
+				8C12DB912E6240E800C39E4B /* SportsBriefDetail.storyboard */,
+			);
+			path = SportsBriefDetail;
+			sourceTree = "<group>";
+		};
+		8C12DB862E623ECE00C39E4B /* SportsBriefDetailUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8C12DB842E623ECE00C39E4B /* SportsBriefDetailService.swift */,
+				8C12DB852E623ECE00C39E4B /* SportsBriefDetailUseCase.swift */,
+			);
+			path = SportsBriefDetailUseCase;
+			sourceTree = "<group>";
+		};
 		8C266BE22D486FE300445A92 /* HomeUseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +975,7 @@
 		8C70587E2D192BE7003F29F1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8C12DB7F2E623E9E00C39E4B /* SportsBriefDetail */,
 				8C63130B2E5BB315008298FA /* SelectGame */,
 				8C6312EC2E5BAD6A008298FA /* SelectTeam */,
 				8C6312CB2E5BA3FA008298FA /* SelectSchoolOrganization */,
@@ -1319,6 +1358,7 @@
 		8CF0C8622D120B9100AA5033 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8C12DB862E623ECE00C39E4B /* SportsBriefDetailUseCase */,
 				8C6312E02E5BAD17008298FA /* TeamUseCase */,
 				8C6312D62E5BA40D008298FA /* SchoolOrganizationUseCase */,
 				8C6312BC2E5B9C53008298FA /* AddSportsBriefUseCase */,
@@ -1484,6 +1524,7 @@
 				8CD910162D2CF26C00B30416 /* Home.storyboard in Resources */,
 				8C9C6C872DBE53D2009FBF3D /* NetworkSheet.storyboard in Resources */,
 				8C9C6C722DBE4F29009FBF3D /* SheetTableCell.xib in Resources */,
+				8C12DB922E6240E800C39E4B /* SportsBriefDetail.storyboard in Resources */,
 				8CEAE0AF2E01EABF0002A2C6 /* ProjectStories.storyboard in Resources */,
 				8CC90DEB2D1922B9009CD2EB /* IBMPlexSans-Medium.ttf in Resources */,
 				8CCCC68D2D1AA4A9009EC2B2 /* ForgotPassword.storyboard in Resources */,
@@ -1540,6 +1581,7 @@
 				8CD910152D2CF26C00B30416 /* Home.storyboard in Resources */,
 				8C9C6C882DBE53D2009FBF3D /* NetworkSheet.storyboard in Resources */,
 				8C9C6C752DBE4F29009FBF3D /* SheetTableCell.xib in Resources */,
+				8C12DB932E6240E800C39E4B /* SportsBriefDetail.storyboard in Resources */,
 				8CEAE0AE2E01EABF0002A2C6 /* ProjectStories.storyboard in Resources */,
 				8CC90DF92D1922B9009CD2EB /* IBMPlexSans-Medium.ttf in Resources */,
 				8CCCC68C2D1AA4A9009EC2B2 /* ForgotPassword.storyboard in Resources */,
@@ -1732,6 +1774,8 @@
 				8C7058852D19C3AE003F29F1 /* CustomButton.swift in Sources */,
 				8CB9A1A52D34192400E02ECA /* StoriesTableViewCell.swift in Sources */,
 				8C8938D12D3CDD8F00E5AADD /* StoriesViewModel.swift in Sources */,
+				8C12DB822E623E9E00C39E4B /* SportsBriefDetailViewController.swift in Sources */,
+				8C12DB832E623E9E00C39E4B /* SportsBriefDetailViewModel.swift in Sources */,
 				8CF0C8A02D120B9100AA5033 /* SigninViewController.swift in Sources */,
 				8C3CA6642DB96D7D001AB8B1 /* NetworkRouter.swift in Sources */,
 				8C696C9E2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */,
@@ -1803,6 +1847,8 @@
 				8CCCC6852D1AA2D7009EC2B2 /* SigninRouter.swift in Sources */,
 				8C9B7F962D3E014300095AD3 /* TopOrganizationsModel.swift in Sources */,
 				8C76449C2DBDEC8200944E53 /* NetworkModel.swift in Sources */,
+				8C12DB892E623ECE00C39E4B /* SportsBriefDetailUseCase.swift in Sources */,
+				8C12DB8A2E623ECE00C39E4B /* SportsBriefDetailService.swift in Sources */,
 				8CCCC6A92D1BF4BE009EC2B2 /* AuthVerificationRouter.swift in Sources */,
 				8CDC8B282D28D43600E9C02B /* MoreViewController.swift in Sources */,
 				8C96996D2E0BFCDF001615BB /* NetworkViewModel.swift in Sources */,
@@ -1836,6 +1882,7 @@
 				8CFE943B2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */,
 				8CDDE92D2D3C2AE70012CAF4 /* StoryUseCase.swift in Sources */,
 				8C64E2E52D20326B006477D4 /* SigninUseCase.swift in Sources */,
+				8C12DB8D2E623FF700C39E4B /* SportsBriefDetailRouter.swift in Sources */,
 				8CCCC6AE2D1BF57C009EC2B2 /* VKPinCodeView.swift in Sources */,
 				8CCBA2512D5A94EE007EDF9B /* TopLocViewController.swift in Sources */,
 				8CDC8B2D2D29160D00E9C02B /* ForgotPasswordService.swift in Sources */,
@@ -1894,6 +1941,8 @@
 				8C7058842D19C3AE003F29F1 /* CustomButton.swift in Sources */,
 				8CB9A1A72D34192400E02ECA /* StoriesTableViewCell.swift in Sources */,
 				8C8938D02D3CDD8F00E5AADD /* StoriesViewModel.swift in Sources */,
+				8C12DB802E623E9E00C39E4B /* SportsBriefDetailViewController.swift in Sources */,
+				8C12DB812E623E9E00C39E4B /* SportsBriefDetailViewModel.swift in Sources */,
 				8CF0C8712D120B9100AA5033 /* SigninViewController.swift in Sources */,
 				8C3CA6652DB96D7D001AB8B1 /* NetworkRouter.swift in Sources */,
 				8C696C9D2E5F749C0058A1D9 /* GameSelectionView.swift in Sources */,
@@ -1965,6 +2014,8 @@
 				8CCCC6862D1AA2D7009EC2B2 /* SigninRouter.swift in Sources */,
 				8C9B7F972D3E014300095AD3 /* TopOrganizationsModel.swift in Sources */,
 				8C76449D2DBDEC8200944E53 /* NetworkModel.swift in Sources */,
+				8C12DB872E623ECE00C39E4B /* SportsBriefDetailUseCase.swift in Sources */,
+				8C12DB882E623ECE00C39E4B /* SportsBriefDetailService.swift in Sources */,
 				8CCCC6A82D1BF4BE009EC2B2 /* AuthVerificationRouter.swift in Sources */,
 				8CDC8B292D28D43600E9C02B /* MoreViewController.swift in Sources */,
 				8C96996C2E0BFCDF001615BB /* NetworkViewModel.swift in Sources */,
@@ -1998,6 +2049,7 @@
 				8CFE943C2E5C5BD000AD6310 /* AddSportsBriefModels.swift in Sources */,
 				8CDDE92C2D3C2AE70012CAF4 /* StoryUseCase.swift in Sources */,
 				8C64E2E42D20326B006477D4 /* SigninUseCase.swift in Sources */,
+				8C12DB8F2E623FF700C39E4B /* SportsBriefDetailRouter.swift in Sources */,
 				8CCCC6B12D1BF57C009EC2B2 /* VKPinCodeView.swift in Sources */,
 				8CCBA2522D5A94EE007EDF9B /* TopLocViewController.swift in Sources */,
 				8CDC8B2C2D29160D00E9C02B /* ForgotPasswordService.swift in Sources */,

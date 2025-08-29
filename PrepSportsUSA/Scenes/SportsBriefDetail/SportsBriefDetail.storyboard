@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sports Brief Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SportsBriefDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SportsBriefDetailViewController" customModule="Newmaker_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-view">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="content-stack">
+                                        <rect key="frame" x="16" y="16" width="361" height="463.66666666666669"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="header-section">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="135"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lincoln-Way West Warriors vs Plainfield East Bengals - Tennis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-label">
+                                                        <rect key="frame" x="16" y="16" width="329" height="86"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 30, 2025 @ 12:16am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="date-label">
+                                                        <rect key="frame" x="16" y="110" width="329" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="date-label" secondAttribute="bottom" constant="8" id="date-bottom"/>
+                                                    <constraint firstItem="date-label" firstAttribute="leading" secondItem="header-section" secondAttribute="leading" constant="16" id="date-leading"/>
+                                                    <constraint firstItem="date-label" firstAttribute="top" secondItem="title-label" secondAttribute="bottom" constant="8" id="date-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="date-label" secondAttribute="trailing" constant="16" id="date-trailing"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="header-min-height"/>
+                                                    <constraint firstItem="title-label" firstAttribute="leading" secondItem="header-section" secondAttribute="leading" constant="16" id="title-leading"/>
+                                                    <constraint firstItem="title-label" firstAttribute="top" secondItem="header-section" secondAttribute="top" constant="16" id="title-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="title-label" secondAttribute="trailing" constant="16" id="title-trailing"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="team-card">
+                                                <rect key="frame" x="0.0" y="151" width="361" height="180.66666666666663"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="team-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OJf-d7-oin">
+                                                        <rect key="frame" x="16" y="45.666666666666686" width="329" height="125"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lincoln-Way West Warriors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="team-name">
+                                                                <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School: Lincoln-Way West" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="school-label">
+                                                                <rect key="frame" x="0.0" y="27" width="168" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sport: Tennis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sport-label">
+                                                                <rect key="frame" x="0.0" y="54" width="85.333333333333329" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Gender: Men" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gender-label">
+                                                                <rect key="frame" x="0.0" y="81" width="83.666666666666671" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname: Warriors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nickname-label">
+                                                                <rect key="frame" x="0.0" y="108" width="126.66666666666667" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="OJf-d7-oin" firstAttribute="leading" secondItem="team-header" secondAttribute="leading" id="1xB-uy-9RL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OJf-d7-oin" secondAttribute="trailing" constant="16" id="7C9-ww-VsL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="OJf-d7-oin" secondAttribute="bottom" constant="10" id="ADW-Ax-Hh5"/>
+                                                    <constraint firstItem="OJf-d7-oin" firstAttribute="top" secondItem="team-header" secondAttribute="bottom" constant="8.0000000000000142" id="VcY-Oy-ZuV"/>
+                                                    <constraint firstItem="team-header" firstAttribute="leading" secondItem="team-card" secondAttribute="leading" constant="16" id="team-header-leading"/>
+                                                    <constraint firstItem="team-header" firstAttribute="top" secondItem="team-card" secondAttribute="top" constant="16" id="team-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="team-header" secondAttribute="trailing" constant="16" id="team-header-trailing"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="description-card">
+                                                <rect key="frame" x="0.0" y="347.66666666666669" width="361" height="116"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="description-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wwwww" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="description-text">
+                                                        <rect key="frame" x="16" y="45.666666666666686" width="329" height="54.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="description-header" firstAttribute="leading" secondItem="description-card" secondAttribute="leading" constant="16" id="desc-header-leading"/>
+                                                    <constraint firstItem="description-header" firstAttribute="top" secondItem="description-card" secondAttribute="top" constant="16" id="desc-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="description-header" secondAttribute="trailing" constant="16" id="desc-header-trailing"/>
+                                                    <constraint firstAttribute="bottom" secondItem="description-text" secondAttribute="bottom" constant="16" id="desc-text-bottom"/>
+                                                    <constraint firstItem="description-text" firstAttribute="leading" secondItem="description-card" secondAttribute="leading" constant="16" id="desc-text-leading"/>
+                                                    <constraint firstItem="description-text" firstAttribute="top" secondItem="description-header" secondAttribute="bottom" constant="8" id="desc-text-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="description-text" secondAttribute="trailing" constant="16" id="desc-text-trailing"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="content-stack" secondAttribute="bottom" constant="16" id="stack-bottom"/>
+                                    <constraint firstItem="content-stack" firstAttribute="leading" secondItem="scroll-view" secondAttribute="leading" constant="16" id="stack-leading"/>
+                                    <constraint firstItem="content-stack" firstAttribute="top" secondItem="scroll-view" secondAttribute="top" constant="16" id="stack-top"/>
+                                    <constraint firstAttribute="trailing" secondItem="content-stack" secondAttribute="trailing" constant="16" id="stack-trailing"/>
+                                    <constraint firstItem="content-stack" firstAttribute="width" secondItem="scroll-view" secondAttribute="width" constant="-32" id="stack-width"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="scroll-view" secondAttribute="bottom" id="scroll-bottom"/>
+                            <constraint firstItem="scroll-view" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="scroll-leading"/>
+                            <constraint firstItem="scroll-view" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="scroll-top"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="scroll-view" secondAttribute="trailing" id="scroll-trailing"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="date-label" id="date-outlet"/>
+                        <outlet property="descriptionText" destination="description-text" id="desc-text-outlet"/>
+                        <outlet property="genderLabel" destination="gender-label" id="gender-outlet"/>
+                        <outlet property="nicknameLabel" destination="nickname-label" id="nickname-outlet"/>
+                        <outlet property="schoolLabel" destination="school-label" id="school-outlet"/>
+                        <outlet property="sportLabel" destination="sport-label" id="sport-outlet"/>
+                        <outlet property="teamNameLabel" destination="team-name" id="team-name-outlet"/>
+                        <outlet property="titleLabel" destination="title-label" id="title-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="59" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

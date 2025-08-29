@@ -267,8 +267,9 @@ extension SportsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // Handle selection if needed
-        let _ = viewModel.prePitches[indexPath.row]
+        let prePitch = viewModel.prePitches[indexPath.row]
+        let id = prePitch.attributes.id
+        router.routeToSportsBriefDetail(prePitchId: id)
     }
 }
 

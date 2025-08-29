@@ -73,6 +73,15 @@ class SportsRouter: BaseRouter {
         navigate(from: viewController, to: projectStoriesVC)
     }
     
+    func routeToSportsBriefDetail(prePitchId: Int) {
+        let storyboard = UIStoryboard(name: "SportsBriefDetail", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "SportsBriefDetailViewController") as? SportsBriefDetailViewController else { return }
+        let vm = SportsBriefDetailViewModel(prePitchId: prePitchId)
+        vc.viewModel = vm
+        vc.router = SportsBriefDetailRouter(vc)
+        navigate(from: viewController, to: vc)
+    }
+    
     func routeToAddSportsBriefs() {
         guard let addSportsBriefVC = UIViewController.getViewControllerFor(name: .addSportsBrief) as? AddSportsBriefViewController else {
             // Fallback to programmatic creation if storyboard not available

@@ -41,4 +41,5 @@ struct Environment {
     static let searchStories = "stories/search"
     static let prePitches = "pre_pitches"
     static let prePitchMedia = "presign/pre_pitch_media"
+    static let prePitchById = "pre_pitches/%i"
 }
