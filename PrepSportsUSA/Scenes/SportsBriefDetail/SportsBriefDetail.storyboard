@@ -230,8 +230,82 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boxscore-card">
+                                                <rect key="frame" x="0.0" y="717" width="361" height="200"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxscore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boxscore-header">
+                                                        <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="boxscore-stack">
+                                                        <rect key="frame" x="16" y="45.666666666666686" width="329" height="138.33333333333331"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-boxscore">
+                                                                <rect key="frame" x="0.0" y="0.0" width="329" height="61.333333333333336"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-boxscore-title">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="home-team-stats">
+                                                                        <rect key="frame" x="0.0" y="25" width="329" height="36.333333333333336"/>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="home-team-stats" secondAttribute="bottom" id="home-stats-bottom"/>
+                                                                    <constraint firstItem="home-team-stats" firstAttribute="leading" secondItem="home-team-boxscore" secondAttribute="leading" id="home-stats-leading"/>
+                                                                    <constraint firstItem="home-team-stats" firstAttribute="top" secondItem="home-team-boxscore-title" secondAttribute="bottom" constant="8" id="home-stats-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="home-team-stats" secondAttribute="trailing" id="home-stats-trailing"/>
+                                                                    <constraint firstItem="home-team-boxscore-title" firstAttribute="leading" secondItem="home-team-boxscore" secondAttribute="leading" id="home-title-leading"/>
+                                                                    <constraint firstItem="home-team-boxscore-title" firstAttribute="top" secondItem="home-team-boxscore" secondAttribute="top" id="home-title-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="home-team-boxscore-title" secondAttribute="trailing" id="home-title-trailing"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-boxscore">
+                                                                <rect key="frame" x="0.0" y="77.333333333333329" width="329" height="61"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-boxscore-title">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="away-team-stats">
+                                                                        <rect key="frame" x="0.0" y="25" width="329" height="36"/>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="away-team-stats" secondAttribute="bottom" id="away-stats-bottom"/>
+                                                                    <constraint firstItem="away-team-stats" firstAttribute="leading" secondItem="away-team-boxscore" secondAttribute="leading" id="away-stats-leading"/>
+                                                                    <constraint firstItem="away-team-stats" firstAttribute="top" secondItem="away-team-boxscore-title" secondAttribute="bottom" constant="8" id="away-stats-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="away-team-stats" secondAttribute="trailing" id="away-stats-trailing"/>
+                                                                    <constraint firstItem="away-team-boxscore-title" firstAttribute="leading" secondItem="away-team-boxscore" secondAttribute="leading" id="away-title-leading"/>
+                                                                    <constraint firstItem="away-team-boxscore-title" firstAttribute="top" secondItem="away-team-boxscore" secondAttribute="top" id="away-title-top"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="away-team-boxscore-title" secondAttribute="trailing" id="away-title-trailing"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="boxscore-stack" secondAttribute="bottom" constant="16" id="boxscore-stack-bottom"/>
+                                                    <constraint firstItem="boxscore-stack" firstAttribute="leading" secondItem="boxscore-card" secondAttribute="leading" constant="16" id="boxscore-stack-leading"/>
+                                                    <constraint firstItem="boxscore-stack" firstAttribute="top" secondItem="boxscore-header" secondAttribute="bottom" constant="8" id="boxscore-stack-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="boxscore-stack" secondAttribute="trailing" constant="16" id="boxscore-stack-trailing"/>
+                                                    <constraint firstItem="boxscore-header" firstAttribute="leading" secondItem="boxscore-card" secondAttribute="leading" constant="16" id="boxscore-header-leading"/>
+                                                    <constraint firstItem="boxscore-header" firstAttribute="top" secondItem="boxscore-card" secondAttribute="top" constant="16" id="boxscore-header-top"/>
+                                                    <constraint firstAttribute="trailing" secondItem="boxscore-header" secondAttribute="trailing" constant="16" id="boxscore-header-trailing"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quotes-card">
-                                                <rect key="frame" x="0.0" y="717" width="361" height="150"/>
+                                                <rect key="frame" x="0.0" y="933" width="361" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quotes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quotes-header">
                                                         <rect key="frame" x="16" y="16" width="329" height="21.666666666666671"/>
@@ -478,6 +552,9 @@
                         <outlet property="quote4Label" destination="quote-4" id="quote4-outlet"/>
                         <outlet property="quoteSourceLabel" destination="quote-source" id="quote-source-outlet"/>
                         <outlet property="quotesCard" destination="quotes-card" id="quotes-card-outlet"/>
+                        <outlet property="boxscoreCard" destination="boxscore-card" id="boxscore-card-outlet"/>
+                        <outlet property="homeTeamStatsStack" destination="home-team-stats" id="home-stats-outlet"/>
+                        <outlet property="awayTeamStatsStack" destination="away-team-stats" id="away-stats-outlet"/>
                         <outlet property="schoolLabel" destination="school-label" id="school-outlet"/>
                         <outlet property="sportLabel" destination="sport-label" id="sport-outlet"/>
                         <outlet property="teamNameLabel" destination="team-name" id="team-name-outlet"/>

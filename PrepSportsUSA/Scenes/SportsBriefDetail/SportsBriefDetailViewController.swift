@@ -48,6 +48,11 @@ final class SportsBriefDetailViewController: BaseViewController {
     @IBOutlet weak var quote3Label: UILabel!
     @IBOutlet weak var quote4Label: UILabel!
     
+    // Boxscore IBOutlets
+    @IBOutlet weak var boxscoreCard: UIView!
+    @IBOutlet weak var homeTeamStatsStack: UIStackView!
+    @IBOutlet weak var awayTeamStatsStack: UIStackView!
+    
     override func callingInsideViewDidLoad() {
         setupNav()
         setupMediaTapGestures()
@@ -105,6 +110,9 @@ final class SportsBriefDetailViewController: BaseViewController {
                 
                 // Quotes section
                 self.setupQuotesSection(with: attrs.quotes, source: attrs.payload?.quoteSource)
+                
+                // Boxscore section
+                self.setupBoxscoreSection(with: attrs.payload?.boxscore)
             })
             .disposed(by: disposeBag)
         
@@ -294,6 +302,275 @@ final class SportsBriefDetailViewController: BaseViewController {
         for index in min(quotes.count, 4)..<4 {
             quoteLabels[index]?.isHidden = true
         }
+    }
+    
+    private func setupBoxscoreSection(with boxscore: Boxscore?) {
+        guard let boxscore = boxscore else {
+            boxscoreCard.isHidden = true
+            return
+        }
+        
+        boxscoreCard.isHidden = false
+        
+        // Setup home team stats
+        setupTeamStats(boxscore.homeTeam, in: homeTeamStatsStack)
+        
+        // Setup away team stats
+        setupTeamStats(boxscore.awayTeam, in: awayTeamStatsStack)
+    }
+    
+    private func setupTeamStats(_ teamStats: [String: AnyCodable]?, in stackView: UIStackView) {
+        // Clear existing arranged subviews
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        guard let teamStats = teamStats else { return }
+        
+        // Sort keys with custom logic for sports statistics
+        let sortedKeys = teamStats.keys.sorted { key1, key2 in
+            return customStatOrder(key1) < customStatOrder(key2)
+        }
+        
+        for key in sortedKeys {
+            let value = teamStats[key]
+            let statView = createStatView(title: formatStatTitle(key), value: formatStatValue(value))
+            stackView.addArrangedSubview(statView)
+        }
+    }
+    
+    private func createStatView(title: String, value: String) -> UIView {
+        let containerView = UIView()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        titleLabel.textColor = UIColor(white: 0.33, alpha: 1.0)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let valueLabel = UILabel()
+        valueLabel.text = value
+        valueLabel.font = UIFont.systemFont(ofSize: 14)
+        valueLabel.textColor = UIColor(white: 0.33, alpha: 1.0)
+        valueLabel.textAlignment = .right
+        valueLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(valueLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: valueLabel.leadingAnchor, constant: -8),
+            
+            valueLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            valueLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            
+            containerView.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        return containerView
+    }
+    
+    private func formatStatTitle(_ key: String) -> String {
+        // Convert snake_case or camelCase to readable format
+        let formatted = key.replacingOccurrences(of: "_", with: " ")
+            .replacingOccurrences(of: "([a-z])([A-Z])", with: "$1 $2", options: .regularExpression)
+        return formatted.capitalized + ":"
+    }
+    
+    private func formatStatValue(_ value: AnyCodable?) -> String {
+        guard let value = value else { return "—" }
+        
+        if let intValue = value.value as? Int {
+            return "\(intValue)"
+        } else if let stringValue = value.value as? String {
+            return stringValue
+        } else if let doubleValue = value.value as? Double {
+            return String(format: "%.1f", doubleValue)
+        } else {
+            return "\(value.value)"
+        }
+    }
+    
+    private func customStatOrder(_ key: String) -> Int {
+        let lowercaseKey = key.lowercased()
+        
+        // Define priority order for common sports statistics
+        let priorityOrder: [String: Int] = [
+            // Sets (Tennis, Volleyball, etc.)
+            "first_set": 1,
+            "firstset": 1,
+            "first set": 1,
+            "set_1": 1,
+            "set1": 1,
+            
+            "second_set": 2,
+            "secondset": 2,
+            "second set": 2,
+            "set_2": 2,
+            "set2": 2,
+            
+            "third_set": 3,
+            "thirdset": 3,
+            "third set": 3,
+            "set_3": 3,
+            "set3": 3,
+            
+            "fourth_set": 4,
+            "fourthset": 4,
+            "fourth set": 4,
+            "set_4": 4,
+            "set4": 4,
+            
+            "fifth_set": 5,
+            "fifthset": 5,
+            "fifth set": 5,
+            "set_5": 5,
+            "set5": 5,
+            
+            // Periods/Quarters (Basketball, Football, etc.)
+            "first_quarter": 10,
+            "firstquarter": 10,
+            "first quarter": 10,
+            "q1": 10,
+            "quarter_1": 10,
+            
+            "second_quarter": 11,
+            "secondquarter": 11,
+            "second quarter": 11,
+            "q2": 11,
+            "quarter_2": 11,
+            
+            "third_quarter": 12,
+            "thirdquarter": 12,
+            "third quarter": 12,
+            "q3": 12,
+            "quarter_3": 12,
+            
+            "fourth_quarter": 13,
+            "fourthquarter": 13,
+            "fourth quarter": 13,
+            "q4": 13,
+            "quarter_4": 13,
+            
+            // Innings (Baseball)
+            "inning_1": 20,
+            "inning_2": 21,
+            "inning_3": 22,
+            "inning_4": 23,
+            "inning_5": 24,
+            "inning_6": 25,
+            "inning_7": 26,
+            "inning_8": 27,
+            "inning_9": 28,
+            
+            // Golf Holes (1-18)
+            "one": 30,
+            "hole_1": 30,
+            "hole1": 30,
+            
+            "two": 31,
+            "hole_2": 31,
+            "hole2": 31,
+            
+            "three": 32,
+            "hole_3": 32,
+            "hole3": 32,
+            
+            "four": 33,
+            "hole_4": 33,
+            "hole4": 33,
+            
+            "five": 34,
+            "hole_5": 34,
+            "hole5": 34,
+            
+            "six": 35,
+            "hole_6": 35,
+            "hole6": 35,
+            
+            "seven": 36,
+            "hole_7": 36,
+            "hole7": 36,
+            
+            "eight": 37,
+            "hole_8": 37,
+            "hole8": 37,
+            
+            "nine": 38,
+            "hole_9": 38,
+            "hole9": 38,
+            
+            "out": 39, // Front 9 total
+            
+            "ten": 40,
+            "hole_10": 40,
+            "hole10": 40,
+            
+            "eleven": 41,
+            "hole_11": 41,
+            "hole11": 41,
+            
+            "twelve": 42,
+            "hole_12": 42,
+            "hole12": 42,
+            
+            "thirteen": 43,
+            "hole_13": 43,
+            "hole13": 43,
+            
+            "fourteen": 44,
+            "hole_14": 44,
+            "hole14": 44,
+            
+            "fifteen": 45,
+            "hole_15": 45,
+            "hole15": 45,
+            
+            "sixteen": 46,
+            "hole_16": 46,
+            "hole16": 46,
+            
+            "seventeen": 47,
+            "hole_17": 47,
+            "hole17": 47,
+            
+            "eighteen": 48,
+            "hole_18": 48,
+            "hole18": 48,
+            
+            "in": 49, // Back 9 total
+            
+            // Golf totals
+            "tot": 1000,
+            "total": 1000,
+            
+            // Final scores should come last
+            "final_score": 1001,
+            "finalscore": 1001,
+            "final score": 1001,
+            "final": 1001
+        ]
+        
+        // Check for exact matches first
+        if let priority = priorityOrder[lowercaseKey] {
+            return priority
+        }
+        
+        // Check for partial matches (e.g., keys containing "first", "second", etc.)
+        for (pattern, priority) in priorityOrder {
+            if lowercaseKey.contains(pattern) {
+                return priority
+            }
+        }
+        
+        // Extract numbers from keys for generic ordering (e.g., "period_3" -> 3)
+        let numbers = lowercaseKey.compactMap { $0.wholeNumberValue }
+        if let firstNumber = numbers.first {
+            return 100 + firstNumber // Put numbered items in middle range
+        }
+        
+        // Default: alphabetical order for unknown keys (high priority to put at end)
+        return 2000 + lowercaseKey.hashValue % 1000
     }
     
     private func makeInfo(_ title: String, _ value: String?) -> NSAttributedString {
