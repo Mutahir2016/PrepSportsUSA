@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct TennisBoxScoreView: View {
-    @State private var homeScores: [Int] = Array(repeating: 0, count: 5)
-    @State private var awayScores: [Int] = Array(repeating: 0, count: 5)
-    
+    @Binding var homeScores: [Int]
+    @Binding var awayScores: [Int]
+
     let homeTeamName: String
     let awayTeamName: String
     let homeTeamImageURL: String?
@@ -22,23 +22,23 @@ struct TennisBoxScoreView: View {
         }
         return setsWon
     }
-    
+
     // Custom binding for score validation
     private func scoreBinding(for scores: Binding<[Int]>, at index: Int) -> Binding<String> {
         Binding(
-            get: { 
-                String(scores.wrappedValue[index]) 
+            get: {
+                String(scores.wrappedValue[index])
             },
             set: { newValue in
                 // Remove spaces
                 let noSpaces = newValue.replacingOccurrences(of: " ", with: "")
-                
+
                 // Remove non-numeric characters
                 let numericOnly = noSpaces.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-                
+
                 // Limit to 2 characters
                 let limitedValue = String(numericOnly.prefix(2))
-                
+
                 // Convert to Int, default to 0 if invalid
                 if let intValue = Int(limitedValue) {
                     scores.wrappedValue[index] = intValue
@@ -48,9 +48,9 @@ struct TennisBoxScoreView: View {
             }
         )
     }
-    
+
     // MARK: - Team Display Methods
-    
+
     @ViewBuilder
     private var teamNamesAndImagesSection: some View {
         HStack {
@@ -60,9 +60,9 @@ struct TennisBoxScoreView: View {
                 imageURL: awayTeamImageURL,
                 isHomeTeam: false
             )
-            
+
             Spacer()
-            
+
             // Home team on the right
             teamInfoView(
                 teamName: homeTeamName,
@@ -72,7 +72,7 @@ struct TennisBoxScoreView: View {
         }
         .padding(.horizontal, 20)
     }
-    
+
     @ViewBuilder
     private func teamInfoView(teamName: String, imageURL: String?, isHomeTeam: Bool) -> some View {
         VStack(spacing: 8) {
@@ -87,14 +87,14 @@ struct TennisBoxScoreView: View {
             }
             .frame(width: 50, height: 50)
             .cornerRadius(8)
-            
+
             Text(teamName)
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
         }
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Main card
@@ -103,10 +103,10 @@ struct TennisBoxScoreView: View {
                 Text(isTennisScore ? "Tennis Box Score" : "Volleyball Box Score")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.black)
-                
+
                 // Team names with images
                 teamNamesAndImagesSection
-                
+
                 // Score table section
                 VStack(spacing: 15) {
                     // Header row with light gray background
@@ -115,14 +115,14 @@ struct TennisBoxScoreView: View {
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .leading)
-                        
+
                         ForEach(1...5, id: \.self) { set in
                             Text("Set \(set)")
                                 .font(.caption)
                                 .foregroundColor(.black)
                                 .frame(maxWidth: .infinity)
                         }
-                        
+
                         Text("Final")
                             .font(.caption)
                             .foregroundColor(.black)
@@ -131,7 +131,7 @@ struct TennisBoxScoreView: View {
                     .padding(.vertical, 8)
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(6)
-                    
+
                     // Away row (top)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: awayTeamImageURL ?? "")) { image in
@@ -144,22 +144,23 @@ struct TennisBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<5, id: \.self) { index in
                             TextField("0", text: scoreBinding(for: $awayScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
+                                .textFieldStyle(TennisUnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                                 .keyboardType(.numberPad)
                         }
-                        
-                        Text("\(isTennisScore ? awayScores.reduce(0, +) : calculateSetsWon(awayScores, homeScores))")
+
+                        //                        Text("\(isTennisScore ? awayScores.reduce(0, +) : calculateSetsWon(awayScores, homeScores))")
+                        Text("\(calculateSetsWon(homeScores, awayScores))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
                     }
-                    
+
                     // Home row (bottom)
                     HStack(spacing: 0) {
                         AsyncImage(url: URL(string: homeTeamImageURL ?? "")) { image in
@@ -172,17 +173,18 @@ struct TennisBoxScoreView: View {
                         }
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 10)
-                        
+
                         ForEach(0..<5, id: \.self) { index in
                             TextField("0", text: scoreBinding(for: $homeScores, at: index))
-                                .textFieldStyle(UnderlinedTextFieldStyle())
+                                .textFieldStyle(TennisUnderlinedTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 4)
                                 .keyboardType(.numberPad)
                         }
-                        
-                        Text("\(isTennisScore ? homeScores.reduce(0, +) : calculateSetsWon(homeScores, awayScores))")
+
+                        //                        Text("\(isTennisScore ? homeScores.reduce(0, +) : calculateSetsWon(homeScores, awayScores))")
+                        Text("\(calculateSetsWon(homeScores, awayScores))")
                             .font(.caption)
                             .foregroundColor(.black)
                             .frame(width: 60, alignment: .trailing)
@@ -213,7 +215,7 @@ struct TennisUnderlinedTextFieldStyle: TextFieldStyle {
                 .textFieldStyle(PlainTextFieldStyle())
                 .multilineTextAlignment(.center)
                 .foregroundColor(.primary) // Use system text color
-            
+
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(.gray)
@@ -223,6 +225,8 @@ struct TennisUnderlinedTextFieldStyle: TextFieldStyle {
 
 #Preview {
     TennisBoxScoreView(
+        homeScores: .constant([0, 0, 0, 0, 0]),
+        awayScores: .constant([0, 0, 0, 0, 0]),
         homeTeamName: "Reavis Rams",
         awayTeamName: "Lincoln-Way West Warriors",
         homeTeamImageURL: nil,
