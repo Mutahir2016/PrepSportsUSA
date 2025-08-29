@@ -30,9 +30,7 @@ class SportsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Refresh data when returning to this view to show new sports briefs
-        if isViewLoaded && view.window != nil {
-            viewModel.refreshData()
-        }
+        viewModel.refreshData()
     }
     
     override func setUp() {
