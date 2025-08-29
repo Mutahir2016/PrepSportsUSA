@@ -593,36 +593,36 @@ class AddSportsBriefViewController: BaseViewController {
             case .golf:
                 let golfHostingController = controller.createGolfHostingController(
                     homeScores: Binding(
-                        get: { [weak self] in self?.golfHomeScores ?? Array(repeating: 0, count: 18) },
-                        set: { [weak self] newValue in self?.golfHomeScores = newValue }
+                        get: { self.golfHomeScores },
+                        set: { self.golfHomeScores = $0 }
                     ),
                     awayScores: Binding(
-                        get: { [weak self] in self?.golfAwayScores ?? Array(repeating: 0, count: 18) },
-                        set: { [weak self] newValue in self?.golfAwayScores = newValue }
+                        get: { self.golfAwayScores },
+                        set: { self.golfAwayScores = $0 }
                     )
                 )
                 hostingController = UIHostingController(rootView: AnyView(golfHostingController.rootView))
             case .tennis:
                 let tennisHostingController = controller.createTennisHostingController(
                     homeScores: Binding(
-                        get: { [weak self] in self?.homeScores ?? Array(repeating: 0, count: 5) },
-                        set: { [weak self] newValue in self?.homeScores = newValue }
+                        get: { self.homeScores },
+                        set: { self.homeScores = $0 }
                     ),
                     awayScores: Binding(
-                        get: { [weak self] in self?.awayScores ?? Array(repeating: 0, count: 5) },
-                        set: { [weak self] newValue in self?.awayScores = newValue }
+                        get: { self.awayScores },
+                        set: { self.awayScores = $0 }
                     )
                 )
                 hostingController = UIHostingController(rootView: AnyView(tennisHostingController.rootView))
             case .volleyball:
                 let volleyballHostingController = controller.createVolleyballHostingController(
                     homeScores: Binding(
-                        get: { [weak self] in self?.homeScores ?? Array(repeating: 0, count: 5) },
-                        set: { [weak self] newValue in self?.homeScores = newValue }
+                        get: { self.homeScores },
+                        set: { self.homeScores = $0 }
                     ),
                     awayScores: Binding(
-                        get: { [weak self] in self?.awayScores ?? Array(repeating: 0, count: 5) },
-                        set: { [weak self] newValue in self?.awayScores = newValue }
+                        get: { self.awayScores },
+                        set: { self.awayScores = $0 }
                     )
                 )
                 hostingController = UIHostingController(rootView: AnyView(volleyballHostingController.rootView))
@@ -950,6 +950,8 @@ extension AddSportsBriefViewController {
                 print("🎾 Tennis scores being sent to ViewModel:")
                 print("   Home: \(homeScores)")
                 print("   Away: \(awayScores)")
+                print("   Home Final: \(homeScores.reduce(0, +))")
+                print("   Away Final: \(awayScores.reduce(0, +))")
                 
                 return viewModel.createSportSpecificBoxscore(
                     sport: sport,
